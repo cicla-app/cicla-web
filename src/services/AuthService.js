@@ -4,7 +4,7 @@ const login = (user) => http.post('/login', user)
   .then(response => response.data);
 
 const register = (user) => http.post('/users', user)
-  .then(response => console.log(response.data));
+  .then(response => response.data);
 
 const logout = (user) => http.post('/logout')
   .then(response => response.data);

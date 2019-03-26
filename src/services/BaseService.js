@@ -8,7 +8,6 @@ const http = axios.create({
 http.interceptors.response.use(
   response => response,
   error => {
-    console.error(error);
     if (error.status === 403) {
       window.location = '/login';
     } else {

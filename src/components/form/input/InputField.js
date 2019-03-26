@@ -6,6 +6,7 @@ class InputField extends Component {
   render() {
     const {
       placeholder,
+      value,
       errors,
       className,
       type,
@@ -17,6 +18,7 @@ class InputField extends Component {
       <div className={`mb-1 ${className}`}>
         <Input
           onChange={onChange}
+          value={value}
           {...(placeholder ? { placeholder } : null)}
           {...(type ? { type } : null)}
           {...(onblur ? { onBlur: onblur } : null)}

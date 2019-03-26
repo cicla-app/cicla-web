@@ -11,6 +11,7 @@ import {
 } from '../../utils/validators';
 import CheckboxField from './CheckboxField';
 import authService from '../../services/AuthService';
+import { Redirect } from 'react-router-dom';
 
 class Form extends Component {
   state = {
@@ -29,14 +30,15 @@ class Form extends Component {
     const { form } = this.props;
     event.preventDefault();
 
-    form.validateFields((errors) => {
+    form.validateFields((errors, fields) => {
       const hasErrors = errors && Object.keys(errors).length > 0;
+      console.log(this.state.user)
       if (!hasErrors) {
         authService.register(this.state.user)
         .then(
           (user) => this.setState({ authenticated: true }),
           (error) => {
-            const { message, errors } = error.response.data;
+            const { message, errors } = error.response;
             this.setState({
               errors: {
                 ...this.state.errors,
@@ -61,10 +63,14 @@ class Form extends Component {
     const { getFieldProps, getFieldError } = this.props.form;
     const { hasPrivacyForm } = this.props;
     const { loading } = this.state;
+    if (this.state.authenticated) {
+      return (<Redirect to="/login" />);
+    } else {
     return (
       <form onSubmit={this.submitForm}>
         <InputField
           type="email"
+          name="email"
           placeholder="Email"
           allowClear
           {...getFieldProps('email', {
@@ -76,6 +82,7 @@ class Form extends Component {
         />
         <InputField
           type="password"
+          name="password"
           placeholder="Contraseña"
           {...getFieldProps('password', {
             validateFirst: true,
@@ -102,7 +109,7 @@ class Form extends Component {
           Regístrate
         </Button>
       </form>
-    );
+    )};
   }
 }
 
