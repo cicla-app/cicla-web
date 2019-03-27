@@ -1,33 +1,118 @@
 import React, { Component } from 'react';
+import authService from '../../services/AuthService';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
 import './Register.scss'
 import { withAuthConsumer } from '../../contexts/AuthStore'
 import {
-  Form, Input, Button, Divider, Switch, PageHeader, Row, Col, notification
+  Input, Button, Divider, Switch, PageHeader, Row, Col, notification
 } from 'antd';
+
+const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
+const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}/;
+
+const validators = {
+  email: (value) => {
+    let error;
+    if (!value || value === '') {
+      error = 'Email is required';
+    } else if (!emailPattern.test(value)) {
+      error = 'Invalid email format'; 
+    }
+    return error;
+  },
+  password: (value) => {
+    let error;
+    if (!value) {
+      error = 'Password is required';
+    } else if (!value.length >= 8) {
+      error = 'Password must contains at least 8 characters';
+    } else if (!passwordPattern.test(value)) {
+      error = 'La contraseña debe contener';
+    }
+    return error;
+  }
+}
 
 class Register extends Component {
   state = {
-    step: 0
+    step: 0,
+    user: {
+      email: '',
+      password: '',
+      alias:''
+    },
+    errors: {},
+    touch: {},
+    authenticated: false
   };
 
   clickhandle = step => {
     this.setState( { step: step } );
   }
 
-  render() {
-    if ( this.state.step === 0 ) {
-      return this.renderStep1();
-    } else if( this.state.step === 1 ) {
-      return this.renderStep2()
-    } else if( this.state.step === 2 ) {
-      return this.renderStep3()
+  onSubmit = (event) => {
+    event.preventDefault();
+
+    if (!this.hasErrors()) {
+      authService.register(this.state.user)
+      .then(
+        (user) => this.setState({ step: 2 }),
+        (error) => {
+          const { message, errors } = error.response.data;
+          this.setState({
+            errors: {
+              ...this.state.errors,
+              ...errors,
+              password: message
+            }
+          })
+        }
+      )
     }
+    
+  }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      user: {
+        ...this.state.user,
+        [name]: value
+      },
+      errors: {
+        ...this.state.errors,
+        [name]: validators[name] && validators[name](value)
+      }
+    })
+  }
+
+  handleBlur = (event) => {
+    const { name } = event.target;
+    this.setState({
+      touch: {
+        ...this.state.touch,
+        [name]: true
+      }
+    })
+  }
+
+  hasErrors = () => Object.keys(this.state.user)
+    .some(attr => validators[attr] && validators[attr](this.state.user[attr]))
+  
+    render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        {this.state.step === 0 && this.renderStep1()}
+        {this.state.step === 1 && this.renderStep2()}
+        {this.state.step === 2 && this.renderStep3()}
+      </form>
+    )
   }
 
   renderStep1() {
+    const { touch, errors, user } = this.state;
     return (
       <div>
         <PageHeader
@@ -36,25 +121,37 @@ class Register extends Component {
         </PageHeader>
         <div className="container-register">
           <p className="subtitle">Introduce tus datos para acceder a la aplicación</p>
-          <Form>
-            <Input
-              placeholder="Email" />
-            <Input
-              type="password"
-              placeholder="Password" />
-          </Form>
+          <Input
+            type="text"
+            size="large"
+            className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
+            name="email"
+            placeholder="Email"
+            onChange={this.handleChange} value={user.email}
+            onBlur={this.handleBlur} />
+          <div className="invalid-feedback">{errors.email}</div>
+          <Input
+            type="password"
+            size="large"
+            className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
+            name="password"
+            placeholder="Contraseña"
+            onChange={this.handleChange}
+            value={user.password}
+            onBlur={this.handleBlur}/>
+          <div className="invalid-feedback">{errors.password}</div>
           <Button
             block
             size="large"
-            onClick={() => this.clickhandle( 1 )}>
-            Siguiente
-          </Button>
+            onClick={() => this.clickhandle( 1 )}
+            disabled={this.hasErrors()}>Siguiente</Button>
         </div>
       </div>
     );
   }
 
   renderStep2() {
+    const { user } = this.state;
     return (
       <div>
         <PageHeader
@@ -65,7 +162,13 @@ class Register extends Component {
           <p className="subtitle">Introduce el nombre con el que quieras que nos refiramos a ti</p>
           <Input
             className="mb-2"
-            placeholder="Nombre">
+            size="large"
+            placeholder="Nombre"
+            type="text"
+            name="alias"
+            onChange={this.handleChange}
+            value={user.alias}
+            onBlur={this.handleBlur}>
           </Input>
           <Row className="my-1">
             <Col span={4}>
@@ -77,12 +180,7 @@ class Register extends Component {
               <p>Acepto la política de privacidad y las condiciones del servicio</p>
             </Col>
           </Row>
-          <Button
-            block
-            size="large"
-            onClick={() => this.clickhandle( 2 )}>
-            Crear cuenta
-          </Button>
+          <button type="submit">Enviar</button>
         </div>
       </div>
     );
@@ -115,7 +213,7 @@ class Register extends Component {
             Reenviar mail de confirmación
           </Button>
           <Divider></Divider>
-          <Link to="/login">Confirmar más tarde</Link>
+          <Link to="/calendar">Confirmar más tarde</Link>
         </div>
       </div>
     );

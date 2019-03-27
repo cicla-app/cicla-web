@@ -75,7 +75,10 @@ class Register extends Component {
             onClick={() => this.clickhandle( 2 )}>
             Siguiente
           </Button>
-          <Link>No lo sé con seguridad</Link>
+          <div
+            onClick={() => this.clickhandle( 2 )}>
+            No lo sé con seguridad
+          </div>
         </div>
       </div>
     );
@@ -97,7 +100,10 @@ class Register extends Component {
             onClick={() => this.clickhandle( 3 )}>
             Siguiente
           </Button>
-          <Link>No lo sé con seguridad</Link>
+          <div
+            onClick={() => this.clickhandle( 3 )}>
+            No lo sé con seguridad
+          </div>
         </div>
       </div>
     );
@@ -119,7 +125,10 @@ class Register extends Component {
             onClick={() => this.clickhandle( 4 )}>
             Siguiente
           </Button>
-          <Link>No lo sé con seguridad</Link>
+          <div
+            onClick={() => this.clickhandle( 4 )}>
+            No lo sé con seguridad
+          </div>
         </div>
       </div>
     );
@@ -143,7 +152,10 @@ class Register extends Component {
             onClick={() => this.clickhandle( 5 )}>
             Siguiente
           </Button>
-          <Link> No lo sé con seguridad</Link>
+          <div
+            onClick={() => this.clickhandle( 5 )}>
+            No lo sé con seguridad
+          </div>
         </div>
       </div>
     );
@@ -162,7 +174,7 @@ class Register extends Component {
             Ya puedes empezar a usar CICLA
           </p>
           <Link
-            to="/login"
+            to="/calendar"
             className="mt-3">
             Empezar
           </Link>

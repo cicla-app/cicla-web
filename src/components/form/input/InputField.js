@@ -17,6 +17,7 @@ class InputField extends Component {
     return (
       <div className={`mb-1 ${className}`}>
         <Input
+          size="large"
           onChange={onChange}
           value={value}
           {...(placeholder ? { placeholder } : null)}

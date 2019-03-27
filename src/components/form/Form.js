@@ -113,6 +113,7 @@ class Form extends Component {
           type="default"
           htmlType="submit"
           size="large"
+          className="mt-3"
           {...(loading ? { loading } : null)}>
           Entra
         </Button>

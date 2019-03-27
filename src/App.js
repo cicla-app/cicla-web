@@ -6,6 +6,7 @@ import PrivateRoute from './guards/PrivateRoute';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Onboarding from './components/onboarding/Onboarding';
+import Calendar from './components/calendar/Calendar';
 
 class App extends Component {
   render() {
@@ -19,12 +20,13 @@ class App extends Component {
                   <Route exact path="/login" component={Login}/>
                   <Route exact path="/register" component={Register}/>
                   <Route exact path="/onboarding" component={Onboarding}/>
+                  <PrivateRoute exact path="/calendar" component={Calendar}/>
                   <PrivateRoute exact path="/users"/>
                   <Redirect to="/login"/>
                 </Switch>
               </div>
             </section>
-            </Col>
+          </Col>
         </Row>
       </div>
     );
