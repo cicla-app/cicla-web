@@ -1,0 +1,18 @@
+.container-onboarding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  .subtitle {
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 16px;
+    &.calendar {
+      margin-bottom: 20px;
+    }
+  }
+  form input {
+    margin-bottom: 20px;
+  }
+}

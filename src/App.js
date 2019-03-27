@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Register from './components/register/Register';
 import { Row, Col } from 'antd';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoute from './guards/PrivateRoute';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import Onboarding from './components/onboarding/Onboarding';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <Row>
-            <Col span={10} offset={8}>
-              <h1>
-                CICLA
-              </h1>
+        <Row>
+          <Col span={20} offset={2}>
+            <section>
+              <div>
+                <Switch>
+                  <Route exact path="/login" component={Login}/>
+                  <Route exact path="/register" component={Register}/>
+                  <Route exact path="/onboarding" component={Onboarding}/>
+                  <PrivateRoute exact path="/users"/>
+                  <Redirect to="/login"/>
+                </Switch>
+              </div>
+            </section>
             </Col>
-          </Row>
-          <Row>
-            <Col span={10} offset={8}>
-              <Register />
-            </Col>
-          </Row>
+        </Row>
       </div>
     );
   }

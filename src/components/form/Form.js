@@ -12,6 +12,7 @@ import {
 import CheckboxField from './CheckboxField';
 import authService from '../../services/AuthService';
 import { Redirect } from 'react-router-dom';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 
 class Form extends Component {
   state = {
@@ -26,15 +27,20 @@ class Form extends Component {
   };
 
 
+  disabledButton() {
+    const { getFieldError } = this.props.form;
+    return getFieldError('email') || getFieldError('password') || getFieldError('acceptTerms');
+  }
+
   submitForm = event => {
     const { form } = this.props;
     event.preventDefault();
 
+    
     form.validateFields((errors, fields) => {
       const hasErrors = errors && Object.keys(errors).length > 0;
-      console.log(this.state.user)
       if (!hasErrors) {
-        authService.register(this.state.user)
+        authService.register(fields)
         .then(
           (user) => this.setState({ authenticated: true }),
           (error) => {
@@ -63,8 +69,9 @@ class Form extends Component {
     const { getFieldProps, getFieldError } = this.props.form;
     const { hasPrivacyForm } = this.props;
     const { loading } = this.state;
+
     if (this.state.authenticated) {
-      return (<Redirect to="/login" />);
+      return (<Redirect to="/register" />);
     } else {
     return (
       <form onSubmit={this.submitForm}>
@@ -101,16 +108,17 @@ class Form extends Component {
           errors={getFieldError('acceptTerms')}
         /> }
         <Button
+          block
+          disabled={ this.disabledButton() }
           type="default"
           htmlType="submit"
           size="large"
-          {...(loading ? { loading } : null)}
-        >
-          Regístrate
+          {...(loading ? { loading } : null)}>
+          Entra
         </Button>
       </form>
     )};
   }
 }
 
-export default createForm()(Form);
+export default withAuthConsumer(createForm()(Form));
