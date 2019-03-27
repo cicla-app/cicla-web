@@ -180,7 +180,12 @@ class Register extends Component {
               <p>Acepto la política de privacidad y las condiciones del servicio</p>
             </Col>
           </Row>
-          <button type="submit">Enviar</button>
+          <Button
+            block
+            size="large"
+            htmlType="submit">
+            Enviar
+          </Button>
         </div>
       </div>
     );

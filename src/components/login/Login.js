@@ -129,7 +129,7 @@ render() {
           <Button
             block
             size="large"
-            type="submit"
+            htmlType="submit"
             disabled={this.hasErrors()}>Siguiente</Button>  
         </form>
       </div>
