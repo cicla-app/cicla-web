@@ -3,8 +3,8 @@ import authService from '../../services/AuthService';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
-import './Register.scss'
-import { withAuthConsumer } from '../../contexts/AuthStore'
+import './Register.scss';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
   Input, Button, Divider, Switch, PageHeader, Row, Col, notification
 } from 'antd';
@@ -99,7 +99,7 @@ class Register extends Component {
   }
 
   hasErrors = () => Object.keys(this.state.user)
-    .some(attr => validators[attr] && validators[attr](this.state.user[attr]))
+    .some(attr => validators[attr] && validators[attr](this.state.user[attr]))  
   
     render() {
     return (
@@ -116,35 +116,43 @@ class Register extends Component {
     return (
       <div>
         <PageHeader
-          onBack={() => null}
+          onBack={() => alert('This is a back button!')}
           title="CREAR CUENTA">
         </PageHeader>
         <div className="container-register">
-          <p className="subtitle">Introduce tus datos para acceder a la aplicación</p>
-          <Input
-            type="text"
-            size="large"
-            className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
-            name="email"
-            placeholder="Email"
-            onChange={this.handleChange} value={user.email}
-            onBlur={this.handleBlur} />
-          <div className="invalid-feedback">{errors.email}</div>
-          <Input
-            type="password"
-            size="large"
-            className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
-            name="password"
-            placeholder="Contraseña"
-            onChange={this.handleChange}
-            value={user.password}
-            onBlur={this.handleBlur}/>
-          <div className="invalid-feedback">{errors.password}</div>
-          <Button
-            block
-            size="large"
-            onClick={() => this.clickhandle( 1 )}
-            disabled={this.hasErrors()}>Siguiente</Button>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle">Introduce tus datos para acceder a la aplicación</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={20} offset={2}>
+              <Input
+                type="text"
+                size="large"
+                className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
+                name="email"
+                placeholder="Email"
+                onChange={this.handleChange} value={user.email}
+                onBlur={this.handleBlur} />
+              <div className="invalid-feedback">{errors.email}</div>
+              <Input
+                type="password"
+                size="large"
+                className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
+                name="password"
+                placeholder="Contraseña"
+                onChange={this.handleChange}
+                value={user.password}
+                onBlur={this.handleBlur}/>
+              <div className="invalid-feedback">{errors.password}</div>
+              <Button
+                block
+                size="large"
+                onClick={() => this.clickhandle( 1 )}
+                disabled={this.hasErrors()}>Siguiente</Button>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -159,33 +167,45 @@ class Register extends Component {
           title="CREAR CUENTA">
         </PageHeader>
         <div className="container-register">
-          <p className="subtitle">Introduce el nombre con el que quieras que nos refiramos a ti</p>
-          <Input
-            className="mb-2"
-            size="large"
-            placeholder="Nombre"
-            type="text"
-            name="alias"
-            onChange={this.handleChange}
-            value={user.alias}
-            onBlur={this.handleBlur}>
-          </Input>
-          <Row className="my-1">
-            <Col span={4}>
-              <Switch
-                defaultChecked>
-              </Switch>
-            </Col>
-            <Col span={20}>
-              <p>Acepto la política de privacidad y las condiciones del servicio</p>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle">Introduce el nombre con el que quieras que nos refiramos a ti</p>
+              <Input
+                className="mb-2"
+                size="large"
+                placeholder="Nombre"
+                type="text"
+                name="alias"
+                onChange={this.handleChange}
+                value={user.alias}
+                onBlur={this.handleBlur}>
+              </Input>
             </Col>
           </Row>
-          <Button
-            block
-            size="large"
-            htmlType="submit">
-            Enviar
-          </Button>
+          <Row className="my-1">
+            <Col span={20} offset={2}>
+              <Row>
+                <Col span={4}>
+                  <Switch
+                    defaultChecked>
+                  </Switch>
+                </Col>
+                <Col span={20}>
+                  <p>Acepto la política de privacidad y las condiciones del servicio</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row style={{width: '100%'}}>
+            <Col span={20} offset={2}>
+              <Button
+                block
+                size="large"
+                htmlType="submit">
+                Enviar
+              </Button>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -218,7 +238,7 @@ class Register extends Component {
             Reenviar mail de confirmación
           </Button>
           <Divider></Divider>
-          <Link to="/calendar">Confirmar más tarde</Link>
+          <Link to="/onboarding">Confirmar más tarde</Link>
         </div>
       </div>
     );

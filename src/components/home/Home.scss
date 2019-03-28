@@ -1,0 +1,21 @@
+.ant-card {
+  text-align: left;
+  width: 100%;
+  ul {
+    padding-left: 20px;
+  }
+}
+
+.react-calendar {
+  border: 0!important;
+  margin: 20px 0 0 5px;
+  font-size: 20px;
+  .react-calendar__navigation {
+    .react-calendar__navigation__label {
+      text-transform: uppercase;
+    }
+    .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
+      display: none;
+    }
+  }
+}

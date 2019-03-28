@@ -3,10 +3,10 @@ import authService from '../../services/AuthService';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
 import './Login.scss';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button
+  Input, Button, Divider, Row, Col
 } from 'antd';
 
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
@@ -101,37 +101,52 @@ class Login extends Component {
 render() {
   const { touch, errors, user } = this.state;
   if (this.state.authenticated) {
-    return (<Redirect to="/calendar" />);
+    return (<Redirect to="/home" />);
   } else {
     return (
-      <div>
-        <h1>CICLA</h1>
-        <form onSubmit={this.onSubmit}>
-          <Input
-            type="text"
-            size="large"
-            className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
-            name="email"
-            placeholder="Email"
-            onChange={this.handleChange} value={user.email}
-            onBlur={this.handleBlur} />
-          <div className="invalid-feedback">{errors.email}</div>
-          <Input
-            type="password"
-            size="large"
-            className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
-            name="password"
-            placeholder="Contraseña"
-            onChange={this.handleChange}
-            value={user.password}
-            onBlur={this.handleBlur}/>
-          <div className="invalid-feedback">{errors.password}</div>
-          <Button
-            block
-            size="large"
-            htmlType="submit"
-            disabled={this.hasErrors()}>Siguiente</Button>  
-        </form>
+      <div className="container-login">
+        <Row>
+          <Col>
+            <h1>CICLA</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={20} offset={2}>
+            <form onSubmit={this.onSubmit}>
+              <Input
+                type="text"
+                size="large"
+                className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
+                name="email"
+                placeholder="Email"
+                onChange={this.handleChange} value={user.email}
+                onBlur={this.handleBlur} />
+              <div className="invalid-feedback">{errors.email}</div>
+              <Input
+                type="password"
+                size="large"
+                className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
+                name="password"
+                placeholder="Contraseña"
+                onChange={this.handleChange}
+                value={user.password}
+                onBlur={this.handleBlur}/>
+              <div className="invalid-feedback">{errors.password}</div>
+              <Button
+                block
+                size="large"
+                htmlType="submit"
+                className="mt-3"
+                disabled={this.hasErrors()}>Entra</Button>
+              <p
+                className="mt-2">
+                Olvidé mi contraseña
+                </p>
+              <Divider></Divider>
+              <Link to="/register">Regístrate</Link>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
     }

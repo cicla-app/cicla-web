@@ -5,7 +5,7 @@ import '../../_variables.scss';
 import './Onboarding.scss'
 import { withAuthConsumer } from '../../contexts/AuthStore'
 import {
-  Button, PageHeader, Input, Calendar, Select
+  Button, PageHeader, Input, Calendar, Select, Row, Col
 } from 'antd';
 
 class Register extends Component {
@@ -40,18 +40,22 @@ class Register extends Component {
           onBack={() => null}>
         </PageHeader>
         <div className="container-onboarding">
-          <p className="subtitle">¡Bienvenida!</p>
-          <p
-            className="mt-3">
-            Ahora te haremos unas pocas preguntas para saber más de ti y de tu ciclo menstrual y así poder adaptar la información a tus necesidades.
-          </p>
-          <Button
-            block
-            size="large"
-            className="mt-3"
-            onClick={() => this.clickhandle( 1 )}>
-            Confirmar
-          </Button>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle">¡Bienvenida!</p>
+              <p
+                className="mt-3">
+                Ahora te haremos unas pocas preguntas para saber más de ti y de tu ciclo menstrual y así poder adaptar la información a tus necesidades.
+              </p>
+              <Button
+                block
+                size="large"
+                className="mt-3"
+                onClick={() => this.clickhandle( 1 )}>
+                Confirmar
+              </Button>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -61,24 +65,33 @@ class Register extends Component {
     return (
       <div>
         <div className="container-onboarding">
-          <p className="subtitle calendar">¿Cuándo empezó tu última regla?</p>
-          <div
-            style={{width: 300,
-            border: '1px solid #d9d9d9',
-            borderRadius: 4 }}>
-            <Calendar fullscreen={false}  />
-          </div>
-          <Button
-            block
-            size="large"
-            className="my-2"
-            onClick={() => this.clickhandle( 2 )}>
-            Siguiente
-          </Button>
-          <div
-            onClick={() => this.clickhandle( 2 )}>
-            No lo sé con seguridad
-          </div>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle calendar">¿Cuándo empezó tu última regla?</p>
+            </Col>
+          </Row>
+              <div
+                className="mb-2"
+                style={{width: 300,
+                border: '1px solid #d9d9d9',
+                borderRadius: 4 }}>
+                <Calendar fullscreen={false}  />
+              </div>
+          <Row style={{width: '100%'}}>
+            <Col span={20} offset={2}>
+              <Button
+                block
+                size="large"
+                className="my-2"
+                onClick={() => this.clickhandle( 2 )}>
+                Siguiente
+              </Button>
+              <div
+                onClick={() => this.clickhandle( 2 )}>
+                No lo sé con seguridad
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -88,22 +101,26 @@ class Register extends Component {
     return (
       <div>
         <div className="container-onboarding">
-          <p className="subtitle calendar">¿Cuándo dura tu regla aproximadamente?</p>
-          <Input
-            className="mb-2"
-            placeholder="4 días">
-          </Input>
-          <Button
-            block
-            size="large"
-            className="my-2"
-            onClick={() => this.clickhandle( 3 )}>
-            Siguiente
-          </Button>
-          <div
-            onClick={() => this.clickhandle( 3 )}>
-            No lo sé con seguridad
-          </div>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle calendar">¿Cuándo dura tu regla aproximadamente?</p>
+              <Input
+                className="mb-2"
+                placeholder="4 días">
+              </Input>
+              <Button
+                block
+                size="large"
+                className="my-2"
+                onClick={() => this.clickhandle( 3 )}>
+                Siguiente
+              </Button>
+              <div
+                onClick={() => this.clickhandle( 3 )}>
+                No lo sé con seguridad
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -113,22 +130,26 @@ class Register extends Component {
     return (
       <div>
         <div className="container-onboarding">
-          <p className="subtitle calendar">¿Cuándo dura tu ciclo aproximadamente?</p>
-          <Input
-            className="mb-2"
-            placeholder="28 días">
-          </Input>
-          <Button
-            block
-            size="large"
-            className="my-2"
-            onClick={() => this.clickhandle( 4 )}>
-            Siguiente
-          </Button>
-          <div
-            onClick={() => this.clickhandle( 4 )}>
-            No lo sé con seguridad
-          </div>
+          <Row>
+            <Col span={20} offset={2}>
+              <p className="subtitle calendar">¿Cuándo dura tu ciclo aproximadamente?</p>
+              <Input
+                className="mb-2"
+                placeholder="28 días">
+              </Input>
+              <Button
+                block
+                size="large"
+                className="my-2"
+                onClick={() => this.clickhandle( 4 )}>
+                Siguiente
+              </Button>
+              <div
+                onClick={() => this.clickhandle( 4 )}>
+                No lo sé con seguridad
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
     );
@@ -140,22 +161,26 @@ class Register extends Component {
     return (
       <div>
         <div className="container-onboarding">
-          <p className="subtitle calendar">¿Usas anticonceptivos hormonales?</p>
-          <Select defaultValue="no" style={{ width: '100%' }}>
-            <Option value="yes">Sí</Option>
-            <Option value="no">No</Option>
-          </Select>
-          <Button
-            block
-            size="large"
-            className="my-2"
-            onClick={() => this.clickhandle( 5 )}>
-            Siguiente
-          </Button>
-          <div
-            onClick={() => this.clickhandle( 5 )}>
-            No lo sé con seguridad
-          </div>
+        <Row>
+          <Col span={20} offset={2}>
+            <p className="subtitle calendar">¿Usas anticonceptivos hormonales?</p>
+            <Select defaultValue="no" style={{ width: '100%' }}>
+              <Option value="yes">Sí</Option>
+              <Option value="no">No</Option>
+            </Select>
+            <Button
+              block
+              size="large"
+              className="my-2"
+              onClick={() => this.clickhandle( 5 )}>
+              Siguiente
+            </Button>
+            <div
+              onClick={() => this.clickhandle( 5 )}>
+              No lo sé con seguridad
+            </div>
+          </Col>
+        </Row>
         </div>
       </div>
     );
@@ -174,7 +199,7 @@ class Register extends Component {
             Ya puedes empezar a usar CICLA
           </p>
           <Link
-            to="/calendar"
+            to="/home"
             className="mt-3">
             Empezar
           </Link>
