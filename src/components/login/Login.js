@@ -139,7 +139,7 @@ render() {
                 className="mt-3"
                 disabled={this.hasErrors()}>Entra</Button>
               <p
-                className="mt-2">
+                className="mt-3">
                 Olvidé mi contraseña
                 </p>
               <Divider></Divider>

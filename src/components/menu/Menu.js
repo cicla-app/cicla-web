@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/AuthService';
 import { withRouter } from 'react-router-dom';
@@ -19,9 +18,10 @@ class Menu extends Component {
   }
 
   render() {
+    const {user} = this.props;
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/login">CICLA</Navbar.Brand>
+        <Navbar.Brand href="/login">{user.email}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
