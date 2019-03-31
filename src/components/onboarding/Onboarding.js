@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
 import './Onboarding.scss'
@@ -7,14 +7,49 @@ import { withAuthConsumer } from '../../contexts/AuthStore'
 import {
   Button, PageHeader, Input, Calendar, Select, Row, Col
 } from 'antd';
+import { createBrowserHistory } from 'history';
 
-class Register extends Component {
+const history = createBrowserHistory();
+
+class Onboarding extends Component {
   state = {
-    step: 0
+    user: {
+      alias:'',
+      periodDays: '',
+      cycleDays: '',
+      contraceptives: false,
+    },
+    period: {
+      startPeriod: '',
+      endPeriod: ''
+    },
+    step: 0,
   };
 
   clickhandle = step => {
     this.setState( { step: step } );
+  }
+
+  handleStartDate = (startPeriod) => {
+    this.setState({ period: { startPeriod }});
+  };
+
+  handleSelectChange = value => {
+    const contraceptives = value === 'yes'? true : false;
+    this.setState({user: {
+      ...this.state.user,
+        contraceptives
+    }});
+  }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      user: {
+        ...this.state.user,
+        [name]: value
+      },
+    })
   }
 
   render() {
@@ -32,17 +67,21 @@ class Register extends Component {
       return this.renderStep6()
     }
   }
+  goBack(){
+    history.goBack();
+  }
 
   renderStep1() {
+    const { user } = this.state;
     return (
       <div>
         <PageHeader
-          onBack={() => null}>
+          onBack={() => this.goBack()}>
         </PageHeader>
         <div className="container-onboarding">
           <Row>
             <Col span={20} offset={2}>
-              <p className="subtitle">¡Bienvenida!</p>
+              <p className="subtitle">¡Bienvenida, {user.alias}!</p>
               <p
                 className="mt-3">
                 Ahora te haremos unas pocas preguntas para saber más de ti y de tu ciclo menstrual y así poder adaptar la información a tus necesidades.
@@ -70,13 +109,15 @@ class Register extends Component {
               <p className="subtitle calendar">¿Cuándo empezó tu última regla?</p>
             </Col>
           </Row>
-              <div
-                className="mb-2"
-                style={{width: 300,
-                border: '1px solid #d9d9d9',
-                borderRadius: 4 }}>
-                <Calendar fullscreen={false}  />
-              </div>
+            <div
+              className="mb-2"
+              style={{width: 300,
+              border: '1px solid #d9d9d9',
+              borderRadius: 4 }}>
+              <Calendar
+                fullscreen={false}
+                onSelect={this.handleStartDate}/>
+            </div>
           <Row style={{width: '100%'}}>
             <Col span={20} offset={2}>
               <Button
@@ -98,6 +139,7 @@ class Register extends Component {
   }
 
   renderStep3() {
+    const {user} = this.state;
     return (
       <div>
         <div className="container-onboarding">
@@ -106,7 +148,11 @@ class Register extends Component {
               <p className="subtitle calendar">¿Cuándo dura tu regla aproximadamente?</p>
               <Input
                 className="mb-2"
-                placeholder="4 días">
+                placeholder="4"
+                type="number"
+                name="periodDays"
+                value={user.periodDays}
+                onChange={this.handleChange}>
               </Input>
               <Button
                 block
@@ -127,6 +173,7 @@ class Register extends Component {
   }
 
   renderStep4() {
+    const {user} = this.state;
     return (
       <div>
         <div className="container-onboarding">
@@ -135,7 +182,11 @@ class Register extends Component {
               <p className="subtitle calendar">¿Cuándo dura tu ciclo aproximadamente?</p>
               <Input
                 className="mb-2"
-                placeholder="28 días">
+                type="number"
+                name="cycleDays"
+                placeholder="28"
+                value={user.cycleDays}
+                onChange={this.handleChange}>
               </Input>
               <Button
                 block
@@ -157,14 +208,17 @@ class Register extends Component {
 
   renderStep5() {
     const Option = Select.Option;
-
     return (
       <div>
         <div className="container-onboarding">
         <Row>
           <Col span={20} offset={2}>
             <p className="subtitle calendar">¿Usas anticonceptivos hormonales?</p>
-            <Select defaultValue="no" style={{ width: '100%' }}>
+            <Select
+              defaultValue="no"
+              name="contraceptives"
+              onChange={this.handleSelectChange}
+              style={{ width: '100%' }}>
               <Option value="yes">Sí</Option>
               <Option value="no">No</Option>
             </Select>
@@ -190,7 +244,7 @@ class Register extends Component {
     return (
       <div>
         <PageHeader
-          onBack={() => null}>
+          onBack={() => this.goBack()}>
         </PageHeader>
         <div className="container-onboarding">
           <p className="subtitle">¡Enhorabuena!</p>
@@ -209,4 +263,4 @@ class Register extends Component {
   }
 }
 
-export default withAuthConsumer(Register);
+export default withRouter(withAuthConsumer(Onboarding));

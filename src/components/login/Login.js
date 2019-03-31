@@ -6,7 +6,7 @@ import './Login.scss';
 import { Redirect, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button, Divider, Row, Col
+  Input, Button, Row, Col
 } from 'antd';
 
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
@@ -18,7 +18,7 @@ const validators = {
     if (!value || value === '') {
       error = 'Email is required';
     } else if (!emailPattern.test(value)) {
-      error = 'Invalid email format'; 
+      error = 'Formato de correo electrónico incorrecto'; 
     }
     return error;
   },
@@ -29,7 +29,7 @@ const validators = {
     } else if (!value.length >= 8) {
       error = 'Password must contains at least 8 characters';
     } else if (!passwordPattern.test(value)) {
-      error = 'La contraseña debe contener';
+      error = 'La contraseña debe contener al menos 8 caracteres';
     }
     return error;
   }
@@ -113,37 +113,41 @@ render() {
         <Row>
           <Col span={20} offset={2}>
             <form onSubmit={this.onSubmit}>
-              <Input
-                type="text"
-                size="large"
-                className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
-                name="email"
-                placeholder="Email"
-                onChange={this.handleChange} value={user.email}
-                onBlur={this.handleBlur} />
-              <div className="invalid-feedback">{errors.email}</div>
-              <Input
-                type="password"
-                size="large"
-                className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
-                name="password"
-                placeholder="Contraseña"
-                onChange={this.handleChange}
-                value={user.password}
-                onBlur={this.handleBlur}/>
-              <div className="invalid-feedback">{errors.password}</div>
+              <div className="mb-3">
+                <Input
+                  type="text"
+                  size="large"
+                  className={`form-control ${touch.email && errors.email && 'is-invalid'}`}
+                  name="email"
+                  placeholder="Correo electrónico"
+                  onChange={this.handleChange} value={user.email}
+                  onBlur={this.handleBlur} />
+                <div className="invalid-feedback">{errors.email}</div>
+              </div>
+              <div className="my-3">
+                <Input.Password
+                  type="password"
+                  size="large"
+                  className={`form-control ${touch.password && errors.password && 'is-invalid'}`}
+                  name="password"
+                  placeholder="Contraseña"
+                  onChange={this.handleChange}
+                  value={user.password}
+                  onBlur={this.handleBlur}/>
+                <div className="invalid-feedback mt-1">{errors.password}</div>
+              </div>
+              <Link
+                to="/modify-password"
+                className="my-3">
+                Olvidé mi contraseña
+              </Link>
               <Button
                 block
                 size="large"
                 htmlType="submit"
-                className="mt-3"
-                disabled={this.hasErrors()}>Entra</Button>
-              <p
-                className="mt-3">
-                Olvidé mi contraseña
-                </p>
-              <Divider></Divider>
-              <Link to="/register">Regístrate</Link>
+                className="my-3"
+                disabled={this.hasErrors()}>ENTRA</Button>
+              <Link to="/register">CREAR CUENTA</Link>
             </form>
           </Col>
         </Row>

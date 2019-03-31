@@ -1,6 +1,8 @@
+$base : 8px; 
+
 // COLORS
 .error {
-  color:red;
+  color:rgb(198, 47, 47);
 }
 
 // FONT & SIZE
@@ -8,39 +10,39 @@
 
 // MARGIN & PADDING
 .my-1 {
-  margin: 8px 0;
+  margin: $base 0;
 }
 
 .my-2 {
-  margin: 16px 0;
+  margin: $base*2 0;
 }
 
 .my-3 {
-  margin: 32px 0;
+  margin: $base*3 0;
 }
 
 .mb-1 {
-  margin-bottom: 8px;
+  margin-bottom: $base;
 }
 
 .mb-2 {
-  margin-bottom: 16px;
+  margin-bottom: $base*2;
 }
 
 .mb-3 {
-  margin-bottom: 32px;
+  margin-bottom: $base*3;
 }
 
 .mt-1 {
-  margin-top: 8px;
+  margin-top: $base;
 }
 
 .mt-2 {
-  margin-top: 16px;
+  margin-top: $base*2;
 }
 
 .mt-3 {
-  margin-top: 32px;
+  margin-top: $base*3;
 }
 
 // GLOBAL CSS

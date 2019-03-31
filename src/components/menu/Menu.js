@@ -7,7 +7,6 @@ import { Navbar, Nav
 import './Menu.scss';
 
 class Menu extends Component {
-
   handleLogout = () => {
     authService.logout()
       .then(() => {
@@ -21,13 +20,13 @@ class Menu extends Component {
     const {user} = this.props;
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/login">{user.email}</Navbar.Brand>
+        <Navbar.Brand>{user.alias}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#">Datos de acceso</Nav.Link>
-            <Nav.Link href="#">Datos de tu ciclo</Nav.Link>
-            <Nav.Link href="#">Colaboradores/as</Nav.Link>
+            <Nav.Link href="/access-data">Datos de acceso</Nav.Link>
+            <Nav.Link href="/cicle-data">Datos de tu ciclo</Nav.Link>
+            <Nav.Link href="/colaborator-data">Colaboradores/as</Nav.Link>
             <Nav.Link href="#">Fases de la regla</Nav.Link>
             <Nav.Link href="#">Donaciones</Nav.Link>
             <Nav.Link href="/logout">Cerrar sesión</Nav.Link>

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import authService from '../../services/AuthService';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
 import './Register.scss';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button, Divider, Switch, PageHeader, Row, Col, notification
+  Input, Button, Switch, PageHeader, Row, Col, notification
 } from 'antd';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}/;
@@ -29,9 +32,12 @@ const validators = {
     } else if (!value.length >= 8) {
       error = 'Password must contains at least 8 characters';
     } else if (!passwordPattern.test(value)) {
-      error = 'La contraseña debe contener';
+      error = 'La contraseña debe contener caracteres y mayúsculas';
     }
     return error;
+  },
+  confirmPassword: (value, user) => {
+    return value !== user.password ? 'Las contraseñas tienen que coincidir' : undefined
   }
 }
 
@@ -41,8 +47,11 @@ class Register extends Component {
     user: {
       email: '',
       password: '',
-      alias:''
+      confirmPassword: '',
+      alias: '',
+      acceptTerms: false
     },
+    acceptTerms: false,
     errors: {},
     touch: {},
     authenticated: false
@@ -54,7 +63,6 @@ class Register extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-
     if (!this.hasErrors()) {
       authService.register(this.state.user)
       .then(
@@ -76,6 +84,7 @@ class Register extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({
       user: {
         ...this.state.user,
@@ -83,7 +92,7 @@ class Register extends Component {
       },
       errors: {
         ...this.state.errors,
-        [name]: validators[name] && validators[name](value)
+        [name]: validators[name] && validators[name](value, this.state.user)
       }
     })
   }
@@ -97,26 +106,31 @@ class Register extends Component {
       }
     })
   }
+  
+
 
   hasErrors = () => Object.keys(this.state.user)
-    .some(attr => validators[attr] && validators[attr](this.state.user[attr]))  
+    .some(attr => validators[attr] && validators[attr](this.state.user[attr], this.state.user))
   
     render() {
-    return (
-      <form onSubmit={this.onSubmit}>
-        {this.state.step === 0 && this.renderStep1()}
-        {this.state.step === 1 && this.renderStep2()}
-        {this.state.step === 2 && this.renderStep3()}
-      </form>
-    )
+      return (
+        <form onSubmit={this.onSubmit}>
+          {this.state.step === 0 && this.renderStep1()}
+          {this.state.step === 1 && this.renderStep2()}
+          {this.state.step === 2 && this.renderStep3()}
+        </form>
+      )
   }
+  goBack(){
+    history.goBack();
+}
 
   renderStep1() {
     const { touch, errors, user } = this.state;
     return (
       <div>
         <PageHeader
-          onBack={() => alert('This is a back button!')}
+          onBack={() => this.goBack()} 
           title="CREAR CUENTA">
         </PageHeader>
         <div className="container-register">
@@ -136,19 +150,29 @@ class Register extends Component {
                 onChange={this.handleChange} value={user.email}
                 onBlur={this.handleBlur} />
               <div className="invalid-feedback">{errors.email}</div>
-              <Input
+              <Input.Password
                 type="password"
                 size="large"
-                className={`form-control ${touch.password && errors.password && 'is-invalid'} mb-2`}
+                className={`form-control ${touch.password && errors.password && 'is-invalid'} my-3`}
                 name="password"
                 placeholder="Contraseña"
                 onChange={this.handleChange}
                 value={user.password}
                 onBlur={this.handleBlur}/>
               <div className="invalid-feedback">{errors.password}</div>
+              <Input.Password
+                type="password"
+                size="large"
+                className={`form-control ${touch.confirmPassword && errors.confirmPassword && 'is-invalid'} my-2`}
+                name="confirmPassword"
+                placeholder="Confirmar contraseña"
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}/>
+              <div className="invalid-feedback">{errors.confirmPassword}</div>
               <Button
                 block
                 size="large"
+                className="mt-3"
                 onClick={() => this.clickhandle( 1 )}
                 disabled={this.hasErrors()}>Siguiente</Button>
             </Col>
@@ -158,12 +182,17 @@ class Register extends Component {
     );
   }
 
+  toggleAcceptTerms = (acceptTerms) => {
+    this.setState({
+      acceptTerms
+    })
+  }
+
   renderStep2() {
-    const { user } = this.state;
     return (
       <div>
         <PageHeader
-          onBack={() => null}
+          onBack={() => this.goBack()} 
           title="CREAR CUENTA">
         </PageHeader>
         <div className="container-register">
@@ -171,13 +200,14 @@ class Register extends Component {
             <Col span={20} offset={2}>
               <p className="subtitle">Introduce el nombre con el que quieras que nos refiramos a ti</p>
               <Input
+                required
                 className="mb-2"
                 size="large"
                 placeholder="Nombre"
                 type="text"
                 name="alias"
                 onChange={this.handleChange}
-                value={user.alias}
+                value={this.state.user.alias}
                 onBlur={this.handleBlur}>
               </Input>
             </Col>
@@ -187,7 +217,10 @@ class Register extends Component {
               <Row>
                 <Col span={4}>
                   <Switch
-                    defaultChecked>
+                    name="acceptTerms"
+                    onChange={this.toggleAcceptTerms}
+                    checked={this.state.acceptTerms}
+                    >
                   </Switch>
                 </Col>
                 <Col span={20}>
@@ -201,6 +234,7 @@ class Register extends Component {
               <Button
                 block
                 size="large"
+                disabled={!this.state.acceptTerms}
                 htmlType="submit">
                 Enviar
               </Button>
@@ -212,6 +246,8 @@ class Register extends Component {
   }
 
   renderStep3() {
+    const {user} = this.state;
+
     const openNotification = () => {
       notification.open({
         message: '¡Hecho!',
@@ -222,13 +258,13 @@ class Register extends Component {
     return (
       <div>
         <PageHeader
-          onBack={() => null}
+          onBack={() => this.goBack()} 
           title="CREAR CUENTA">
           </PageHeader>
         <div className="container-register">
           <p className="mt-3">Confirma tu e-mail</p>
           <p>Hemos enviado un mail a la dirección:</p>
-          <p>nombre@mail.com</p>
+          <p>{user.mail}</p>
           <p className="mb-3">Sigue las instrucciones para verificar tu cuenta.</p>
           <p className="mt-3">¿No te ha llegado mail?</p>
           <Button
@@ -237,12 +273,10 @@ class Register extends Component {
             onClick={openNotification}>
             Reenviar mail de confirmación
           </Button>
-          <Divider></Divider>
-          <Link to="/onboarding">Confirmar más tarde</Link>
         </div>
       </div>
     );
   }
 }
 
-export default withAuthConsumer(Register);
+export default withRouter(withAuthConsumer(Register));
