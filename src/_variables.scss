@@ -55,19 +55,22 @@ $footer-color: #061529;
 
 // GLOBAL CSS
 .ant-page-header {
-  background: transparent;
-  color: $tertiary-color;
+  background: $primary-color;
+  color: $secondary-color;
   display: flex;
   align-items: center;
   justify-content: center;
   span {
-    color: $tertiary-color;
+    color: $secondary-color;
   }
   .ant-page-header-back-icon {
     position: absolute;
     left: 20px;
     display: flex;
     align-items: center;
+  }
+  .ant-divider {
+    display: none;
   }
 }
 

@@ -1,0 +1,38 @@
+@import '../../../variables';
+
+.subheader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: $tertiary-color;
+  padding: $base*2 0;
+  p {
+    margin: 0;
+  }
+  .date {
+    font-size: 26px;
+  }
+}
+
+.card {
+  font-family: 'Futura-Medium';
+  font-size: 15px;
+  color: $primary-color;
+  line-height: 22px;
+  margin: 0 $base*2 $base $base*2;
+  padding: $base*2;
+  text-align: left;
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    li {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: $base*2;
+      .anticon {
+        margin-right: $base;
+      }
+    }
+  }
+}
