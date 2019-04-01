@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/AuthService';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Navbar, Nav
 } from 'react-bootstrap';
 import './Menu.scss';
@@ -12,7 +12,7 @@ class Menu extends Component {
       .then(() => {
         const { history } = this.props;
         this.props.onUserChange({});
-        history.push('/login');
+        history.push('/home');
       })
   }
 
@@ -24,12 +24,12 @@ class Menu extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/access-data">Datos de acceso</Nav.Link>
-            <Nav.Link href="/cicle-data">Datos de tu ciclo</Nav.Link>
-            <Nav.Link href="/colaborator-data">Colaboradores/as</Nav.Link>
-            <Nav.Link href="#">Fases de la regla</Nav.Link>
-            <Nav.Link href="#">Donaciones</Nav.Link>
-            <Nav.Link href="/logout">Cerrar sesión</Nav.Link>
+            <NavLink to="/access-data">Datos de acceso</NavLink>
+            <NavLink to="/cicle-data">Datos de tu ciclo</NavLink>
+            {/* <NavLink href="/colaborator-data">Colaboradores/as</NavLink>
+            <NavLink href="#">Fases de la regla</NavLink>
+            <NavLink href="#">Donaciones</NavLink> */}
+            <button onClick={this.handleLogout}>Cerrar sesión</button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

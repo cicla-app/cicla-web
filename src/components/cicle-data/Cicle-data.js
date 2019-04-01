@@ -4,23 +4,40 @@ import '../../_variables.scss';
 import { withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Row, Col, PageHeader, Button, Switch
+  Input, Row, Col, PageHeader, Button, Select
 } from 'antd';
 import { createBrowserHistory } from 'history';
+import AuthService from '../../services/AuthService'
 
 const history = createBrowserHistory();
 
 class CicleData extends Component {
   state = {
-    user: {
-      periodDays: '',
-      cycleDays: '',
-      contraceptives: false,
-    },
+    user: null,
   };
+  userSubscription = undefined
+
+  componentDidMount = () => {
+    this.userSubscription = AuthService.onUserChange().subscribe(user =>
+      this.setState({ user: user})
+      )};
+
+  componentWillUnmount() {
+    this.userSubscription.unsubscribe();
+  }
 
   goBack(){
     history.goBack();
+  }
+
+  updateUser = () => {
+    const newUser = {
+      ...this.state.user
+    }
+    AuthService.updateUser(newUser);
+    this.setState({
+      user: newUser
+    })
   }
 
   handleChange = (event) => {
@@ -31,6 +48,14 @@ class CicleData extends Component {
         [name]: value
       },
     })
+  }
+
+  handleSelectChange = value => {
+    const contraceptives = value === 'yes'? true : false;
+    this.setState({user: {
+      ...this.state.user,
+        contraceptives
+    }});
   }
 
   handleBlur = (event) => {
@@ -45,6 +70,9 @@ class CicleData extends Component {
 
 render() {
   const { user } = this.state;
+  const Option = Select.Option;
+  if (!user) return <p style={{ color: 'black' }}>Loading</p>
+  console.log(user.contraceptives)
     return (
       <div>
         <PageHeader
@@ -61,7 +89,7 @@ render() {
                 name="periodDays"
                 placeholder="Duración de la regla"
                 onChange={this.handleChange}
-                value={user.name}
+                value={user.periodDays}
                 onBlur={this.handleBlur} />
               <Input
                 type="number"
@@ -70,27 +98,21 @@ render() {
                 name="cycleDays"
                 placeholder="Duración del ciclo"
                 onChange={this.handleChange}
-                value={user.email}
+                value={user.cycleDays}
                 onBlur={this.handleBlur}/>
-              <Row className="my-1">
-                <Col span={20} offset={2}>
-                  <Row>
-                    <Col span={4}>
-                      <Switch
-                        defaultChecked>
-                      </Switch>
-                    </Col>
-                    <Col span={20}>
-                      <p>Anticonceptivos</p>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
+              <Select
+                defaultValue={user.contraceptives ? 'yes' : 'no'}
+                name="contraceptives"
+                onChange={this.handleSelectChange}
+                style={{ width: '100%' }}>
+                <Option value="yes">Sí</Option>
+                <Option value="no">No</Option>
+              </Select>
               <Button
                 className="my-3"
                 block
                 size="large"
-                htmlType="submit">
+                onClick={this.updateUser}>
                 Guardar
               </Button>
             </form>

@@ -1,0 +1,359 @@
+@import '../../variables';
+
+.container-web {
+  margin: 0;
+  font-family: 'Futura';
+  font-size: 18px;
+  line-height: 18px;
+  padding: 0;
+  max-width: 100%;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background: $primary-color;
+    padding: $base*6 $base*5 0 $base*5;
+    .logo {
+      color: transparent;
+      background-image: url('../../images/logo.png');
+      background-size: contain;
+      width: 150px;
+      height: 50px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .content-1 {
+    background: $primary-color;
+    color: $light-color;
+    .rectangle{
+      background-image: url('../../images/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 180px;
+    }
+    h2 {
+      font-family: 'Futura-Bold';
+      font-size: 63px;
+      margin-bottom: $base*2;
+      line-height: 63px;
+      color: $light-color!important;
+    }
+    .info {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      text-align: center;
+      color: $light-color;
+      padding-top: $base*12;
+    }
+  }
+  .link-button {
+    background: $tertiary-color!important;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    font-family: 'Futura';
+    cursor: pointer;
+    outline: none;
+    a {
+      color: $light-color!important;
+    }
+  }
+  .text {
+    width: 50%;
+    line-height: 24px;
+  }
+  .content-2 {
+    background-color: $secondary-color;
+    padding-bottom: $base*5;
+    .info {
+      display: flex;
+      align-items: flex-end;
+      color: $primary-color;
+      width: 60%;
+      margin: 0 auto;
+    }
+    h3 {
+      font-size: 48px;
+      line-height: 48px;
+      color: $light-color!important;
+    }
+    .info {
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin: 0 auto;
+      color: $light-color;
+      padding-top: $base*12;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        line-height: 32px;
+        &.sport::before {
+          content: '';
+          background-image: url('../../images/sport.png');
+          display: block;
+          width: 32px;
+          height: 18px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.food::before {
+          content: '';
+          background-image: url('../../images/food.png');
+          display: block;
+          width: 32px;
+          height: 18px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.health::before {
+          content: '';
+          background-image: url('../../images/health.png');
+          display: block;
+          width: 32px;
+          height: 18px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        &.sex::before {
+          content: '';
+          background-image: url('../../images/sex.png');
+          display: block;
+          width: 32px;
+          height: 18px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+    .image-mobile {
+      background-image: url('../../images/mobile.png');
+      background-size: contain;
+      width: 50%;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.content-3 {
+  background: $primary-color;
+  color: $light-color;
+  h3 {
+    color: $light-color!important;
+  }
+  .text {
+    margin-top: 40px;
+  }
+  .image-mobilecicla {
+    background-image: url('../../images/mobile-cicla.png');
+    background-size: contain;
+    width: 50%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.content-4 {
+  background-color: $secondary-color;
+  color: $primary-color;
+  .rectangle{
+    background-image: url('../../images/background02.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+  }
+  .text {
+    width: 50%;
+    margin: 0 auto;
+    line-height: 24px;
+    text-align: center;
+    padding: $base*2 0 $base*10 0;
+    color: $primary-color;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 48px;
+    color: $primary-color!important;
+  }
+  button {
+    margin-top: $base*2;
+  }
+}
+
+.footer {
+  background-color: $primary-color;
+  height: 252px;
+  color: $light-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .policies {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    .info, .contact {
+      width: 50%;
+    }
+  }
+  .city {
+    font-size: 14px;
+    text-align: center;
+    margin-top: $base*3;
+    p {
+      display: flex;
+      align-items: center;
+    }
+    .love {
+      background-image: url('../../images/love.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin: 0 $base;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-web {
+    font-size: 15px;
+    .header {
+      padding: $base*2 $base*4 $base*6 $base*4;
+    }
+    .content-1 {
+      padding-top: $base*2;
+      h2 {
+        font-family: 'Futura-Bold';
+        font-size: 25px;
+        line-height: 25px;
+      }
+      .info {
+        padding-top: $base*3;
+      }
+      .rectangle {
+        height: 150px;
+      }
+    }
+  
+    .content-2 {
+      padding-bottom: 0;
+      margin-top: -2px;
+      .info {
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+      }
+      h3 {
+        font-family: 'Futura-Bold';
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+      }
+      .image-mobile {
+        width: 90%;
+        height: 300px;
+      }
+    }
+  
+    .text {
+      width: auto;
+    }
+  
+    .content-3 {
+      .info {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        h3 {
+          font-family: 'Futura-Bold';
+          font-size: 24px;
+          line-height: 24px;
+          text-align: center;
+        }
+        .image-mobilecicla {
+          width: 90%;
+        }
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  
+    .content-4 {
+      margin-top: -3px;
+      .rectangle {
+        height: 240px;
+      }
+      .text {
+        width: auto;
+      }
+      .info {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h2 {
+        font-family: 'Futura-Bold';
+        font-size: 25px;
+        line-height: 25px;
+      }
+    }
+  }
+
+  .footer {
+    .policies {
+      width: 90%;
+      flex-direction: column;
+      font-size: 14px;
+      padding-top: $base*2;
+      .info, .contact {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-web {
+    .content-1 {
+      .rectangle {
+        height: 100px;
+      }
+    }
+    .content-4 {
+      .rectangle {
+        height: 120px;
+      }
+    }
+  }
+}

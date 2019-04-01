@@ -1,0 +1,29 @@
+@import '../../variables';
+
+.footer-container {
+  background-color: $footer-color;
+  color: $light-color;
+  padding: $base*4 $base*2;
+  text-align: left;
+  .info {
+    margin-bottom: $base*4;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .corporative {
+    margin-top: $base*2;
+    p {
+      display: flex;
+    }
+    .love {
+      background-image: url('../../images/love.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      margin: 0 $base;
+    }
+  }
+}

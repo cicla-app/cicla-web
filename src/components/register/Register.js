@@ -108,7 +108,6 @@ class Register extends Component {
   }
   
 
-
   hasErrors = () => Object.keys(this.state.user)
     .some(attr => validators[attr] && validators[attr](this.state.user[attr], this.state.user))
   
@@ -123,7 +122,7 @@ class Register extends Component {
   }
   goBack(){
     history.goBack();
-}
+  }
 
   renderStep1() {
     const { touch, errors, user } = this.state;

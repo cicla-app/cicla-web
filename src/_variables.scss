@@ -1,6 +1,12 @@
 $base : 8px; 
 
 // COLORS
+$primary-color: #072146;
+$secondary-color: #5AC4C4;
+$tertiary-color: #FF3F7E;
+$light-color: #ffffff;
+$footer-color: #061529;
+
 .error {
   color:rgb(198, 47, 47);
 }
@@ -46,13 +52,21 @@ $base : 8px;
 }
 
 // GLOBAL CSS
-.ant-page-header-back-icon {
-  position: absolute;
-  left: 20px;
-}
-
 .ant-page-header {
   background: transparent;
+  color: $tertiary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    color: $tertiary-color;
+  }
+  .ant-page-header-back-icon {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .ant-pagination-item, .ant-pagination-item-link {

@@ -1,13 +1,39 @@
+@import '../../variables';
+
 .container-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  background-color: $primary-color;
+  font-family: 'Futura';
+  padding: $base*2 $base*4 $base*6 $base*4;
+  h1 {
+    color: $light-color;
+    font-family: 'Futura-Bold';
+    text-align: left;
+    margin: $base*8 0 $base*2 0;
+  }
   form {
+    margin-top: $base*6;
     width: 100%;
     .password {
-      
+      text-align: right;
+      margin-bottom: $base*4;
+      a {
+        color: $light-color;
+        text-decoration: underline;
+      }
+    }
+    button {
+      background: $tertiary-color;
+      border-radius: 4px;
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      font-family: 'Futura';
+      cursor: pointer;
+      outline: none;
+      span {
+        font-size: 16px;
+      }
     }
     .form-control {
       min-height: 42px;

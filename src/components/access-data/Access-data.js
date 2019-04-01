@@ -7,9 +7,9 @@ import {
   Input, Row, Col, PageHeader, Button
 } from 'antd';
 import { createBrowserHistory } from 'history';
+import AuthService from '../../services/AuthService'
 
 const history = createBrowserHistory();
-
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}/;
 
@@ -43,9 +43,29 @@ class AccessData extends Component {
       alias:''
     },
   };
+  userSubscription = undefined
+
+  componentDidMount = () => {
+    this.userSubscription = AuthService.onUserChange().subscribe(user =>
+      this.setState({ user: user})
+      )};
+
+  componentWillUnmount() {
+    this.userSubscription.unsubscribe();
+  }
 
   goBack(){
     history.goBack();
+  }
+
+  updateUser = () => {
+    const newUser = {
+      ...this.state.user
+    }
+    AuthService.updateUser(newUser);
+    this.setState({
+      user: newUser
+    })
   }
 
   handleChange = (event) => {
@@ -87,17 +107,17 @@ render() {
                 type="text"
                 size="large"
                 className='mb-2'
-                name="name"
-                placeholder="Nombre"
+                name="alias"
+                placeholder={user.alias}
                 onChange={this.handleChange}
-                value={user.name}
+                value={user.alias}
                 onBlur={this.handleBlur} />
               <Input
                 type="text"
                 size="large"
                 className='mb-2'
                 name="email"
-                placeholder="Email"
+                placeholder={user.email}
                 onChange={this.handleChange}
                 value={user.email}
                 onBlur={this.handleBlur}/>
@@ -108,7 +128,7 @@ render() {
                 className="my-3"
                 block
                 size="large"
-                htmlType="submit">
+                onClick={this.updateUser}>
                 Guardar
               </Button>
             </form>
