@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/AuthService';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Navbar, Nav
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import './Menu.scss';
 
 class Menu extends Component {
@@ -24,10 +23,10 @@ class Menu extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavLink to="/access-data">Datos de acceso</NavLink>
-            <NavLink to="/cicle-data">Datos de tu ciclo</NavLink>
-            {/* <NavLink href="/colaborator-data">Colaboradores/as</NavLink>
-            <NavLink href="#">Fases de la regla</NavLink>
+            <NavLink to="/access">Datos de acceso</NavLink>
+            <NavLink to="/cicle">Datos de tu ciclo</NavLink>
+            <NavLink to="/colaborator">Colaboradores/as</NavLink>
+            {/* <NavLink href="#">Fases de la regla</NavLink>
             <NavLink href="#">Donaciones</NavLink> */}
             <button onClick={this.handleLogout}>Cerrar sesión</button>
           </Nav>

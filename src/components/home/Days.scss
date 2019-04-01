@@ -1,0 +1,37 @@
+@import '../../variables';
+
+.pagination-days {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding: $base*2 $base 0 $base;
+  background-color: $background-color;
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid $border-color;
+    background-color: $light-color;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: $primary-color;
+    font-size: 14px;
+    position: relative;
+    .cicle-days {
+      font-size: 10px;
+      position: absolute;
+      top: 0;
+    }
+    &.period {
+      color: $tertiary-color;
+    }
+    &.active {
+      width: 60px;
+      height: 60px;
+      font-size: 22px;
+    }
+  }
+}

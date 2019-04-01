@@ -15,6 +15,7 @@ import Sport from './components/home/tips/Sport';
 import Food from './components/home/tips/Food';
 import Health from './components/home/tips/Health';
 import Sex from './components/home/tips/Sex';
+import ColaboratorData from './components/colaborator-data/Colaborator-data';
 
 class App extends Component {
   render() {
@@ -29,8 +30,9 @@ class App extends Component {
               <Route exact path="/register" component={Register}/>
               <Route exact path="/modify-password" component={ModifyPassword}/>
               <Route exact path="/onboarding" component={Onboarding}/>
-              <Route exact path="/access-data" component={AccessData}/>
-              <Route exact path="/cicle-data" component={CicleData}/>
+              <Route exact path="/access" component={AccessData}/>
+              <Route exact path="/cicle" component={CicleData}/>
+              <Route exact path="/colaborator" component={ColaboratorData}/>
               <PrivateRoute exact path="/home" component={Home}/>
               <PrivateRoute exact path="/sport" component={Sport}/>
               <PrivateRoute exact path="/food" component={Food}/>

@@ -72,7 +72,6 @@ render() {
   const { user } = this.state;
   const Option = Select.Option;
   if (!user) return <p style={{ color: 'black' }}>Loading</p>
-  console.log(user.contraceptives)
     return (
       <div>
         <PageHeader
