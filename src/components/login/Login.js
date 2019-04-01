@@ -103,7 +103,7 @@ class Login extends Component {
   hasErrors = () => Object.keys(this.state.user)
     .some(attr => validators[attr] && validators[attr](this.state.user[attr]))
   
-    goBack(){
+  goBack(){
     history.goBack();
   }
 

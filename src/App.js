@@ -11,6 +11,10 @@ import Home from './components/home/Home';
 import ModifyPassword from './components/modify-password/ModifyPassword';
 import AccessData from './components/access-data/Access-data';
 import CicleData from './components/cicle-data/Cicle-data';
+import Sport from './components/home/tips/Sport';
+import Food from './components/home/tips/Food';
+import Health from './components/home/tips/Health';
+import Sex from './components/home/tips/Sex';
 
 class App extends Component {
   render() {
@@ -28,6 +32,10 @@ class App extends Component {
               <Route exact path="/access-data" component={AccessData}/>
               <Route exact path="/cicle-data" component={CicleData}/>
               <PrivateRoute exact path="/home" component={Home}/>
+              <PrivateRoute exact path="/sport" component={Sport}/>
+              <PrivateRoute exact path="/food" component={Food}/>
+              <PrivateRoute exact path="/health" component={Health}/>
+              <PrivateRoute exact path="/sex" component={Sex}/>
               <PrivateRoute exact path="/users"/>
               <Redirect to="/"/>
             </Switch>

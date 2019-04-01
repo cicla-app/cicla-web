@@ -43,12 +43,12 @@ class AccessData extends Component {
       alias:''
     },
   };
-  userSubscription = undefined
+  userSubscription = undefined;
 
   componentDidMount = () => {
     this.userSubscription = AuthService.onUserChange().subscribe(user =>
       this.setState({ user: user})
-      )};
+  )};
 
   componentWillUnmount() {
     this.userSubscription.unsubscribe();

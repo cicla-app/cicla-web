@@ -66,7 +66,10 @@ class Register extends Component {
     if (!this.hasErrors()) {
       authService.register(this.state.user)
       .then(
-        (user) => this.setState({ step: 2 }),
+        (user) => {
+          this.setState({ step: 2 });
+          this.updateUser();
+        },
         (error) => {
           const { message, errors } = error.response.data;
           this.setState({
