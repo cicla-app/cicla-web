@@ -15,17 +15,9 @@
   }
   
   .link-button {
-    background: $tertiary-color;
-    border-radius: 4px;
-    font-size: 12px;
-    text-align: center;
-    padding: 10px;
-    border: none;
     font-family: 'Futura';
     cursor: pointer;
     outline: none;
-    min-width: $base*6;
     color: $light-color;
-    font-weight: 700;
   }
 }

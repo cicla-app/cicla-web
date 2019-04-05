@@ -21,7 +21,7 @@ render() {
           to="/">
           <Icon
             type="close"
-            style={{ fontSize: '18px', fontWeight: '700' }} />
+            style={{ fontSize: '28px' }} />
         </Link>
       </Navbar>
     </div>

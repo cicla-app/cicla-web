@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authService from '../../services/AuthService';
 import { Link, withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
@@ -14,24 +15,33 @@ const history = createBrowserHistory();
 class Onboarding extends Component {
   state = {
     user: {
-      alias:'',
+      ...this.props.user,
       periodDays: '',
       cycleDays: '',
       contraceptives: false,
+      startPeriod: ''
     },
-    period: {
-      startPeriod: '',
-      endPeriod: ''
-    },
-    step: 0,
+    step: 0
   };
 
   clickhandle = step => {
-    this.setState( { step: step } );
+    if (step === 5) {
+      authService.updateUser(this.state.user)
+        .then(user => {
+          this.setState( { step: step });
+        }, (error) => console.error(error))
+    } else {
+      this.setState( { step: step });
+    }
   }
 
   handleStartDate = (startPeriod) => {
-    this.setState({ period: { startPeriod }});
+    this.setState({
+      user: {
+        ...this.state.user,
+        startPeriod: startPeriod
+      },
+    })
   };
 
   handleSelectChange = value => {
@@ -72,7 +82,8 @@ class Onboarding extends Component {
   }
 
   renderStep1() {
-    const { user } = this.state;
+    console.log('ONBOARDING', this.props)
+    const { user } = this.props;
     return (
       <div>
         <PageHeader
@@ -140,6 +151,7 @@ class Onboarding extends Component {
 
   renderStep3() {
     const {user} = this.state;
+    console.log(user)
     return (
       <div>
         <div className="container-onboarding">

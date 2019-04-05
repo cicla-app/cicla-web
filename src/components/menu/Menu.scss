@@ -1,0 +1,23 @@
+@import '../../variables';
+
+nav.navbar.navbar-expand-lg {
+  background-color: $primary-color;
+  .navbar-brand {
+    color: $light-color;
+  }
+  button.navbar-toggler {
+    border-color: $light-color;
+  }
+  .mr-auto.navbar-nav {
+    a {
+      color: $light-color;
+      font-size: 18px;
+      border-bottom: 1px solid $light-color;
+      padding-bottom: $base;
+    }
+    button {
+      color: $light-color;
+      font-size: 18px;
+    }
+  }
+}

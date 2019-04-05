@@ -3,7 +3,7 @@
 .container-login {
   background-color: $primary-color;
   font-family: 'Futura';
-  padding: $base*2 $base*4 $base*6 $base*4;
+  padding: $base*2 $base*4 $base*10 $base*4;
   h1 {
     color: $light-color;
     font-family: 'Futura-Bold';
@@ -33,12 +33,6 @@
       outline: none;
       span {
         font-size: 16px;
-      }
-    }
-    .form-control {
-      min-height: 42px;
-      &.is-invalid {
-        background-image: none;
       }
     }
   }

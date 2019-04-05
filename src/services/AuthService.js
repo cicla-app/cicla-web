@@ -14,7 +14,11 @@ const login = (user) => http.post('/login', user)
   });
 
 const register = (user) => http.post('/users', user)
-  .then(response => response.data);
+  .then(response => {
+    user = response.data;
+    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+    return user;
+  });
 
 const logout = () => http.get('/logout')
   .then(response => {
@@ -23,10 +27,9 @@ const logout = () => http.get('/logout')
     return response.data
   });
 
-const updateUser = (newUser) => {
-    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(newUser));
-    user$.next(user);
-  }
+const updateUser = (newUser) => http.put(`/users/${newUser.id}`, newUser)
+  .then(response => console.log(response.data)
+  )
 
 const onUserChange = () => user$.asObservable();
 

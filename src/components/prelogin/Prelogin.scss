@@ -4,40 +4,19 @@
   background-color: $primary-color;
   font-family: 'Futura';
   padding: $base*2 $base*4 $base*4 $base*4;
+  .logo {
+    color: transparent;
+    background-image: url('../../images/logo.png');
+    background-size: contain;
+    width: 150px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   h1 {
     color: $light-color;
     font-family: 'Futura-Bold';
     text-align: left;
     margin: $base*8 0 $base*2 0;
-  }
-  .facebook {
-    button {
-      background: #4267B2;
-    }
-  }
-  .google {
-    margin-bottom: $base*4;
-    button {
-      background: $light-color;
-      span {
-        color: $primary-color;
-      }
-    }
-  }
-  .link {
-    margin: $base*5 0;
-    background: $tertiary-color;
-    border-radius: 4px;
-    font-size: 12px;
-    text-align: center;
-    padding: $base 0;
-    border: none;
-    font-family: 'Futura';
-    cursor: pointer;
-    outline: none;
-    a, span {
-      color: $light-color;
-      font-size: 16px;
-    }
   }
 }

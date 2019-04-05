@@ -6,10 +6,11 @@ import './Login.scss';
 import { Redirect, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button, Row, Col, PageHeader
+  Input, Button, Row, Col
 } from 'antd';
 import Footer from '../footer/Footer';
 import { createBrowserHistory } from 'history';
+import Header from '../header/Header';
 
 const history = createBrowserHistory();
 
@@ -53,7 +54,6 @@ class Login extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-
     if (!this.hasErrors()) {
       authService.login(this.state.user)
       .then(
@@ -115,10 +115,7 @@ render() {
     return (
       <div>
         <div className="container-login">
-          <PageHeader
-            onBack={() => this.goBack()} 
-            title="INICIAR SESIÓN">
-          </PageHeader>
+          <Header></Header>
           <Row>
             <Col>
               <h1>Inicia sesión</h1>

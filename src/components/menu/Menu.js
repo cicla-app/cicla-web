@@ -18,17 +18,31 @@ class Menu extends Component {
   render() {
     const {user} = this.props;
     return (
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand>{user.alias}</Navbar.Brand>
+      <Navbar expand="lg">
+        <Navbar.Brand>¡Hola, {user.alias}!</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavLink to="/access">Datos de acceso</NavLink>
-            <NavLink to="/cicle">Datos de tu ciclo</NavLink>
-            <NavLink to="/colaborator">Colaboradores/as</NavLink>
-            {/* <NavLink href="#">Fases de la regla</NavLink>
-            <NavLink href="#">Donaciones</NavLink> */}
-            <button onClick={this.handleLogout}>Cerrar sesión</button>
+            <NavLink
+              className="my-2"
+              to="/access">
+              Datos de acceso
+            </NavLink>
+            <NavLink
+              className="my-2"
+              to="/cicle">
+              Datos de tu ciclo
+            </NavLink>
+            <NavLink
+              className="my-2"
+              to="/colaborator">
+              Colaboradores/as
+            </NavLink>
+            <button
+              className="my-2"
+              onClick={this.handleLogout}>
+              Cerrar sesión
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -4,6 +4,7 @@ import 'antd-mobile/dist/antd-mobile.css';
 import './Sport.scss'
 import { PageHeader, Icon } from 'antd';
 import { createBrowserHistory } from 'history';
+import Moment from 'react-moment';
 
 const history = createBrowserHistory();
 
@@ -20,10 +21,14 @@ class Sport extends React.Component {
         </PageHeader>
         <div>
           <div className="subheader">
-            <p className="date">19-03-2019</p>
+            <p className="date">
+              <Moment
+                format="DD-MM-YYYY">
+              </Moment>
+            </p>
             <p>Fase folicular media</p>
           </div>
-          <div class="card">
+          <div className="card">
             En esta fase tu fuerza puede llegar a aumentar un 11% Entre la regla y la ovulación es donde tienes que concentrar el trabajo de fuerza.
           </div>
           <div className="card">
