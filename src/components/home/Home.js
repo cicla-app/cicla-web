@@ -1,4 +1,5 @@
 import React  from 'react';
+import authService from '../../services/AuthService';
 import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import '../../_variables.scss';
@@ -11,8 +12,27 @@ import Calendar from 'react-calendar';
 
 class Home extends React.Component {
   state = {
-    date: new Date(),
-  }
+    user: {
+      ...this.props.user,
+      periodDays: '',
+      cycleDays: '',
+      contraceptives: false,
+      startPeriod: ''
+    },
+    step: 0
+  };
+
+    handleStartDate = (startPeriod) => {
+      console.log(startPeriod)
+      authService.createPeriod(this.props.location.state.userId, startPeriod)
+      this.setState({
+        user: {
+          ...this.state.user,
+          startPeriod: startPeriod
+        },
+      })
+    };
+
   render() {
     const TabPane = Tabs.TabPane;
     return (
@@ -59,9 +79,10 @@ class Home extends React.Component {
             </Card>
           </TabPane>
           <TabPane tab="Mes" key="2">
+            <p className="subtitle">Aquí puedes ver la predicción de tus ciclos y añadir los periodos:</p>
             <Calendar
-              onChange={this.onChange}
-              value={this.state.date}/>
+              onClickDay={this.handleStartDate}
+              value={this.state.startPeriod}/>
           </TabPane>
         </Tabs>
       </div>

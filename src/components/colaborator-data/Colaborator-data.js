@@ -15,7 +15,7 @@ const history = createBrowserHistory();
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 
 const validators = {
-  email: (value) => {
+  colaborator: (value) => {
     let error;
     if (!value || value === '') {
       error = 'Email is required';
@@ -28,42 +28,34 @@ const validators = {
 
 class ColaboratorData extends Component {
   state = {
-    step: 0,
     user: {
-      email: '',
+      colaborator: '',
     },
     errors: {},
     touch: {},
-    authenticated: false
   };
 
   onSubmit = (event) => {
     event.preventDefault();
     if (!this.hasErrors()) {
-      authService.register(this.state.user)
+      authService.updateUser(this.state.user)
       .then(
-        (user) => {
-          this.setState({ step: 2 });
-          this.updateUser();
-        },
+        (user) => this.setState(user),
         (error) => {
-          const { message, errors } = error.response.data;
+          const { errors } = error.response.data;
           this.setState({
             errors: {
               ...this.state.errors,
               ...errors,
-              password: message
             }
           })
         }
       )
     }
-    
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
-
     this.setState({
       user: {
         ...this.state.user,
@@ -71,7 +63,7 @@ class ColaboratorData extends Component {
       },
       errors: {
         ...this.state.errors,
-        [name]: validators[name] && validators[name](value, this.state.user)
+        [name]: validators[name] && validators[name](value)
       }
     })
   }
@@ -105,21 +97,26 @@ class ColaboratorData extends Component {
           <p className="mt-3">Invita a otras personas para que conozcan de cerca los síntomas y efectos de tu ciclo menstrual en tu vida diaria.</p>
           <p>Escribe el mail de la persona y le mandaremos un enlace para que pueda descargarse y ver tus datos.</p>
           <p className="mt-3">Correo electrónico de colaborador/a:</p>
-          <Input
-            type="text"
-            size="large"
-            className={`form-control ${touch.email && errors.email && 'is-invalid'} mb-2`}
-            name="email"
-            placeholder="Email"
-            onChange={this.handleChange} value={user.email}
-            onBlur={this.handleBlur} />
-          <div className="invalid-feedback">{errors.email}</div>
-          <Button
-            className="my-3"
-            block
-            size="large">
-            Enviar
-          </Button>
+          <form onSubmit={this.onSubmit}>
+            <Input
+              type="text"
+              size="large"
+              className={`form-control ${touch.colaborator && errors.colaborator && 'is-invalid'} mb-2`}
+              name="colaborator"
+              placeholder="Email"
+              onChange={this.handleChange}
+              value={user.colaborator}
+              onBlur={this.handleBlur} />
+            <div className="invalid-feedback">{errors.colaborator}</div>
+            <Button
+              className="my-3"
+              block
+              size="large"
+              htmlType="submit"
+              disabled={this.hasErrors()}>
+              Enviar
+            </Button>
+          </form>
         </div>
       </div>
     );

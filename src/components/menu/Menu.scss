@@ -7,6 +7,9 @@ nav.navbar.navbar-expand-lg {
   }
   button.navbar-toggler {
     border-color: $light-color;
+    span.navbar-toggler-icon {
+      background-image: url('../../images/menu.svg');
+    }
   }
   .mr-auto.navbar-nav {
     a {

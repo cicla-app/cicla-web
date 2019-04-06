@@ -120,9 +120,56 @@ button, a, input::placeholder {
   background-color: $tertiary-color;
 }
 
-.ant-tabs-nav-container {
-  font-size: 22px;
-  .ant-tabs-tab-active.ant-tabs-tab, .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+.ant-tabs-bar {
+  margin: 0;
+  background-color: $light-color;
+  .ant-tabs-nav-container {
+    font-size: 22px;
+    .ant-tabs-tab-active.ant-tabs-tab, .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+      color: $primary-color;
+    }
+  }
+}
+
+.react-calendar {
+  font-family: 'Futura';
+  background-color: $light-color;
+  border-radius: 4px;
+  color: $primary-color;
+  border: 0!important;
+  margin: 20px 0 0 5px;
+  font-size: 20px;
+  button.react-calendar__navigation__label {
+    color: $tertiary-color;
+  }
+  button.react-calendar__navigation__arrow {
+    font-size: 32px;
+    margin-bottom: $base;
+  }
+  .react-calendar__navigation {
+    .react-calendar__navigation__label {
+      text-transform: uppercase;
+    }
+    .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
+      display: none;
+    }
+  }
+  .react-calendar__navigation button:enabled:hover {
+    background-color: $light-color;
+  }
+  .react-calendar__month-view__weekdays {
+    font-family: 'Futura';
+    font-weight: 100;
+  }
+  abbr[title] {
+    text-decoration: none;
+  }
+  .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth {
     color: $primary-color;
+  }
+  .react-calendar__tile--active {
+    background-color: $secondary-color!important;
+    color: $light-color;
+    border-radius: 50%;
   }
 }

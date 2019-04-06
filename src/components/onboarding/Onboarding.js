@@ -3,12 +3,14 @@ import authService from '../../services/AuthService';
 import { Link, withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
-import './Onboarding.scss'
-import { withAuthConsumer } from '../../contexts/AuthStore'
+import './Onboarding.scss';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Button, PageHeader, Input, Calendar, Select, Row, Col
+  Button, PageHeader, Input, Select, Row, Col
 } from 'antd';
 import { createBrowserHistory } from 'history';
+import Logo from '../header/Logo';
+import Calendar from 'react-calendar';
 
 const history = createBrowserHistory();
 
@@ -19,7 +21,6 @@ class Onboarding extends Component {
       periodDays: '',
       cycleDays: '',
       contraceptives: false,
-      startPeriod: ''
     },
     step: 0
   };
@@ -36,6 +37,7 @@ class Onboarding extends Component {
   }
 
   handleStartDate = (startPeriod) => {
+    authService.createPeriod(this.props.user.id, startPeriod)
     this.setState({
       user: {
         ...this.state.user,
@@ -77,18 +79,16 @@ class Onboarding extends Component {
       return this.renderStep6()
     }
   }
+
   goBack(){
     history.goBack();
   }
 
   renderStep1() {
-    console.log('ONBOARDING', this.props)
     const { user } = this.props;
     return (
       <div>
-        <PageHeader
-          onBack={() => this.goBack()}>
-        </PageHeader>
+        <Logo></Logo>
         <div className="container-onboarding">
           <Row>
             <Col span={20} offset={2}>
@@ -121,13 +121,10 @@ class Onboarding extends Component {
             </Col>
           </Row>
             <div
-              className="mb-2"
-              style={{width: 300,
-              border: '1px solid #d9d9d9',
-              borderRadius: 4 }}>
+              className="mb-2">
               <Calendar
-                fullscreen={false}
-                onSelect={this.handleStartDate}/>
+                onClickDay={this.handleStartDate}
+                value={this.state.startPeriod}/>
             </div>
           <Row style={{width: '100%'}}>
             <Col span={20} offset={2}>
@@ -135,13 +132,10 @@ class Onboarding extends Component {
                 block
                 size="large"
                 className="my-2"
+                disabled={!this.state.user.startPeriod}
                 onClick={() => this.clickhandle( 2 )}>
                 Siguiente
               </Button>
-              <div
-                onClick={() => this.clickhandle( 2 )}>
-                No lo sé con seguridad
-              </div>
             </Col>
           </Row>
         </div>
@@ -151,7 +145,6 @@ class Onboarding extends Component {
 
   renderStep3() {
     const {user} = this.state;
-    console.log(user)
     return (
       <div>
         <div className="container-onboarding">
@@ -160,7 +153,7 @@ class Onboarding extends Component {
               <p className="subtitle calendar">¿Cuándo dura tu regla aproximadamente?</p>
               <Input
                 className="mb-2"
-                placeholder="4"
+                placeholder="5"
                 type="number"
                 name="periodDays"
                 value={user.periodDays}
@@ -170,13 +163,10 @@ class Onboarding extends Component {
                 block
                 size="large"
                 className="my-2"
+                disabled={!this.state.user.periodDays}
                 onClick={() => this.clickhandle( 3 )}>
                 Siguiente
               </Button>
-              <div
-                onClick={() => this.clickhandle( 3 )}>
-                No lo sé con seguridad
-              </div>
             </Col>
           </Row>
         </div>
@@ -196,7 +186,7 @@ class Onboarding extends Component {
                 className="mb-2"
                 type="number"
                 name="cycleDays"
-                placeholder="28"
+                placeholder="31"
                 value={user.cycleDays}
                 onChange={this.handleChange}>
               </Input>
@@ -204,13 +194,10 @@ class Onboarding extends Component {
                 block
                 size="large"
                 className="my-2"
+                disabled={!this.state.user.cycleDays}
                 onClick={() => this.clickhandle( 4 )}>
                 Siguiente
               </Button>
-              <div
-                onClick={() => this.clickhandle( 4 )}>
-                No lo sé con seguridad
-              </div>
             </Col>
           </Row>
         </div>
@@ -241,10 +228,6 @@ class Onboarding extends Component {
               onClick={() => this.clickhandle( 5 )}>
               Siguiente
             </Button>
-            <div
-              onClick={() => this.clickhandle( 5 )}>
-              No lo sé con seguridad
-            </div>
           </Col>
         </Row>
         </div>
@@ -253,6 +236,7 @@ class Onboarding extends Component {
   }
 
   renderStep6() {
+    console.log(this.state.user)
     return (
       <div>
         <PageHeader
@@ -265,7 +249,12 @@ class Onboarding extends Component {
             Ya puedes empezar a usar CICLA
           </p>
           <Link
-            to="/home"
+            to={{
+              pathname: '/home',
+              state: {
+                userId: this.state.user.id
+              }
+            }}
             className="mt-3">
             Empezar
           </Link>

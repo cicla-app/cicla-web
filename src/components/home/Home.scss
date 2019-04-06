@@ -45,18 +45,10 @@
       bottom: $base*2;
     }
   }
-}
-
-.react-calendar {
-  border: 0!important;
-  margin: 20px 0 0 5px;
-  font-size: 20px;
-  .react-calendar__navigation {
-    .react-calendar__navigation__label {
-      text-transform: uppercase;
-    }
-    .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
-      display: none;
-    }
+  .subtitle {
+    color: $primary-color;
+    margin: $base*2 $base*2;
+    text-align: left;
+    font-size: 16px;
   }
 }

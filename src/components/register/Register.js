@@ -6,11 +6,12 @@ import '../../_variables.scss';
 import './Register.scss';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button, Switch, PageHeader, Row, Col
+  Input, Button, Switch, Row, Col
 } from 'antd';
 import Footer from '../footer/Footer';
 import { createBrowserHistory } from 'history';
 import Header from '../header/Header';
+import Logo from '../header/Logo';
 
 const history = createBrowserHistory();
 
@@ -21,9 +22,9 @@ const validators = {
   email: (value) => {
     let error;
     if (!value || value === '') {
-      error = 'Email is required';
+      error = 'Email es obligatorio';
     } else if (!emailPattern.test(value)) {
-      error = 'Invalid email format'; 
+      error = 'Formato de email inválido'; 
     }
     return error;
   },
@@ -142,7 +143,7 @@ class Register extends Component {
   }
 
   renderStep1() {
-    const { touch, errors, user } = this.state;
+    const { touch, errors } = this.state;
     return (
       <div>
         <div className="container-register">
@@ -159,7 +160,7 @@ class Register extends Component {
             name="email"
             placeholder="Email"
             onChange={this.handleChange}
-            value={user.email}
+            value={this.state.user.email}
             onBlur={this.handleBlur} />
           <div className="invalid-feedback">{errors.email}</div>
           <Input.Password
@@ -169,7 +170,7 @@ class Register extends Component {
             name="password"
             placeholder="Contraseña"
             onChange={this.handleChange}
-            value={user.password}
+            value={this.state.user.password}
             onBlur={this.handleBlur}/>
           <div className="invalid-feedback">{errors.password}</div>
           <Input.Password
@@ -217,22 +218,17 @@ class Register extends Component {
     );
   }
 
-  
-
   renderStep2() {
     const {user} = this.state;
     return (
       <div>
         <div>
-          <PageHeader
-            onBack={() => this.goBack()} 
-            title="CREAR CUENTA">
-            </PageHeader>
-          <div className="container-register">
-            <h1 className="my-3">Confirma tu cuenta</h1>
-            <p>Hemos enviado un mail a la dirección:</p>
-            <p>{user.mail}</p>
-            <p className="mb-3">Sigue las instrucciones para verificar tu cuenta.</p>
+          <Logo></Logo>
+          <div className="container-register-step2">
+            <h1>Confirma tu cuenta</h1>
+            <p className="mt-3">Hemos enviado un mail a la dirección:</p>
+            <p className="email">{user.email}</p>
+            <p className="my-3">Sigue las instrucciones para verificar tu cuenta.</p>
             <p className="mb-3">¿No te ha llegado el mail? Escríbenos a hola@cicla.app</p>
           </div>
         </div>

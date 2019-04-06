@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import { Row, Col } from 'antd';
 import Footer from '../footer/Footer';
+import Logo from '../header/Logo';
 
 class Prelogin extends Component {
 render() {
   return (
     <div>
+      <Logo></Logo>
       <div className="container-prelogin">
-        <div className="logo"></div>
         <Row>
           <Col>
             <h1>Crea una cuenta o inicia sesión</h1>

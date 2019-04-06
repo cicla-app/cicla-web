@@ -13,18 +13,20 @@ const history = createBrowserHistory();
 
 class CicleData extends Component {
   state = {
-    user: null,
+    user: {
+      ...this.props.user,
+      cycleDays: '',
+      periodDays:'',
+      contraceptives: ''
+    },
   };
   userSubscription = undefined
 
   componentDidMount = () => {
-    this.userSubscription = AuthService.onUserChange().subscribe(user =>
-      this.setState({ user: user})
-      )};
-
-  componentWillUnmount() {
-    this.userSubscription.unsubscribe();
-  }
+    AuthService.getUser(this.state.user.id)
+      .then(user => this.setState({ user: user})
+  )
+   console.log(this.state)}
 
   goBack(){
     history.goBack();
@@ -88,7 +90,7 @@ render() {
                 name="periodDays"
                 placeholder="Duración de la regla"
                 onChange={this.handleChange}
-                value={user.periodDays}
+                value={this.state.user.periodDays}
                 onBlur={this.handleBlur} />
               <Input
                 type="number"

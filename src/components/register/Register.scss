@@ -1,32 +1,52 @@
 @import '../../variables';
 
 .container-register {
-  background-color: $primary-color;
   font-family: 'Futura';
   padding: $base*2 $base*4 $base*20 $base*4;
-  height: 100vh;
+  font-size: 18px;
+  background-color: $primary-color;
+  color: $light-color;
   h1 {
-    color: $light-color;
     font-family: 'Futura-Bold';
+    color: $light-color;
     text-align: left;
-    margin: $base*8 0 $base*2 0;
+    margin: $base*4 0 $base*4 0;
   }
   p {
-    color: $light-color;
     text-align: left;
-    margin-bottom: $base*4;
   }
   form {
     input {
       margin-bottom: $base*3;
     }
-  } 
+  }
   .conditions {
     display: flex;
     align-items: baseline;
+    font-size: 16px;
     a {
       color: $light-color;
       text-decoration: underline;
     }
+  }
+}
+
+.container-register-step2 {
+  padding: $base*2 $base*4 $base*20 $base*4;
+  color: $primary-color;
+  text-align: left;
+  h1 {
+    font-family: 'Futura-Bold';
+    color: $primary-color;
+    margin: $base 0 $base*4 0;
+    font-size: 36px;
+  }
+  p {
+    color: $primary-color;
+    text-align: left;
+    font-size: 16px;
+  }
+  .email {
+    margin-bottom: $base*8;
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import '../../_variables.scss';
+import './Access-data.scss';
 import { Link, withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Row, Col, PageHeader, Button
+  Input, PageHeader, Button
 } from 'antd';
 import { createBrowserHistory } from 'history';
 import AuthService from '../../services/AuthService'
@@ -100,13 +100,13 @@ render() {
           onBack={() => this.goBack()}
           title="Datos de acceso">
         </PageHeader>
-        <Row className="mt-3">
-          <Col span={20} offset={2}>
+        <div className="container-data">
+          <div>
             <form onSubmit={this.onSubmit}>
               <Input
                 type="text"
                 size="large"
-                className='mb-2'
+                className='my-3'
                 name="alias"
                 placeholder={user.alias}
                 onChange={this.handleChange}
@@ -115,7 +115,7 @@ render() {
               <Input
                 type="text"
                 size="large"
-                className='mb-2'
+                className='mb-3'
                 name="email"
                 placeholder={user.email}
                 onChange={this.handleChange}
@@ -123,7 +123,7 @@ render() {
                 onBlur={this.handleBlur}/>
               <Link
                 className="my-3"
-                to="/access-data">Cambiar contraseña</Link>
+                to="/modify-password">Cambiar contraseña</Link>
               <Button
                 className="my-3"
                 block
@@ -132,8 +132,8 @@ render() {
                 Guardar
               </Button>
             </form>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }

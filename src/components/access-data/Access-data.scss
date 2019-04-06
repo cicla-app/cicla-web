@@ -1,0 +1,15 @@
+@import '../../variables';
+
+.container-data {
+  font-family: 'Futura';
+  padding: $base*7 $base*4 $base*10 $base*4;
+  a {
+    color: $tertiary-color;
+    text-decoration: underline;
+    font-size: 18px;
+  }
+  input::placeholder {
+    font-family: 'Futura';
+    font-size: 18px;
+  }
+}

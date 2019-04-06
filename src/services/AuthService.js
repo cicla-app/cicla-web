@@ -27,16 +27,28 @@ const logout = () => http.get('/logout')
     return response.data
   });
 
+
 const updateUser = (newUser) => http.put(`/users/${newUser.id}`, newUser)
-  .then(response => console.log(response.data)
+  .then(response => response.data)
+  
+
+const getUser = (id) => http.get(`/users/${id}`)
+  .then(response => response.data
   )
 
 const onUserChange = () => user$.asObservable();
+
+const createPeriod = (id, startPeriod) => {
+  return http.post(`/periods/${id}`, {id, startPeriod})
+    .then(response => response.data)
+} 
 
 export default {
   login,
   register,
   logout,
   onUserChange,
-  updateUser
+  updateUser,
+  getUser,
+  createPeriod
 }
