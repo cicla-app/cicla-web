@@ -8,11 +8,8 @@ import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
   Button, PageHeader, Input, Select, Row, Col
 } from 'antd';
-import { createBrowserHistory } from 'history';
 import Logo from '../header/Logo';
 import Calendar from 'react-calendar';
-
-const history = createBrowserHistory();
 
 class Onboarding extends Component {
   state = {
@@ -22,11 +19,11 @@ class Onboarding extends Component {
       cycleDays: '',
       contraceptives: false,
     },
-    step: 0
+    step: 0,
   };
 
   clickhandle = step => {
-    if (step === 5) {
+    if (step === 3) {
       authService.updateUser(this.state.user)
         .then(user => {
           this.setState( { step: step });
@@ -73,15 +70,7 @@ class Onboarding extends Component {
       return this.renderStep3()
     } else if( this.state.step === 3 ) {
       return this.renderStep4()
-    } else if( this.state.step === 4 ) {
-      return this.renderStep5()
-    } else if( this.state.step === 5 ) {
-      return this.renderStep6()
     }
-  }
-
-  goBack(){
-    history.goBack();
   }
 
   renderStep1() {
@@ -100,9 +89,9 @@ class Onboarding extends Component {
               <Button
                 block
                 size="large"
-                className="mt-3"
+                className="mt-3 button-onboarding"
                 onClick={() => this.clickhandle( 1 )}>
-                Confirmar
+                CONFIRMAR
               </Button>
             </Col>
           </Row>
@@ -114,6 +103,7 @@ class Onboarding extends Component {
   renderStep2() {
     return (
       <div>
+        <Logo></Logo>
         <div className="container-onboarding">
           <Row>
             <Col span={20} offset={2}>
@@ -131,10 +121,10 @@ class Onboarding extends Component {
               <Button
                 block
                 size="large"
-                className="my-2"
+                className="my-2 button-onboarding"
                 disabled={!this.state.user.startPeriod}
                 onClick={() => this.clickhandle( 2 )}>
-                Siguiente
+                SIGUIENTE
               </Button>
             </Col>
           </Row>
@@ -145,12 +135,14 @@ class Onboarding extends Component {
 
   renderStep3() {
     const {user} = this.state;
+    const Option = Select.Option;
     return (
       <div>
+        <Logo></Logo>
         <div className="container-onboarding">
           <Row>
             <Col span={20} offset={2}>
-              <p className="subtitle calendar">¿Cuándo dura tu regla aproximadamente?</p>
+              <p className="subtitle calendar">¿Cuántos días dura tu regla aproximadamente?</p>
               <Input
                 className="mb-2"
                 placeholder="5"
@@ -159,13 +151,31 @@ class Onboarding extends Component {
                 value={user.periodDays}
                 onChange={this.handleChange}>
               </Input>
+              <p className="subtitle calendar">¿Cuántos días dura tu ciclo aproximadamente?</p>
+              <Input
+                className="mb-2"
+                type="number"
+                name="cycleDays"
+                placeholder="31"
+                value={user.cycleDays}
+                onChange={this.handleChange}>
+              </Input>
+              <p className="subtitle calendar">¿Usas anticonceptivos hormonales?</p>
+              <Select
+                defaultValue="no"
+                name="contraceptives"
+                onChange={this.handleSelectChange}
+                style={{ width: '100%' }}>
+                <Option value="yes">Sí</Option>
+                <Option value="no">No</Option>
+              </Select>
               <Button
                 block
                 size="large"
-                className="my-2"
-                disabled={!this.state.user.periodDays}
+                className="button-onboarding select"
+                disabled={!(this.state.user.periodDays && this.state.user.cycleDays)}
                 onClick={() => this.clickhandle( 3 )}>
-                Siguiente
+                SIGUIENTE
               </Button>
             </Col>
           </Row>
@@ -175,72 +185,10 @@ class Onboarding extends Component {
   }
 
   renderStep4() {
-    const {user} = this.state;
-    return (
-      <div>
-        <div className="container-onboarding">
-          <Row>
-            <Col span={20} offset={2}>
-              <p className="subtitle calendar">¿Cuándo dura tu ciclo aproximadamente?</p>
-              <Input
-                className="mb-2"
-                type="number"
-                name="cycleDays"
-                placeholder="31"
-                value={user.cycleDays}
-                onChange={this.handleChange}>
-              </Input>
-              <Button
-                block
-                size="large"
-                className="my-2"
-                disabled={!this.state.user.cycleDays}
-                onClick={() => this.clickhandle( 4 )}>
-                Siguiente
-              </Button>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    );
-  }
-
-  renderStep5() {
-    const Option = Select.Option;
-    return (
-      <div>
-        <div className="container-onboarding">
-        <Row>
-          <Col span={20} offset={2}>
-            <p className="subtitle calendar">¿Usas anticonceptivos hormonales?</p>
-            <Select
-              defaultValue="no"
-              name="contraceptives"
-              onChange={this.handleSelectChange}
-              style={{ width: '100%' }}>
-              <Option value="yes">Sí</Option>
-              <Option value="no">No</Option>
-            </Select>
-            <Button
-              block
-              size="large"
-              className="my-2"
-              onClick={() => this.clickhandle( 5 )}>
-              Siguiente
-            </Button>
-          </Col>
-        </Row>
-        </div>
-      </div>
-    );
-  }
-
-  renderStep6() {
-    console.log(this.state.user)
     return (
       <div>
         <PageHeader
-          onBack={() => this.goBack()}>
+          title="BIENVENIDA">
         </PageHeader>
         <div className="container-onboarding">
           <p className="subtitle">¡Enhorabuena!</p>
@@ -252,11 +200,12 @@ class Onboarding extends Component {
             to={{
               pathname: '/home',
               state: {
-                userId: this.state.user.id
+                userId: this.state.user.id,
+                user: this.state
               }
             }}
-            className="mt-3">
-            Empezar
+            className="mt-3 link-onboarding">
+            EMPEZAR
           </Link>
         </div>
       </div>

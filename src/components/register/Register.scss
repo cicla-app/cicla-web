@@ -2,51 +2,72 @@
 
 .container-register {
   font-family: 'Futura';
-  padding: $base*2 $base*4 $base*20 $base*4;
+  padding: $base*2 $base*4 $base*6 $base*4;
   font-size: 18px;
   background-color: $primary-color;
   color: $light-color;
-  h1 {
-    font-family: 'Futura-Bold';
-    color: $light-color;
-    text-align: left;
-    margin: $base*4 0 $base*4 0;
-  }
-  p {
-    text-align: left;
-  }
-  form {
-    input {
-      margin-bottom: $base*3;
-    }
-  }
-  .conditions {
-    display: flex;
-    align-items: baseline;
-    font-size: 16px;
-    a {
+  .content {
+    width: 50%;
+    margin: 0 auto;
+    h1 {
+      font-family: 'Futura-Bold';
       color: $light-color;
-      text-decoration: underline;
+      text-align: left;
+      margin: $base*4 0 $base*4 0;
     }
+    p {
+      text-align: left;
+    }
+    form {
+      input {
+        margin-bottom: $base*3;
+      }
+    }
+    .conditions {
+      display: flex;
+      align-items: baseline;
+      font-size: 16px;
+      a {
+        color: $light-color;
+        text-decoration: underline;
+      }
+    }
+  }
+  .ant-btn-disabled {
+    background-color: $tertiary-color!important;
+    color: $light-color!important;
+    opacity: 0.5;
   }
 }
 
 .container-register-step2 {
-  padding: $base*2 $base*4 $base*20 $base*4;
-  color: $primary-color;
+  padding: $base*2 $base*4 $base*10 $base*4;
+  background-color: $primary-color;
+  color: $light-color;
   text-align: left;
-  h1 {
-    font-family: 'Futura-Bold';
-    color: $primary-color;
-    margin: $base 0 $base*4 0;
-    font-size: 36px;
+  .content {
+    width: 50%;
+    margin: 0 auto;
+    h1 {
+      color: $light-color;
+      font-family: 'Futura-Bold';
+      margin: $base 0 $base*4 0;
+      font-size: 36px;
+    }
+    p {
+      text-align: left;
+      font-size: 18px;
+    }
+    .email {
+      margin-bottom: $base*4;
+    }
   }
-  p {
-    color: $primary-color;
-    text-align: left;
-    font-size: 16px;
-  }
-  .email {
-    margin-bottom: $base*8;
+}
+
+@media screen and (max-width: 599px) {
+  .container-register, .container-register-step2 { 
+    .content {
+      width: 100%;
+    }
   }
 }

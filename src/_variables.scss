@@ -2,17 +2,21 @@ $base : 8px;
 
 body {
   font-family: 'Futura';
+  p {
+    font-size: 18px;
+  }
 }
 
 // COLORS
-$primary-color: #214e8e;
-$secondary-color: #5AC4C4;
-$tertiary-color: #FF3F7E;
-$quarter-color: #F89100; 
+$primary-color: #5AC4C4;
+$secondary-color: #F4CC70;
+$tertiary-color: #DE7A22;
+$fifth-color: #FF3F7E;
+$six-color: #072146;
 $light-color: #ffffff;
 $background-color: #EEF0F3;
 $border-color: #bfbfbf;
-$footer-color: #072146;
+$footer-color: #20948B;
 
 .error {
   color:rgb(198, 47, 47);
@@ -65,7 +69,7 @@ $footer-color: #072146;
 // BUTTON AND LINKS
 .link {
   margin: $base*5 0;
-  background: $tertiary-color;
+  background: $fifth-color;
   border-radius: 4px;
   font-size: 12px;
   text-align: center;
@@ -84,7 +88,28 @@ button, a, input::placeholder {
   font-family: 'Futura';
 }
 
+a {
+  color: $fifth-color
+}
+
 // GLOBAL CSS
+.ant-btn {
+  text-transform: uppercase;
+  background-color: $fifth-color;
+  color: $light-color;
+}
+
+.ant-btn:hover {
+  background-color: $fifth-color;
+  color: $light-color;
+}
+
+.ant-btn-disabled, .ant-btn[disabled] , .ant-btn[disabled]:hover {
+  background-color: $fifth-color!important;
+  color: $light-color!important;
+  opacity: 0.5;
+}
+
 .form-control {
   min-height: 42px;
   &.is-invalid {
@@ -97,19 +122,24 @@ button, a, input::placeholder {
 }
 
 .ant-page-header {
-  background: $primary-color;
+  background: $footer-color;
   color: $light-color;
   display: flex;
   align-items: center;
   justify-content: center;
   span {
     color: $light-color;
+    font-size: 20px;
   }
   .ant-page-header-back-icon {
     position: absolute;
     left: 20px;
     display: flex;
     align-items: center;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
   }
   .ant-divider {
     display: none;
@@ -117,16 +147,23 @@ button, a, input::placeholder {
 }
 
 .ant-switch-checked {
-  background-color: $tertiary-color;
+  background-color: $fifth-color;
 }
 
 .ant-tabs-bar {
   margin: 0;
   background-color: $light-color;
+  border-bottom: 2px solid $footer-color;
+  .ant-tabs-nav {
+    color: $footer-color;
+  }
   .ant-tabs-nav-container {
     font-size: 22px;
     .ant-tabs-tab-active.ant-tabs-tab, .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
-      color: $primary-color;
+      color: $footer-color;
+    }
+    .ant-tabs-ink-bar {
+      background-color: $footer-color;
     }
   }
 }
@@ -137,14 +174,18 @@ button, a, input::placeholder {
   border-radius: 4px;
   color: $primary-color;
   border: 0!important;
-  margin: 20px 0 0 5px;
+  margin: $base*4 0 0 $base;
   font-size: 20px;
+  button {
+    color: $six-color;
+  }
   button.react-calendar__navigation__label {
-    color: $tertiary-color;
+    color: $six-color;
   }
   button.react-calendar__navigation__arrow {
     font-size: 32px;
     margin-bottom: $base;
+    color: $fifth-color;
   }
   .react-calendar__navigation {
     .react-calendar__navigation__label {
@@ -165,10 +206,10 @@ button, a, input::placeholder {
     text-decoration: none;
   }
   .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth {
-    color: $primary-color;
+    color: $six-color;
   }
   .react-calendar__tile--active {
-    background-color: $secondary-color!important;
+    background-color: $fifth-color!important;
     color: $light-color;
     border-radius: 50%;
   }

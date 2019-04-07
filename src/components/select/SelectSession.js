@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import './Prelogin.scss';
+import './SelectSession.scss';
 import '../../_variables.scss';
 import { Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
-import { Row, Col } from 'antd';
+import { Row, Col, Icon } from 'antd';
+import { Navbar } from 'react-bootstrap';
 import Footer from '../footer/Footer';
-import Logo from '../header/Logo';
 
-class Prelogin extends Component {
+class SelectSession extends Component {
 render() {
   return (
-    <div>
-      <Logo></Logo>
-      <div className="container-prelogin">
+    <div className="content">
+      <div className="header">
+        <Navbar expand="lg">
+          <Navbar.Brand
+            href="/"
+            className="logo"></Navbar.Brand>
+          <Link
+            size="large"
+            className="link-button"
+            variant="outline-success"
+            to='/' >
+            <Icon
+              type="close"
+              style={{ fontSize: '28px' }} />
+          </Link>
+        </Navbar>
+      </div>
+      <div className="container-select">
         <Row>
           <Col>
             <h1>Crea una cuenta o inicia sesión</h1>
@@ -42,4 +57,4 @@ render() {
   }
 }
 
-export default withAuthConsumer(Prelogin);
+export default withAuthConsumer(SelectSession);

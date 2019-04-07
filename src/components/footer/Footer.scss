@@ -1,29 +1,85 @@
 @import '../../variables';
-
-.footer-container {
-  background-color: $footer-color;
-  color: $light-color;
-  padding: $base*4 $base*2;
-  text-align: left;
-  .info {
-    margin-bottom: $base*4;
-    p {
-      margin-bottom: 0;
+@media screen and (max-width: 1280px) {
+  .footer-container {
+    background-color: $footer-color;
+    color: $light-color;
+    padding: $base*8 0 $base*2 0;
+    font-size: 16px;
+    .footer {
+      display: flex;
+      flex-direction: row;
+      width: 70%;
+      margin: 0 auto;
+      text-align: left;
+      .info {
+        width: 50%;
+        margin-bottom: $base*4;
+        p {
+          margin-bottom: $base;
+        }
+        a {
+          color: $light-color;
+          text-decoration: underline;
+        }
+      }
+      .contact{
+        width: 50%;
+      } 
+    }
+    .corporative {
+      margin-top: $base*2;
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .love {
+        background-image: url('../../images/love.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        margin: 0 $base;
+      }
     }
   }
-  .corporative {
-    margin-top: $base*2;
-    p {
-      display: flex;
+}
+@media screen and (max-width: 1024px) {
+  .footer-container {
+    padding: $base*4 $base*2;
+    .footer {
+      width: 90%;
+      margin: 0 auto;
+      text-align: left;
+      .info {
+        width: 50%;
+        margin-bottom: $base*4;
+        p {
+          margin-bottom: $base;
+        }
+      }
+      .contact{
+        width: 50%;
+      } 
     }
-    .love {
-      background-image: url('../../images/love.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin: 0 $base;
+    .corporative {
+      margin-top: $base*2;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      .info {
+        width: 100%
+      }
+      .contact {
+        width: 100%;
+      }
     }
   }
 }

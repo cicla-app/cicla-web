@@ -97,7 +97,7 @@ class ModifyPassword extends Component {
           title="REESTABLECER CONTRASEÑA"
           onBack={() => this.goBack()}>
         </PageHeader>
-        <div className="container-onboarding">
+        <div className="container-access">
           <Row>
             <Col span={20} offset={2}>
               <p className="mt-3">Introduce tu dirección de correo electrónico y te enviaremos los

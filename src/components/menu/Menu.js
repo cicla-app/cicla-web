@@ -11,7 +11,7 @@ class Menu extends Component {
       .then(() => {
         const { history } = this.props;
         this.props.onUserChange({});
-        history.push('/home');
+        history.push('/select');
       })
   }
 
@@ -38,8 +38,13 @@ class Menu extends Component {
               to="/colaborator">
               Colaboradores/as
             </NavLink>
-            <button
+            <NavLink
               className="my-2"
+              to="/donation">
+              Donaciones
+            </NavLink>
+            <button
+              className="my-2 button-menu"
               onClick={this.handleLogout}>
               Cerrar sesión
             </button>

@@ -1,318 +1,358 @@
 @import '../../variables';
 
-.container-web {
-  margin: 0;
-  font-family: 'Futura';
-  font-size: 18px;
-  line-height: 18px;
-  padding: 0;
-  max-width: 100%;
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    background: $primary-color;
-    padding: $base*6 $base*5 0 $base*5;
-    .logo {
-      color: transparent;
-      background-image: url('../../images/logo.png');
-      background-size: contain;
-      width: 150px;
-      height: 50px;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-  .content-1 {
-    background: $primary-color;
-    color: $light-color;
-    .rectangle{
-      background-image: url('../../images/background.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 180px;
-    }
-    h2 {
-      font-family: 'Futura-Bold';
-      font-size: 63px;
-      margin-bottom: $base*2;
-      line-height: 63px;
-      color: $light-color!important;
-    }
-    .info {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      text-align: center;
-      color: $light-color;
-      padding-top: $base*12;
-    }
-  }
-  .link-button {
-    background: $tertiary-color!important;
-    border-radius: 4px;
-    font-size: 12px;
-    text-align: center;
-    padding: 10px;
-    border: none;
+@media screen and (max-width: 1280px) {
+  .container-web {
+    margin: 0;
     font-family: 'Futura';
-    cursor: pointer;
-    outline: none;
-    a {
-      color: $light-color!important;
-    }
-  }
-  .text {
-    width: 50%;
-    line-height: 24px;
-  }
-  .content-2 {
-    background-color: $secondary-color;
-    padding-bottom: $base*5;
-    .info {
-      display: flex;
-      align-items: flex-end;
-      color: $primary-color;
-      width: 60%;
-      margin: 0 auto;
-    }
-    h3 {
-      font-size: 48px;
-      line-height: 48px;
-      color: $light-color!important;
-    }
-    .info {
-      width: 60%;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      margin: 0 auto;
+    font-size: 22px;
+    line-height: 28px;
+    padding: 0;
+    max-width: 100%;
+    .content-1 {
+      background: $primary-color;
       color: $light-color;
-      padding-top: $base*12;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      li {
+      h2 {
+        font-family: 'Futura-Bold';
+        font-size: 54px;
+        margin-bottom: $base*6;
+        line-height: 54px;
+        color: $light-color!important;
+      }
+      .info {
+        width: 80%;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        line-height: 32px;
-        &.sport::before {
-          content: '';
-          background-image: url('../../images/sport.png');
-          display: block;
-          width: 32px;
-          height: 18px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
-        &.food::before {
-          content: '';
-          background-image: url('../../images/food.png');
-          display: block;
-          width: 32px;
-          height: 18px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
-        &.health::before {
-          content: '';
-          background-image: url('../../images/health.png');
-          display: block;
-          width: 32px;
-          height: 18px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
-        &.sex::before {
-          content: '';
-          background-image: url('../../images/sex.png');
-          display: block;
-          width: 32px;
-          height: 18px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        color: $light-color;
+        padding: $base*8 0;
       }
     }
-    .image-mobile {
-      background-image: url('../../images/mobile.png');
-      background-size: contain;
+    .link-button {
+      background: $fifth-color!important;
+      border-radius: 4px;
+      font-size: 16px;
+      text-align: center;
+      padding: $base;
+      border: none;
+      font-family: 'Futura';
+      cursor: pointer;
+      outline: none;
+      margin-top: $base*3;
+      width: 30%;
+      margin-top: $base*5;
+      &.small {
+        width: 50%;
+      }
+      a {
+        color: $light-color!important;
+        font-size: 16px;
+      }
+    }
+    .text {
       width: 50%;
-      height: 400px;
-      background-repeat: no-repeat;
-      background-position: center;
+      line-height: 24px;
+    }
+    .content-2 {
+      background-color: $secondary-color;
+      padding-bottom: $base*5;
+      .info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: $light-color;
+        width: 60%;
+        margin: 0 auto;
+        text-align: left;
+        padding: $base*8 0 $base*4 0;
+      }
+      h3 {
+        font-size: 40px;
+        line-height: 40px;
+        color: $light-color!important;
+        font-family: 'Futura-Bold';
+        margin-bottom: $base*5;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          display: flex;
+          align-items: center;
+          line-height: 32px;
+          &.sport::before {
+            content: '';
+            background-image: url('../../images/sport.png');
+            display: block;
+            width: 32px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &.food::before {
+            content: '';
+            background-image: url('../../images/food.png');
+            display: block;
+            width: 32px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &.health::before {
+            content: '';
+            background-image: url('../../images/health.png');
+            display: block;
+            width: 32px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &.sex::before {
+            content: '';
+            background-image: url('../../images/sex.png');
+            display: block;
+            width: 32px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      .image-mobile {
+        background-image: url('../../images/mobile.png');
+        background-size: contain;
+        width: 50%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
   }
-}
 
-.content-3 {
-  background: $primary-color;
-  color: $light-color;
-  h3 {
-    color: $light-color!important;
-  }
-  .text {
-    margin-top: 40px;
-  }
-  .image-mobilecicla {
-    background-image: url('../../images/mobile-cicla.png');
-    background-size: contain;
-    width: 50%;
-    height: 300px;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
-
-.content-4 {
-  background-color: $secondary-color;
-  color: $primary-color;
-  .rectangle{
-    background-image: url('../../images/background02.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 400px;
-  }
-  .text {
-    width: 50%;
-    margin: 0 auto;
-    line-height: 24px;
-    text-align: center;
-    padding: $base*2 0 $base*10 0;
-    color: $primary-color;
-  }
-  h2 {
-    font-size: 48px;
-    line-height: 48px;
-    color: $primary-color!important;
-  }
-  button {
-    margin-top: $base*2;
-  }
-}
-
-.footer {
-  background-color: $primary-color;
-  height: 252px;
-  color: $light-color;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  .policies {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 16px;
-    .info, .contact {
-      width: 50%;
-    }
-  }
-  .city {
-    font-size: 14px;
-    text-align: center;
-    margin-top: $base*3;
-    p {
+  .content-3 {
+    background: $primary-color;
+    color: $light-color;
+    .info {
       display: flex;
+      flex-direction: row;
       align-items: center;
+      color: $light-color;
+      width: 60%;
+      margin: 0 auto;
+      padding: $base*10 0;
     }
-    .love {
-      background-image: url('../../images/love.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 20px;
-      height: 20px;
-      display: inline-block;
-      margin: 0 $base;
+    h3 {
+      font-size: 40px;
+      line-height: 40px;
+      color: $light-color!important;
+      font-family: 'Futura-Bold';
+      margin-bottom: $base*5;
+    }
+    .text {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+
+  .content-4 {
+    background-color: $secondary-color;
+    color: $light-color;
+    .info {
+      width: 60%;
+      margin: 0 auto;
+      padding: $base*10 0 $base*10 0;
+      .text {
+        width: 100%;
+        line-height: 24px;
+        text-align: center;
+        color: $light-color;
+      }
+      h2 {
+        font-size: 40px;
+        line-height: 40px;
+        color: $light-color!important;
+        font-family: 'Futura-Bold';
+        margin-bottom: $base*5;
+      }
+      .link-button {
+        &.small {
+          margin: 0 auto;
+        } 
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-web {
+    font-family: 'Futura';
+    font-size: 18px;
+    line-height: 18px;
+    max-width: 100%;
+    .content-1 {
+      h2 {
+        font-size: 40px;
+        margin-bottom: $base*4;
+        line-height: 45px;
+      }
+      .info {
+        width: 60%;
+        padding-top: $base*8;
+      }
+    }
+    .link-button {
+      font-size: 16px;
+      text-align: center;
+      padding: $base*2;
+      margin-top: $base*3;
+      width: 50%;
+      &.small {
+        width: 70%;
+      }
+      a {
+        font-size: 16px;
+      }
+    }
+    .text {
+      width: 50%;
+      line-height: 24px;
+    }
+    .content-2 {
+      padding-bottom: $base*5;
+      .info {
+        display: flex;
+        width: 60%;
+        padding-top: $base*2;
+      }
+      h3 {
+        font-size: 40px;
+        line-height: 45px;
+        margin-bottom: $base*4;
+      }
+      .image-mobile {
+        width: 50%;
+        height: 400px;
+      }
+    }
+  }
+
+  .content-3 {
+    .info {
+      width: 60%;
+      padding: $base*6 0;
+    }
+    h3 {
+      font-size: 40px;
+      line-height: 45px;
+      margin-bottom: $base*4;
+    }
+    .text {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+
+  .content-4 {
+    .info {
+      width: 60%;
+      padding: $base*10 0 $base*10 0;
+      .text {
+        width: 100%;
+        line-height: 24px;
+      }
+      h2 {
+        font-size: 40px;
+        line-height: 45px;
+        margin-bottom: $base*4;
+      }
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .container-web {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 18px;
+    .text {
+      line-height: 18px;
+      width: auto;
+    }
     .header {
-      padding: $base*2 $base*4 $base*6 $base*4;
+      padding: $base*2 $base*4 $base*3 $base*4;
     }
     .content-1 {
-      padding-top: $base*2;
       h2 {
         font-family: 'Futura-Bold';
         font-size: 25px;
-        line-height: 25px;
+        line-height: 30px;
       }
       .info {
-        padding-top: $base*3;
+        width: 80%;
+        padding: $base*3 0;
       }
       .rectangle {
         height: 150px;
       }
     }
-  
     .content-2 {
-      padding-bottom: 0;
+      padding-bottom: 160px;
       margin-top: -2px;
+      position: relative;
+      ul {
+        list-style-type: none;
+        padding: 0 0 0 $base*10;
+        display: flex;
+        flex-direction: column;
+      }
       .info {
         width: 80%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
+        padding-top: $base*4;
       }
       h3 {
         font-family: 'Futura-Bold';
-        font-size: 24px;
-        line-height: 24px;
-        text-align: center;
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: $base*3;
       }
       .image-mobile {
-        width: 90%;
-        height: 300px;
+        position: absolute;
+        position: absolute;
+        top: 280px;
       }
     }
-  
-    .text {
-      width: auto;
-    }
-  
     .content-3 {
       .info {
         text-align: center;
         width: 80%;
         margin: 0 auto;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 40px;
+        padding: $base*32 0 $base*5 0;
         h3 {
           font-family: 'Futura-Bold';
           font-size: 24px;
           line-height: 24px;
           text-align: center;
-        }
-        .image-mobilecicla {
-          width: 90%;
+          margin-bottom: $base*3;
         }
         p {
           margin-bottom: 0;
         }
       }
     }
-  
     .content-4 {
-      margin-top: -3px;
-      .rectangle {
-        height: 240px;
-      }
+      padding-top: $base*4;
       .text {
-        width: auto;
+        padding-bottom: $base*8; 
+        .link-button {
+          margin: $base*4 auto 0 auto;
+        }
       }
       .info {
         text-align: center;
@@ -321,23 +361,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 0;
       }
       h2 {
         font-family: 'Futura-Bold';
         font-size: 25px;
-        line-height: 25px;
-      }
-    }
-  }
-
-  .footer {
-    .policies {
-      width: 90%;
-      flex-direction: column;
-      font-size: 14px;
-      padding-top: $base*2;
-      .info, .contact {
-        width: auto;
+        line-height: 30px;
+        
       }
     }
   }
@@ -345,14 +375,23 @@
 
 @media screen and (max-width: 480px) {
   .container-web {
-    .content-1 {
-      .rectangle {
-        height: 100px;
+    .link-button {
+      width: 100%;
+      font-size: 14px;
+      padding: $base*1.3 $base;
+      &.small {
+        width: 100%;
+        font-size: 14px;
       }
     }
-    .content-4 {
+    .content-1 {
       .rectangle {
-        height: 120px;
+        height: 50px;
+      }
+    }
+    .content-2 {
+      .image-mobile {
+        top: 360px;
       }
     }
   }

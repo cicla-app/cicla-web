@@ -21,6 +21,7 @@ class Conditions extends Component {
         onBack={() => this.goBack()}
         title="Condiciones del servicio">
       </PageHeader>
+      <div className="container">
         <p className="mt-3">POLÍTICA DE PRIVACIDAD DEL SITIO WEB</p>
         <p>www.cicla.app</p>
         <p>1. POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</p>
@@ -43,6 +44,7 @@ class Conditions extends Component {
           personales y a la libre circulación de estos datos (RGPD).
           </li>
         </ul>
+        </div>
       </div>
     )
   }

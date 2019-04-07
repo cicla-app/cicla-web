@@ -1,7 +1,7 @@
 @import '../../variables';
 
 nav.navbar.navbar-expand-lg {
-  background-color: $primary-color;
+  background-color: $footer-color;
   .navbar-brand {
     color: $light-color;
   }
@@ -18,9 +18,11 @@ nav.navbar.navbar-expand-lg {
       border-bottom: 1px solid $light-color;
       padding-bottom: $base;
     }
-    button {
+    .button-menu {
+      background-color: transparent;
       color: $light-color;
       font-size: 18px;
+      border: none;
     }
   }
 }

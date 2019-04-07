@@ -95,7 +95,7 @@ class ColaboratorData extends Component {
           </PageHeader>
         <div className="container-colaborator">
           <p className="mt-3">Invita a otras personas para que conozcan de cerca los síntomas y efectos de tu ciclo menstrual en tu vida diaria.</p>
-          <p>Escribe el mail de la persona y le mandaremos un enlace para que pueda descargarse y ver tus datos.</p>
+          <p>Escribe el mail de la persona y le mandaremos un enlace para que pueda ver tus datos.</p>
           <p className="mt-3">Correo electrónico de colaborador/a:</p>
           <form onSubmit={this.onSubmit}>
             <Input

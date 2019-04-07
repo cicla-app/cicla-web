@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import './Header.scss';
-import { Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { Navbar } from 'react-bootstrap';
-import { Icon
+import { 
+  Icon, Button
 } from 'antd';
 
+const history = createBrowserHistory();
+
 class Header extends Component {
+  goBack(){
+    history.goBack();
+  }
+
 render() {
   return (
     <div className="header">
@@ -14,15 +21,15 @@ render() {
         <Navbar.Brand
           href="/"
           className="logo"></Navbar.Brand>
-        <Link
+        <Button
           size="large"
           className="link-button"
           variant="outline-success"
-          to="/">
+          onClick={() => this.goBack()} >
           <Icon
             type="close"
             style={{ fontSize: '28px' }} />
-        </Link>
+        </Button>
       </Navbar>
     </div>
   );

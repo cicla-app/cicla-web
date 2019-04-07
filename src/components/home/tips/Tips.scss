@@ -1,0 +1,71 @@
+@import '../../../variables';
+
+.subheader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: $fifth-color;
+  padding: $base*2 0;
+  p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .date {
+    font-size: 26px;
+  }
+}
+
+.card {
+  font-family: 'Futura-Medium';
+  font-size: 18px;
+  background-color: $light-color;
+  color: $six-color;
+  line-height: 24px;
+  margin: 0 $base*2 $base $base*2;
+  padding: $base*2 $base*2 $base*2 $base;
+  text-align: left;
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    li {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: $base*2;
+      .anticon svg{
+        width: 25px;
+        height: 25px;
+        color: $fifth-color;
+        margin-right: $base;
+      }
+    }
+  }
+  .alert-contraceptives {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    padding: $base*2 $base;
+    margin-left: $base;
+    &.sport {
+      background-color: $background-color;
+      .title {
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        h5 {
+          color: $fifth-color;
+          text-transform: uppercase;
+        }
+        .anticon svg{
+          width: 30px;
+          height: 30px;
+          color: $fifth-color;
+        }
+      }
+      p {
+        color: $six-color;
+        margin: $base $base 0 $base;
+      }
+    }
+  }
+}

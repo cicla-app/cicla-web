@@ -98,20 +98,22 @@ render() {
       <div>
         <PageHeader
           onBack={() => this.goBack()}
-          title="Datos de acceso">
+          title="DATOS DE ACCESO">
         </PageHeader>
         <div className="container-data">
           <div>
             <form onSubmit={this.onSubmit}>
+              <p>Modifica tu nombre:</p>
               <Input
                 type="text"
                 size="large"
-                className='my-3'
+                className='mb-3'
                 name="alias"
                 placeholder={user.alias}
                 onChange={this.handleChange}
                 value={user.alias}
                 onBlur={this.handleBlur} />
+              <p>Modifica tu email:</p>
               <Input
                 type="text"
                 size="large"
@@ -121,11 +123,12 @@ render() {
                 onChange={this.handleChange}
                 value={user.email}
                 onBlur={this.handleBlur}/>
-              <Link
-                className="my-3"
-                to="/modify-password">Cambiar contraseña</Link>
+              <div className="link-modify">
+                <Link
+                  to="/modify-password">Cambia tu contraseña
+                </Link>
+              </div>
               <Button
-                className="my-3"
                 block
                 size="large"
                 onClick={this.updateUser}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import '../../_variables.scss';
+import '../access-data/Access-data.scss'
 import { withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
@@ -25,8 +26,7 @@ class CicleData extends Component {
   componentDidMount = () => {
     AuthService.getUser(this.state.user.id)
       .then(user => this.setState({ user: user})
-  )
-   console.log(this.state)}
+  )}
 
   goBack(){
     history.goBack();
@@ -78,11 +78,12 @@ render() {
       <div>
         <PageHeader
           onBack={() => this.goBack()}
-          title="Datos de ciclo">
+          title="DATOS DE TU CICLO">
         </PageHeader>
-        <Row className="mt-3">
+        <Row className="container-data">
           <Col span={20} offset={2}>
             <form onSubmit={this.onSubmit}>
+              <p>¿Cuántos días dura tu regla aproximadamente?</p>
               <Input
                 type="number"
                 size="large"
@@ -92,6 +93,7 @@ render() {
                 onChange={this.handleChange}
                 value={this.state.user.periodDays}
                 onBlur={this.handleBlur} />
+              <p>¿Cuántos días dura tu ciclo aproximadamente?</p>
               <Input
                 type="number"
                 size="large"
@@ -101,6 +103,7 @@ render() {
                 onChange={this.handleChange}
                 value={user.cycleDays}
                 onBlur={this.handleBlur}/>
+              <p>¿Usas anticonceptivos hormonales?</p>
               <Select
                 defaultValue={user.contraceptives ? 'yes' : 'no'}
                 name="contraceptives"

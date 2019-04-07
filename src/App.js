@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PrivateRoute from './guards/PrivateRoute';
-// import Web from './components/web/Web';
+import Web from './components/web/Web';
 import Login from './components/login/Login';
-import Prelogin from './components/prelogin/Prelogin';
+import SelectSession from './components/select/SelectSession';
 import Register from './components/register/Register';
 import Onboarding from './components/onboarding/Onboarding';
 import Home from './components/home/Home';
 import ModifyPassword from './components/modify-password/ModifyPassword';
 import AccessData from './components/access-data/Access-data';
 import CicleData from './components/cicle-data/Cicle-data';
+import Donation from './components/donation/Donation';
 import Sport from './components/home/tips/Sport';
 import Food from './components/home/tips/Food';
 import Health from './components/home/tips/Health';
@@ -26,9 +27,9 @@ class App extends Component {
         <section>
           <div>
             <Switch>
-              {/* <Route exact path="/" component={Web}/> */}
+              <Route exact path="/" component={Web}/>
+              <Route exact path="/select" component={SelectSession}/>
               <Route exact path="/login" component={Login}/>
-              <Route exact path="/" component={Prelogin}/>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/modify-password" component={ModifyPassword}/>
               <Route exact path="/onboarding" component={Onboarding}/>
@@ -37,6 +38,7 @@ class App extends Component {
               <Route exact path="/access" component={AccessData}/>
               <Route exact path="/cicle" component={CicleData}/>
               <PrivateRoute exact path="/colaborator" component={ColaboratorData}/>
+              <Route exact path="/donation" component={Donation}/>
               <Route exact path="/home" component={Home}/>
               <Route exact path="/sport" component={Sport}/>
               <PrivateRoute exact path="/food" component={Food}/>

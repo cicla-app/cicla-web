@@ -148,70 +148,72 @@ class Register extends Component {
       <div>
         <div className="container-register">
           <Header></Header>
-          <Row>
-            <Col>
-              <h1>Crea una cuenta</h1>
-            </Col>
-          </Row>
-          <Input
-            type="text"
-            size="large"
-            className={`form-control ${touch.email && errors.email && 'is-invalid'} mt-3 mb-2`}
-            name="email"
-            placeholder="Email"
-            onChange={this.handleChange}
-            value={this.state.user.email}
-            onBlur={this.handleBlur} />
-          <div className="invalid-feedback">{errors.email}</div>
-          <Input.Password
-            type="password"
-            size="large"
-            className={`form-control ${touch.password && errors.password && 'is-invalid'} my-2`}
-            name="password"
-            placeholder="Contraseña"
-            onChange={this.handleChange}
-            value={this.state.user.password}
-            onBlur={this.handleBlur}/>
-          <div className="invalid-feedback">{errors.password}</div>
-          <Input.Password
-            type="password"
-            size="large"
-            className={`form-control ${touch.confirmPassword && errors.confirmPassword && 'is-invalid'} mb-2`}
-            name="confirmPassword"
-            placeholder="Confirmar contraseña"
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}/>
-          <div className="invalid-feedback">{errors.confirmPassword}</div>
-          <Input
-            required
-            className="my-2"
-            size="large"
-            placeholder="Tu nombre o alias"
-            type="text"
-            name="alias"
-            onChange={this.handleChange}
-            value={this.state.user.alias}
-            onBlur={this.handleBlur}>
-          </Input>
-          <div className="conditions">
-            <Switch
-              defaultChecked
-              className="mt-3"
-              name="acceptTerms"
-              onChange={this.handleToggleAcceptTerms}
-              checked={this.state.user.acceptTerms}>
-            </Switch>
-            <p className="ml-2">Acepto la 
-              <Link to="/policies"> política de privacidad</Link> y las 
-              <Link to="/conditions"> condiciones del servicio</Link></p>
+          <div className="content">
+            <Row>
+              <Col>
+                <h1>Crea una cuenta</h1>
+              </Col>
+            </Row>
+            <Input
+              type="text"
+              size="large"
+              className={`form-control ${touch.email && errors.email && 'is-invalid'} mt-3 mb-2`}
+              name="email"
+              placeholder="Email"
+              onChange={this.handleChange}
+              value={this.state.user.email}
+              onBlur={this.handleBlur} />
+            <div className="invalid-feedback">{errors.email}</div>
+            <Input.Password
+              type="password"
+              size="large"
+              className={`form-control ${touch.password && errors.password && 'is-invalid'} my-2`}
+              name="password"
+              placeholder="Contraseña"
+              onChange={this.handleChange}
+              value={this.state.user.password}
+              onBlur={this.handleBlur}/>
+            <div className="invalid-feedback">{errors.password}</div>
+            <Input.Password
+              type="password"
+              size="large"
+              className={`form-control ${touch.confirmPassword && errors.confirmPassword && 'is-invalid'} mb-2`}
+              name="confirmPassword"
+              placeholder="Confirmar contraseña"
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}/>
+            <div className="invalid-feedback">{errors.confirmPassword}</div>
+            <Input
+              required
+              className="my-2"
+              size="large"
+              placeholder="Tu nombre o alias"
+              type="text"
+              name="alias"
+              onChange={this.handleChange}
+              value={this.state.user.alias}
+              onBlur={this.handleBlur}>
+            </Input>
+            <div className="conditions">
+              <Switch
+                defaultChecked
+                className="mt-3"
+                name="acceptTerms"
+                onChange={this.handleToggleAcceptTerms}
+                checked={this.state.user.acceptTerms}>
+              </Switch>
+              <p className="ml-2">Acepto la 
+                <Link to="/policies"> política de privacidad</Link> y las 
+                <Link to="/conditions"> condiciones del servicio</Link></p>
+            </div>
+            <Button
+              block
+              size="large"
+              className="link mt-2"
+              htmlType="submit"
+              disabled={this.hasErrors()}>CONTINUAR
+            </Button>
           </div>
-          <Button
-            block
-            size="large"
-            className="link mt-2"
-            htmlType="submit"
-            disabled={this.hasErrors()}>CONTINUAR
-          </Button>
         </div>
         <Footer></Footer>
       </div>
@@ -225,11 +227,13 @@ class Register extends Component {
         <div>
           <Logo></Logo>
           <div className="container-register-step2">
-            <h1>Confirma tu cuenta</h1>
-            <p className="mt-3">Hemos enviado un mail a la dirección:</p>
-            <p className="email">{user.email}</p>
-            <p className="my-3">Sigue las instrucciones para verificar tu cuenta.</p>
-            <p className="mb-3">¿No te ha llegado el mail? Escríbenos a hola@cicla.app</p>
+            <div className="content">
+              <h1>Confirma tu cuenta</h1>
+              <p className="mt-3">Hemos enviado un mail a la dirección:</p>
+              <p className="email">{user.email}</p>
+              <p className="my-3">Sigue las instrucciones para verificar tu cuenta.</p>
+              <p className="mb-3">¿No te ha llegado el mail? Escríbenos a hola@cicla.app</p>
+            </div>
           </div>
         </div>
         <Footer></Footer>

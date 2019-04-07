@@ -4,17 +4,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 60px;
+  justify-content: flex-start;
+  background-color: $primary-color;
+  color: $light-color;
+  height: 100vh;
   .subtitle {
-    margin-bottom: 60px;
+    margin: $base*8 0 $base*4 0;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 20px;
     &.calendar {
-      margin-bottom: $base*3;
+      margin: $base*3 0;
     }
+  }
+  p {
+    font-size: 18px;
   }
   form input {
     margin-bottom: $base*3;
+  }
+  .button-onboarding {
+    background-color: $fifth-color;
+    color: $light-color;
+    &.select {
+      margin-top: $base*8;
+    }
+  }
+  .link-onboarding {
+    background-color: $fifth-color;
+    color: $light-color;
+    padding: $base 0;
+    border-radius: 4px;
+    width: 80%;
   }
 }

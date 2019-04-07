@@ -43,6 +43,11 @@ const createPeriod = (id, startPeriod) => {
     .then(response => response.data)
 } 
 
+const getPeriod = (id) => {
+  return http.get(`/periods/${id}`)
+    .then(response => response.data)
+}
+
 export default {
   login,
   register,
@@ -50,5 +55,6 @@ export default {
   onUserChange,
   updateUser,
   getUser,
-  createPeriod
+  createPeriod,
+  getPeriod
 }

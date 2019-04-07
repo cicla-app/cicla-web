@@ -27,7 +27,9 @@ class Days extends React.Component {
     return (
       <div className="pagination-days">
         <div className="circle period">
-          <span className="cicle-days">2</span>
+          <span className="cicle-days">
+            2
+          </span>
           <span onClick={()=>this.subtractDateHandleChange(3)}>
             <Moment
               date={this.state.date}
