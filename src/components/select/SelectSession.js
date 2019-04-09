@@ -21,7 +21,7 @@ render() {
             size="large"
             className="link-button"
             variant="outline-success"
-            to='/' >
+            to='/'>
             <Icon
               type="close"
               style={{ fontSize: '28px' }} />

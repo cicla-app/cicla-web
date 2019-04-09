@@ -20,7 +20,7 @@ render() {
         <div className="container-data">
           <div>
             <p>Puedes ayudarnos donando a nuestra cuenta de Paypal:</p>
-            <p>cicla.app</p>
+            <p>paypal.me/Cicla</p>
           </div>
         </div>
       </div>

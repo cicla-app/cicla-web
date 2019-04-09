@@ -8,7 +8,7 @@ import {
   Input, Row, Col, PageHeader, Button, Select
 } from 'antd';
 import { createBrowserHistory } from 'history';
-import AuthService from '../../services/AuthService'
+import authService from '../../services/AuthService'
 
 const history = createBrowserHistory();
 
@@ -24,7 +24,7 @@ class CicleData extends Component {
   userSubscription = undefined
 
   componentDidMount = () => {
-    AuthService.getUser(this.state.user.id)
+    authService.getUser(this.state.user.id)
       .then(user => this.setState({ user: user})
   )}
 
@@ -36,10 +36,10 @@ class CicleData extends Component {
     const newUser = {
       ...this.state.user
     }
-    AuthService.updateUser(newUser);
+    authService.updateUser(newUser);
     this.setState({
       user: newUser
-    })
+    }, () => console.log(this.state.user))
   }
 
   handleChange = (event) => {
@@ -56,8 +56,8 @@ class CicleData extends Component {
     const contraceptives = value === 'yes'? true : false;
     this.setState({user: {
       ...this.state.user,
-        contraceptives
-    }});
+        contraceptives: contraceptives
+    }}, () => console.log(contraceptives));
   }
 
   handleBlur = (event) => {
@@ -71,8 +71,19 @@ class CicleData extends Component {
   }
 
 render() {
+  console.log(this.state.user.contraceptives)
+
   const { user } = this.state;
+  const contraceptives = user && user.contraceptives ? 'yes' : 'no';
+
+  console.log('PRUEBA', contraceptives);
+
   const Option = Select.Option;
+
+  if (contraceptives) {
+    
+  }
+
   if (!user) return <p style={{ color: 'black' }}>Loading</p>
     return (
       <div>
@@ -105,7 +116,7 @@ render() {
                 onBlur={this.handleBlur}/>
               <p>¿Usas anticonceptivos hormonales?</p>
               <Select
-                defaultValue={user.contraceptives ? 'yes' : 'no'}
+                defaultValue={contraceptives}
                 name="contraceptives"
                 onChange={this.handleSelectChange}
                 style={{ width: '100%' }}>

@@ -27,14 +27,20 @@ const logout = () => http.get('/logout')
     return response.data
   });
 
-
 const updateUser = (newUser) => http.put(`/users/${newUser.id}`, newUser)
   .then(response => response.data)
   
-
 const getUser = (id) => http.get(`/users/${id}`)
   .then(response => response.data
   )
+
+const deleteUser = (id) => http.delete(`/users/${id}`)
+  .then(response => {
+    user = {};
+    localStorage.removeItem(CURRENT_USER_KEY);
+    return response.data
+  }
+);
 
 const onUserChange = () => user$.asObservable();
 
@@ -56,5 +62,6 @@ export default {
   updateUser,
   getUser,
   createPeriod,
-  getPeriod
+  getPeriod,
+  deleteUser
 }

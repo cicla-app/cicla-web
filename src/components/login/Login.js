@@ -6,11 +6,13 @@ import './Login.scss';
 import { Redirect, Link } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Button, Row, Col
+  Input, Button, Row, Col, Icon
 } from 'antd';
+import { Navbar } from 'react-bootstrap';
 import Footer from '../footer/Footer';
 import { createBrowserHistory } from 'history';
-import Header from '../header/Header';
+// import GoogleLogin from 'react-google-login';
+// import FacebookLogin from 'react-facebook-login';
 
 const history = createBrowserHistory();
 
@@ -21,7 +23,7 @@ const validators = {
   email: (value) => {
     let error;
     if (!value || value === '') {
-      error = 'Email is required';
+      error = 'El correo electrónico es obligatorio';
     } else if (!emailPattern.test(value)) {
       error = 'Formato de correo electrónico incorrecto'; 
     }
@@ -30,9 +32,9 @@ const validators = {
   password: (value) => {
     let error;
     if (!value) {
-      error = 'Password is required';
+      error = 'La contraseña es obligatoria';
     } else if (!value.length >= 8) {
-      error = 'Password must contains at least 8 characters';
+      error = 'La contraseña debe contener al menos 8 caracteres';
     } else if (!passwordPattern.test(value)) {
       error = 'La contraseña debe contener al menos 8 caracteres';
     }
@@ -105,6 +107,14 @@ class Login extends Component {
   
 
 render() {
+  // const responseGoogle = (response) => {
+  //   console.log(response);
+  // }
+
+  // const responseFacebook = (response) => {
+  //   console.log(response);
+  // }
+
   const { touch, errors, user } = this.state;
   if (this.state.authenticated) {
     return (<Redirect to="/home" />);
@@ -112,7 +122,22 @@ render() {
     return (
       <div>
         <div className="container-login">
-          <Header></Header>
+          <div className="header">
+            <Navbar expand="lg">
+              <Navbar.Brand
+                href="/"
+                className="logo"></Navbar.Brand>
+              <Link
+                size="large"
+                className="link-button"
+                variant="outline-success"
+                to='/'>
+                <Icon
+                  type="close"
+                  style={{ fontSize: '28px' }} />
+              </Link>
+            </Navbar>
+          </div>
           <div className="content">
             <Row>
               <Col>
@@ -156,6 +181,24 @@ render() {
                 className="my-3"
                 disabled={this.hasErrors()}>ENTRA</Button>
             </form>
+            {/* <div className="social-button">
+              <GoogleLogin
+                clientId="280341290772-vvr46ho3p0cubbe7ur3oclo9p02eeuvp.apps.googleusercontent.com"
+                buttonText="GOOGLE"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}/>
+            </div>
+            <div className="social-button">
+              <FacebookLogin
+                appId="1296779280474415"
+                autoLoad={true}
+                fields="name,email"
+                icon="fa-facebook"
+                textButton="FACEBOOK"
+                // onClick={componentClicked}
+                callback={responseFacebook}/>
+            </div> */}
           </div>
         </div>
       <Footer></Footer>

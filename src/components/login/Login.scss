@@ -5,7 +5,7 @@
   font-family: 'Futura';
   padding: $base*2 $base*4 $base*10 $base*4;
   .content {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     h1 {
       color: $light-color;
@@ -39,6 +39,22 @@
         }
       }
     }
+    .social-button {
+      margin-top: $base*3;
+      width: 100%;
+      button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        border-radius: 4px;
+        div {
+          padding: 0;
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }
 
@@ -52,7 +68,15 @@
   border: none;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 768px) {
+  .container-login { 
+    .content {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
   .container-login { 
     .content {
       width: 100%;

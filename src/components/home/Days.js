@@ -6,91 +6,99 @@ import Moment from 'react-moment';
 
 class Days extends React.Component {
   state = {
-    date: new Date(),
+    user: {
+      ...this.props.user,
+    },
+    addClass: false
   }
 
-  addDateHandleChange = ( days ) => {
-    const newDate = new Date( this.state.date.setDate(this.state.date.getDate() + days) );
-    this.setState({
-      date: newDate
-    })
+  addDateHandleChange = ( date ) => {
+    this.props.addDateHandleChange(date);
   }
 
-  subtractDateHandleChange = ( days ) => {
-    const newDate = new Date( this.state.date.setDate(this.state.date.getDate() - days) );
-    this.setState({
-      date: newDate
-    })
+  subtractDateHandleChange = ( date ) => {
+    this.props.subtractDateHandleChange(date);
+  }
+
+  selectedDay = () => {
+    this.props.selectedDay(this.props.day);
+    
   }
 
   render() {
+    console.log('las props',this.props);
+
+    const periodClass = ["circle"];
+
+    if(this.state.date <= new Date(this.props.period.follicular.primary)) {
+      periodClass.push('period');
+    }
     return (
       <div className="pagination-days">
-        <div className="circle period">
-          <span className="cicle-days">
-            2
-          </span>
-          <span onClick={()=>this.subtractDateHandleChange(3)}>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">2</span> */}
+          <span
+            onClick={()=>this.subtractDateHandleChange(3)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               subtract={{ days: 3 }}
               format="DD">
             </Moment>
           </span>
         </div>
-        <div className="circle period">
-          <span className="cicle-days">3</span>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">3</span> */}
           <span onClick={()=>this.subtractDateHandleChange(2)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               subtract={{ days: 2 }}
               format="DD">
             </Moment>
           </span>
         </div>
-        <div className="circle period">
-          <span className="cicle-days">4</span>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">4</span> */}
           <span onClick={()=>this.subtractDateHandleChange(1)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               subtract={{ days: 1 }}
               format="DD">
             </Moment>
           </span>
         </div>
-        <div className="circle active">
-          <span className="cicle-days">5</span>
+        <div className={`${periodClass.join(' ')} active`}>
+          {/* <span className="cicle-days">5</span> */}
           <span>
-            <Moment date={this.state.date} format="DD"></Moment>
+            <Moment date={this.props.day} format="DD"></Moment>
           </span>
         </div>
-        <div className="circle">
-          <span className="cicle-days">6</span>
-          <span onClick={()=>this.addDateHandleChange(2)}>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">6</span> */}
+          <span onClick={()=>this.addDateHandleChange(1)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               add={{ days: 1 }}
               format="DD">
             </Moment>
           </span>
         </div>
-        <div className="circle">
-          <span className="cicle-days">6</span>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">7</span> */}
           <span
             onClick={()=>this.addDateHandleChange(2)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               add={{ days: 2 }}
               format="DD">
             </Moment>
           </span>
         </div>
-        <div className="circle">
-          <span className="cicle-days">7</span>
+        <div className={periodClass.join(' ')}>
+          {/* <span className="cicle-days">8</span> */}
           <span
             onClick={()=>this.addDateHandleChange(3)}>
             <Moment
-              date={this.state.date}
+              date={this.props.day}
               add={{ days: 3 }}
               format="DD">
             </Moment>

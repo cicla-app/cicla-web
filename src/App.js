@@ -32,15 +32,15 @@ class App extends Component {
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/modify-password" component={ModifyPassword}/>
-              <Route exact path="/onboarding" component={Onboarding}/>
+              <PrivateRoute exact path="/onboarding" component={Onboarding}/>
               <Route exact path="/policies" component={Policies}/>
               <Route exact path="/conditions" component={Conditions}/>
-              <Route exact path="/access" component={AccessData}/>
-              <Route exact path="/cicle" component={CicleData}/>
+              <PrivateRoute exact path="/profile" component={AccessData}/>
+              <PrivateRoute exact path="/cicla" component={CicleData}/>
               <PrivateRoute exact path="/colaborator" component={ColaboratorData}/>
-              <Route exact path="/donation" component={Donation}/>
-              <Route exact path="/home" component={Home}/>
-              <Route exact path="/sport" component={Sport}/>
+              <PrivateRoute exact path="/donation" component={Donation}/>
+              <PrivateRoute exact path="/home" component={Home}/>
+              <PrivateRoute exact path="/sport" component={Sport}/>
               <PrivateRoute exact path="/food" component={Food}/>
               <PrivateRoute exact path="/health" component={Health}/>
               <PrivateRoute exact path="/sex" component={Sex}/>

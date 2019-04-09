@@ -25,12 +25,12 @@ class Menu extends Component {
           <Nav className="mr-auto">
             <NavLink
               className="my-2"
-              to="/access">
+              to="/profile">
               Datos de acceso
             </NavLink>
             <NavLink
               className="my-2"
-              to="/cicle">
+              to="/cicla">
               Datos de tu ciclo
             </NavLink>
             <NavLink

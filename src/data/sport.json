@@ -1,0 +1,165 @@
+[{
+  "follicular": 
+    {
+      "primary": [
+        {
+          "title": "Entrenamiento",
+          "resume": "En esta fase tu capacidad de trabajo está disminuida, estás en la semana de recuperación.",
+          "description": [
+            {
+              "element": "Tu capacidad de trabajo está disminuida, estás en la semana de recuperación.",
+              "element": "Reduce o elimina trabajos de habilidad o precisión.",
+              "element": "Incluye tareas simples y de estrés bajo.",
+              "element": "Reduce el volumen del entrenamiento.",
+              "element": "Durante los días de regla se disminuye el rendimiento.",
+              "element": "Aumenta el tiempo de descanso entre ejercicios.",
+              "element": "Niveles elevados de relaxina, no entrenes la elasticidad.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico.",
+              "element": "Protege tu columna lumbar.",
+              "element": "Incluye actividad anaeróbica y de potencia.",
+              "element": "Fortalece la musculatura de rodilla y tobillos (mayor probabilidad de lesiones).",
+              "element": "Fortalece la musculatura del pie para evitar lesiones como la fascitis.",
+              "element": "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+              "element": "Problemas de motilidad gástrica (acidez, gases y/o diarrea) y la diarrea aumenta con el esfuerzo del entrenamiento por lo tanto existe riesgo de deshidratación.",
+              "element": ""
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Entrenamiento",
+          "resume": "Sesiones fuertes: mejores resultados del entrenamiento y menos daño muscular.",
+          "description": [
+            {
+              "element": "Máxima intensidad, máxima carga.",
+              "element": "Sesiones fuertes: mejores resultados del entrenamiento y menos daño muscular.",
+              "element": "Concentra el trabajo de fuerza entre regla y ovulación.",
+              "element": "Entrenamientos de fuerza y potencia.",
+              "element": "Aumento de fuerza un 11%.",
+              "element": "Más favorable al desarrollo y rendimiento de capacidades relacionadas con el rendimiento en resistencia.",
+              "element": "Incluye trabajos aeróbicos de baja intensidad y alto volumen.",
+              "element": "Intensifica los trabajos sin lastre y tareas prolongadas.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ],
+      "latest": [
+        {
+          "title": "Entrenamiento",
+          "resume": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+          "description": [
+            {
+              "element": "Sesiones fuertes → mejor entrenamiento y menos daño muscular.",
+              "element": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+              "element": "Entrenamientos de fuerza y potencia.",
+              "element": "Aumento de fuerza un 11%.",
+              "element": "Máxima intensidad, máxima carga.",
+              "element": "Ejercicios a más del 70% (estimulan la producción de testosterona).",
+              "element": "Limitación de flujo respiratorio.",
+              "element": "Incluye tareas complejas de alta intensidad y bajo volumen, basadas en la potencia.",
+              "element": "Más favorables al desarrollo y rendimiento de capacidades relacionadas con el rendimiento en resistencia.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ]
+    }
+},
+{
+  "ovulation": [
+    {
+      "title": "Entrenamiento",
+      "resume": "Disminuye un poco el rendimiento pero menos que en regla.",
+      "description": [
+        {
+          "element": "Disminuye un poco el rendimiento pero menos que en regla.",
+          "element": "Sesiones fuertes: mejor entrenamiento y menos daños.",
+          "element": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+          "element": "Entrenamientos de fuerza y potencia.",
+          "element": "Aumento de fuera un 11%.",
+          "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+          "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+        }
+      ],
+      "category": "Sport",
+      "id": 1
+    }
+  ]
+},
+{
+  "lutea":
+    {
+      "primary": [
+        {
+          "title": "Entrenamiento",
+          "resume": "La fuerza disminuye y la fatiga aumenta.",
+          "description": [
+            {
+              "element": "La fuerza disminuye y la fatiga aumenta.",
+              "element": "Se pierde resistencia máxima y recuperación.",
+              "element": "Mayor daño muscular y menor resistencia muscular.",
+              "element": "Incluye tareas complejas de alta intensidad y bajo volumen, actividades anaeróbicas y de potencia.",
+              "element": "Mantenimiento de la fuerza.",
+              "element": "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Entrenamiento",
+          "resume": "Mayor descanso los días de regla y pre regla.",
+          "description": [
+            {
+              "element": "Mayor descanso los días de regla y pre regla.",
+              "element": "Se pierde resistencia máxima y recuperación.",
+              "element": "Mantenimiento de la fuerza.",
+              "element": "Incluye trabajos anaeróbicos de baja intensidad y alto volumen.",
+              "element": "Busca actividades sin lastre y que sean prolongadas.",
+              "element": "Capacidad de hacer frente al estrés por el calor con la temperatura corporal aumentada.",
+              "element": "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ],
+      "latest": [
+        {
+          "title": "Entrenamiento",
+          "resume": "En general empeora el rendimiento en pre regla y 3 primeros días de regla.",
+          "description": [
+            {
+              "element": "Mayor descanso los días de regla y pre regla.",
+              "element": "Se pierde resistencia máxima y recuperación.",
+              "element": "Niveles elevados de relaxina, no entrenes la elasticidad.",
+              "element": "Protege columna lumbar.",
+              "element": "Fortalece musculatura rodillas y pie.",
+              "element": "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+              "element": "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+            }
+          ],
+          "category": "Sport",
+          "id": 1
+        }
+      ]
+    }
+}
+]

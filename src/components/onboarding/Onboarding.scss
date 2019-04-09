@@ -1,5 +1,8 @@
 @import '../../variables';
 
+.background {
+  background-color: $primary-color;
+}
 .container-onboarding {
   display: flex;
   flex-direction: column;
@@ -8,6 +11,8 @@
   background-color: $primary-color;
   color: $light-color;
   height: 100vh;
+  width: 50%;
+  margin: auto;
   .subtitle {
     margin: $base*8 0 $base*4 0;
     font-weight: 700;
@@ -35,5 +40,17 @@
     padding: $base 0;
     border-radius: 4px;
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-onboarding { 
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-onboarding { 
+    width: 100%;
   }
 }

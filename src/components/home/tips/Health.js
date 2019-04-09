@@ -28,7 +28,7 @@ class Health extends React.Component {
             </p>
             <p>Fase folicular primaria</p>
           </div>
-          <div className="card">
+          <div className="card resume">
           Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.
           </div>
           <div className="card">

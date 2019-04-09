@@ -76,7 +76,7 @@ class Onboarding extends Component {
   renderStep1() {
     const { user } = this.props;
     return (
-      <div>
+      <div className="background">
         <Logo></Logo>
         <div className="container-onboarding">
           <Row>
@@ -102,7 +102,7 @@ class Onboarding extends Component {
 
   renderStep2() {
     return (
-      <div>
+      <div className="background">
         <Logo></Logo>
         <div className="container-onboarding">
           <Row>
@@ -137,7 +137,7 @@ class Onboarding extends Component {
     const {user} = this.state;
     const Option = Select.Option;
     return (
-      <div>
+      <div className="background">
         <Logo></Logo>
         <div className="container-onboarding">
           <Row>
@@ -185,8 +185,9 @@ class Onboarding extends Component {
   }
 
   renderStep4() {
+    console.log(this.state)
     return (
-      <div>
+      <div className="background">
         <PageHeader
           title="BIENVENIDA">
         </PageHeader>
@@ -200,7 +201,6 @@ class Onboarding extends Component {
             to={{
               pathname: '/home',
               state: {
-                userId: this.state.user.id,
                 user: this.state
               }
             }}

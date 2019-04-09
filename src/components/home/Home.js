@@ -6,11 +6,11 @@ import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import '../../_variables.scss';
 import './Home.scss';
-import { NavLink } from 'react-router-dom';
 import Days from'./Days';
 import NavBar from '../menu/Menu';
-import { Tabs, Card, Icon, Modal } from 'antd';
+import { Tabs, Modal } from 'antd';
 import Calendar from 'react-calendar';
+import DayInfo from '../day-info/DayInfo';
 
 class Home extends React.Component {
   state = {
@@ -19,55 +19,91 @@ class Home extends React.Component {
       ...this.props.user,
     },
     step: 0,
-    visible: false
+    visible: false,
+    date: new Date()
   };
 
-  componentDidMount() {   
+  constructor(props) {
+    super(props);
+    this.selectedDay = this.selectedDay.bind(this);
+    this.addDateHandleChange = this.addDateHandleChange.bind(this);
+    this.subtractDateHandleChange = this.subtractDateHandleChange.bind(this);
+    // this.handleRange = this.handleRange.bind(this)
+  }
+
+  componentDidMount() {
     authService.getPeriod(this.props.user.id)
       .then((response) =>
         this.setState({
-          user: {
-            ...this.state.user,
-            response
-          }
+          period: response[0].stages
         })
-      )}
+      );
+   authService.getUser(this.state.user.id)
+   .then(user => this.setState({user})
+   )
+ }
 
-    showModal = () => {
-      this.setState({
-        visible: true,
-      });
-    }
+  addDateHandleChange = ( days ) => {
+    const newDate = new Date( this.state.date.setDate(this.state.date.getDate() + days) );
+    this.setState({
+      date: newDate
+    })
+  }
 
-    handleOk = (startPeriod) => {
-      // authService.createPeriod(this.props.user.id, startPeriod)
-      // console.log('PERIODO:',startPeriod)
-      this.setState({
-        // user: {
-        //   ...this.state.user,
-        //   startPeriod: startPeriod,
-        // },
-        visible: false
-      });
-    }
+  subtractDateHandleChange = ( days ) => {
+    const newDate = new Date( this.state.date.setDate(this.state.date.getDate() - days) );
+    this.setState({
+      date: newDate
+    });
+  }
 
-    handleCancel = () => {
-      this.setState({
-        visible: false,
-      });
-    }
+  selectedDay = (date) => {
+    this.setState({
+      date: date,
+    });
+  }
 
-    // selectRange = (startPeriod, endPeriod) => {
-    //   return false;
-    // };
+  handleClickDay = (dayClicked) => {
+    console.log(dayClicked)
+    this.showModal(dayClicked);
+  }
 
-    // showTitle = () => {
-    //   const stages = this.state.user.response.map(stages => <p>{stages}</p>)
-    // }
+  showModal = (dayClicked) => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = (startPeriod) => {
+    console.log(startPeriod);
+    authService.createPeriod(this.state.user.id, this.state.user.startPeriod)
+    this.setState({
+      user: {
+        ...this.state.user,
+        startPeriod: startPeriod,
+      },
+      visible: false
+    });
+  }
+
+  handleCancel = () => {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  // handleRange(range) {
+  //   this.setState({
+  //     user: {
+  //       ...this.state.user,
+  //       startPeriod: range[0],
+  //       endPeriod: range[1]
+  //     },
+  //   }, () => console.log(this.state.user))
+  // }
 
   render() {
-    const TabPane = Tabs.TabPane;
-    console.log(this.state.user.response)
+    const TabPane = Tabs.TabPane
     return (
       <div className="home-container">
         <NavBar></NavBar>
@@ -75,76 +111,32 @@ class Home extends React.Component {
           <Tabs
             defaultActiveKey="1">
             <TabPane tab="Día" key="1">
-              <Days></Days>
-              <Card>
-                <div className="stage">
-                  <Icon type="info-circle" />
-                  <p>title</p>
-                </div>
-                <div className="card">
-                  <h4>Entrenamiento</h4>
-                  <p>En esta fase tu fuerza puede llegar a aumentar un 11%. 
-                      Entre la regla y la ovulación es donde tienes que concentrar el trabajo de fuerza, 
-                      tendrás mejores resultados y menos daño muscular</p>
-                  <NavLink
-                    to={{
-                      pathname: '/sport',
-                      state: {
-                        user: this.state
-                        }
-                      }}>
-                    <Icon type="right" />
-                  </NavLink>
-                </div>
-                <div className="card">
-                  <h4>Alimentación</h4>
-                  <p>Necesitas un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.</p>
-                  <NavLink 
-                    to={{
-                      pathname: '/food',
-                      state: {
-                        user: this.state
-                        }
-                      }}>
-                    <Icon type="right" />
-                  </NavLink>
-                </div>
-                <div className="card">
-                  <h4>Ánimo</h4>
-                  <p>Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.</p>
-                  <NavLink 
-                    to={{
-                      pathname: '/health',
-                      state: {
-                        user: this.state
-                        }
-                      }}>
-                    <Icon type="right" />
-                  </NavLink>
-                </div>
-                <div className="card">
-                  <h4>Sexualidad</h4>
-                  <p>Comienza a aumentar el deseo sexual progresivamente.</p>
-                  <NavLink 
-                    to={{
-                      pathname: '/sex',
-                      state: {
-                        user: this.state
-                        }
-                      }}>
-                    <Icon type="right" />
-                  </NavLink>
-                </div>
-              </Card>
+            {this.state.period && (
+              <Days
+                selectedDay={this.selectedDay}
+                subtractDateHandleChange={this.subtractDateHandleChange}
+                addDateHandleChange={this.addDateHandleChange}
+                day={this.state.date}
+                period={this.state.period}>
+              </Days>
+              )}
+              {this.state.period && (
+                <DayInfo
+                  selectedDay={this.state.date}
+                  period={this.state.period}>
+                </DayInfo>
+              )}
             </TabPane>
             <TabPane
               tab="Mes"
               key="2">
               <p className="subtitle">Aquí puedes añadir nuevas fechas de tus reglas:</p>
               <Calendar
-                // selectRange={this.selectRange}
-                onClickDay={this.showModal}
-                value={this.state.startPeriod}/>
+                onClickDay={this.handleClickDay}
+                value={this.state.user.startPeriod}
+                // selectRange
+                // onChange={this.handleRange}
+                />
                 <Modal
                   title="AÑADIR NUEVO INICIO DE REGLA"
                   visible={this.state.visible}

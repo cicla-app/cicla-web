@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import './Access-data.scss';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
   Input, PageHeader, Button
 } from 'antd';
 import { createBrowserHistory } from 'history';
-import AuthService from '../../services/AuthService'
+import authService from '../../services/AuthService'
 
 const history = createBrowserHistory();
+
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}/;
 
@@ -46,7 +47,7 @@ class AccessData extends Component {
   userSubscription = undefined;
 
   componentDidMount = () => {
-    this.userSubscription = AuthService.onUserChange().subscribe(user =>
+    this.userSubscription = authService.onUserChange().subscribe(user =>
       this.setState({ user: user})
   )};
 
@@ -62,9 +63,18 @@ class AccessData extends Component {
     const newUser = {
       ...this.state.user
     }
-    AuthService.updateUser(newUser);
+    authService.updateUser(newUser);
     this.setState({
       user: newUser
+    })
+  }
+
+  deleteUser = () => {
+    authService.deleteUser(this.props.user.id)
+    .then(() => {
+      const { history } = this.props;
+      this.props.onUserChange({});
+      history.push('/select');
     })
   }
 
@@ -123,16 +133,27 @@ render() {
                 onChange={this.handleChange}
                 value={user.email}
                 onBlur={this.handleBlur}/>
-              <div className="link-modify">
+              {/* <div className="link-modify">
                 <Link
                   to="/modify-password">Cambia tu contraseña
                 </Link>
-              </div>
+              </div> */}
               <Button
                 block
                 size="large"
                 onClick={this.updateUser}>
                 Guardar
+              </Button>
+            </form>
+            <form>
+              <p>¿Quieres eliminar tu cuenta?</p>
+              <p>Al hacer click en el siguiente botón se borrarán todos tus datos</p>
+              <Button
+                block
+                className="delete-button"
+                size="large"
+                onClick={this.deleteUser}>
+                Eliminar mi cuenta
               </Button>
             </form>
           </div>

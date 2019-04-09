@@ -32,7 +32,7 @@ class Sex extends React.Component {
               </p>
               <p>Fase folicular primaria</p>
             </div>
-            <div className="card">
+            <div className="card resume">
               Comienza a aumentar el deseo sexual progresivamente.
             </div>
             <div className="card">
@@ -41,42 +41,15 @@ class Sex extends React.Component {
                   <Icon type="right"></Icon>
                   Deseo sexual aumentando.</li>
               </ul>
-              <div className="alert-contraceptives sport">
-                <div className="title">
-                  <Icon type="notification" />
-                  <h5>Anticonceptivos hormonales:</h5>
+              { this.props.user.contraceptives && 
+                <div className="alert-contraceptives sport">
+                  <div className="title">
+                    <Icon type="notification" />
+                    <h5>Anticonceptivos hormonales:</h5>
+                  </div>
+                  <p>Las mujeres que recurren a este método anticonceptivo poseen su propio ciclo hormonal, ya que las pastillas bloquean la ovulación y por tanto crean un ciclo artificial específico y caracterizado por la ausencia de los "altibajos pasionales" que se dan entre las que responden al ciclo natural.</p>
                 </div>
-                <p>Las mujeres que recurren a este método anticonceptivo poseen su propio ciclo hormonal, ya que las pastillas bloquean la ovulación y por tanto crean un ciclo artificial específico y caracterizado por la ausencia de los "altibajos pasionales" que se dan entre las que responden al ciclo natural.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <PageHeader
-            onBack={() => this.goBack()} 
-            title="SEXUALIDAD">
-          </PageHeader>
-          <div>
-            <div className="subheader">
-              <p className="date">
-                <Moment
-                  format="DD-MM-YYYY">
-                </Moment>
-              </p>
-              <p>Fase folicular primaria</p>
-            </div>
-            <div className="card">
-              Comienza a aumentar el deseo sexual progresivamente.
-            </div>
-            <div className="card">
-              <ul>
-                <li>
-                  <Icon type="right"></Icon>
-                  Deseo sexual aumentando.</li>
-              </ul>
+              }
             </div>
           </div>
         </div>

@@ -1,0 +1,118 @@
+[{
+  "follicular": 
+    {
+      "primary": [
+        {
+          "title": "Ánimo",
+          "resume": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+          "description": "Ánimos de fuerza y potencia y Máxima intensidad y carga.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Ánimo",
+          "resume": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+          "description": "Máxima intensidad, máxima carga.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "latest": [
+        {
+          "title": "Ánimo",
+          "resume": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+          "description": "Ánimos de fuerza y potencia.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Ánimo",
+          "category": "Sport",
+          "id": 2
+        }
+      ]
+    }
+},
+{
+  "ovulation": [
+    {
+      "title": "Ánimo",
+      "resume": "Disminuye un poco el rendimiento pero menos que en regla.",
+      "description": "Aumenta tiempos de recuperación porque hay cierta fatiga.",
+      "category": "Sport",
+      "id": 1
+    },
+    {
+      "title": "Ánimo",
+      "description": "Ánimo",
+      "category": "Sport",
+      "id": 2
+    }
+  ]
+},
+{
+  "lutea":
+    {
+      "primary": [
+        {
+          "title": "Ánimo",
+          "resume": "La fuerza disminuye y la fatiga aumenta.",
+          "description": "Se pierde resistencia máxima y recuperación.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Ánimo",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Ánimo",
+          "resume": "Mayor descanso los días de regla y pre regla.",
+          "description": "Se pierde resistencia máxima y recuperación.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Ánimo",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "latest": [
+        {
+          "title": "Ánimo",
+          "resume": "En general empeora el rendimiento en pre regla y 3 primeros días de regla.",
+          "description": "Niveles elevados de relaxina, no entrenes la elasticidad.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Ánimo",
+          "description": "Ánimo",
+          "category": "Sport",
+          "id": 2
+        }
+      ]
+    }
+}
+]

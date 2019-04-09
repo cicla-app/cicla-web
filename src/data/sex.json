@@ -1,0 +1,118 @@
+[{
+  "follicular": 
+    {
+      "primary": [
+        {
+          "title": "Sexualidad",
+          "resume": "Comienza a aumentar el deseo sexual progresivamente.",
+          "description": "Sexualidads de fuerza y potencia y Máxima intensidad y carga.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Sexualidad",
+          "resume": "Comienza a aumentar el deseo sexual progresivamente.",
+          "description": "Máxima intensidad, máxima carga.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "latest": [
+        {
+          "title": "Sexualidad",
+          "resume": "Comienza a aumentar el deseo sexual progresivamente.",
+          "description": "Sexualidads de fuerza y potencia.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ]
+    }
+},
+{
+  "ovulation": [
+    {
+      "title": "Sexualidad",
+      "resume": "Disminuye un poco el rendimiento pero menos que en regla.",
+      "description": "Aumenta tiempos de recuperación porque hay cierta fatiga.",
+      "category": "Sport",
+      "id": 1
+    },
+    {
+      "title": "Sexualidad",
+      "description": "Sexualidad",
+      "category": "Sport",
+      "id": 2
+    }
+  ]
+},
+{
+  "lutea":
+    {
+      "primary": [
+        {
+          "title": "Sexualidad",
+          "resume": "La fuerza disminuye y la fatiga aumenta.",
+          "description": "Se pierde resistencia máxima y recuperación.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "secondary": [
+        {
+          "title": "Sexualidad",
+          "resume": "Mayor descanso los días de regla y pre regla.",
+          "description": "Se pierde resistencia máxima y recuperación.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ],
+      "latest": [
+        {
+          "title": "Sexualidad",
+          "resume": "En general empeora el rendimiento en pre regla y 3 primeros días de regla.",
+          "description": "Niveles elevados de relaxina, no entrenes la elasticidad.",
+          "category": "Sport",
+          "id": 1
+        },
+        {
+          "title": "Sexualidad",
+          "description": "Sexualidad",
+          "category": "Sport",
+          "id": 2
+        }
+      ]
+    }
+}
+]

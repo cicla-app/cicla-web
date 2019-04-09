@@ -7,7 +7,7 @@
   background-color: $primary-color;
   color: $light-color;
   .content {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     h1 {
       font-family: 'Futura-Bold';
@@ -64,10 +64,23 @@
   }
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 768px) {
+  .container-register { 
+    .content {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
   .container-register, .container-register-step2 { 
     .content {
       width: 100%;
+      .conditions {
+        p {
+          font-size: 15px;
+        }
+      }
     }
   }
 }

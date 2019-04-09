@@ -1,0 +1,20 @@
+@import '../../variables';
+
+.container-colaborator {
+  width: 40%;
+  margin: 0 auto;
+  text-align: left;
+  padding: $base*2 $base*4 $base*4 $base*4;
+}
+
+@media screen and (max-width: 768px) {
+  .container-colaborator { 
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-colaborator { 
+    width: 100%;
+  }
+}

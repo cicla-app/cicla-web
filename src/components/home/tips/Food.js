@@ -28,7 +28,7 @@ class Food extends React.Component {
             </p>
             <p>Fase folicular primaria</p>
           </div>
-          <div className="card">
+          <div className="card resume">
             Necesitas un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.
           </div>
           <div className="card">

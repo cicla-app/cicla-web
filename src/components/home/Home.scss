@@ -17,17 +17,21 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      color: $fifth-color;
+      color: $primary-color;
       font-family: 'Futura-Bold';
+      margin-bottom: $base*2;
+      &.period {
+        color: $fifth-color;
+      }
       p {
-        margin: 0 0 0 10px;
+        margin: 0 0 0 $base;
         font-size: 16px;
       }
     }
     .card {
       padding: $base*2;
       text-align: left;
-      margin: $base*2 0;
+      margin: 0;
       font-family: 'Futura-Medium';
       background-color: $light-color;
       color: $six-color;
@@ -36,10 +40,10 @@
         color: $six-color;
         font-size: 29px;
         line-height: 24px;
-        margin-bottom: $base*3;
+        margin-bottom: $base*2;
       }
       p {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 22px;
         margin: 0;
         width: 90%;

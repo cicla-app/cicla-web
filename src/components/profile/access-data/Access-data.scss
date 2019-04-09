@@ -7,6 +7,13 @@
   height: 100vh;
   color: $six-color;
   font-size: 18px;
+  width: 40%;
+  margin: 0 auto;
+  form {
+    p {
+      margin-bottom: $base;
+    }
+  }
   .link-modify {
     margin-top: $base*4;
     a {
@@ -19,6 +26,21 @@
     font-size: 18px;
   }
   button {
-    margin-top: $base*8;
+    margin: $base*2 0 $base*8 0;
+  }
+  .delete-button {
+    margin-top: $base*2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-data { 
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-data { 
+    width: 100%;
   }
 }

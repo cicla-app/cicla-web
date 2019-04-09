@@ -198,6 +198,9 @@ a {
   .react-calendar__navigation button:enabled:hover {
     background-color: $light-color;
   }
+  .react-calendar__tile:enabled:hover {
+    border-radius: 50%;
+  }
   .react-calendar__month-view__weekdays {
     font-family: 'Futura';
     font-weight: 100;
