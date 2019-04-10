@@ -1,49 +1,142 @@
 {
   "follicularPrimary": {
     "name": "Fase folicular primaria",
-    "resume1": "En esta fase tu capacidad de trabajo está disminuida, estás en la semana de recuperación.",
+    "sport": {
+      "resume1": "En esta fase tu capacidad de trabajo está disminuida, estás en la semana de recuperación.",
+      "tips": [
+        "Tu capacidad de trabajo está disminuida, estás en la semana de recuperación.",
+        "Reduce o elimina trabajos de habilidad o precisión.",
+        "Incluye tareas simples y de estrés bajo.",
+        "Reduce el volumen del entrenamiento.",
+        "Durante los días de regla se disminuye el rendimiento.",
+        "Aumenta el tiempo de descanso entre ejercicios.",
+        "Niveles elevados de relaxina, no entrenes la elasticidad.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico.",
+        "Protege tu columna lumbar.",
+        "Incluye actividad anaeróbica y de potencia.",
+        "Fortalece la musculatura de rodilla y tobillos (mayor probabilidad de lesiones).",
+        "Fortalece la musculatura del pie para evitar lesiones como la fascitis.",
+        "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+        "Problemas de motilidad gástrica (acidez, gases y/o diarrea) y la diarrea aumenta con el esfuerzo del entrenamiento por lo tanto existe riesgo de deshidratación."
+      ]
+    },
     "resume2": "Tu cuerpo necesita un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.",
     "resume3": "Es posible que tu deseo sexual aumente debido a la sensibilidad corporal así como al aumento de la lubricación gracias a la sangre menstrual.",
     "resume4": "Durante la menstruación el cerebro libera serotonina para intentar aliviar los dolores y sentirse mejor de ánimo, pero es cierto que la pérdida de sangre te puede hacer sentir fatigada y el dolor ponerte de mal humor."
   },
   "follicularSecondary": {
     "name": "Fase folicular media",
-    "resume1": "Sesiones fuertes: mejores resultados del entrenamiento y menos daño muscular.",
+    "sport": {
+      "resume1": "Sesiones fuertes: mejores resultados del entrenamiento y menos daño muscular.",
+      "tips": [
+        "Máxima intensidad, máxima carga.",
+        "Concentra el trabajo de fuerza entre regla y ovulación.",
+        "Entrenamientos de fuerza y potencia.",
+        "Aumento de fuerza un 11%.",
+        "Más favorable al desarrollo y rendimiento de capacidades relacionadas con el rendimiento en resistencia.",
+        "Incluye trabajos aeróbicos de baja intensidad y alto volumen.",
+        "Intensifica los trabajos sin lastre y tareas prolongadas.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "Tu índice insulínico está aumentado por lo que puedes aumentar la ingesta de hidratos.",
     "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
     "resume4": "En esta fase te sentirás bien, relajada y más enérgica respecto a la fase anterior."
   },
   "follicularLatest": {
     "name": "Fase folicular tardía",
-    "resume1": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+    "sport": {
+      "resume1": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+      "tips": [
+        "Sesiones fuertes → mejor entrenamiento y menos daño muscular.",
+        "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+        "Entrenamientos de fuerza y potencia.",
+        "Aumento de fuerza un 11%.",
+        "Máxima intensidad, máxima carga.",
+        "Ejercicios a más del 70% (estimulan la producción de testosterona).",
+        "Limitación de flujo respiratorio.",
+        "Incluye tareas complejas de alta intensidad y bajo volumen, basadas en la potencia.",
+        "Más favorables al desarrollo y rendimiento de capacidades relacionadas con el rendimiento en resistencia.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "Tu metabolismo está acelerado por lo que disminuye el hambre y aumenta la sed.",
     "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
     "resume4": "Frescura, renovación, alegría y optimismo, son las principales características de estos días."
   },
   "ovulation": {
     "name": "Ovulación",
-    "resume1": "Hoy disminuye un poco el rendimiento pero menos que en regla.",
+    "sport": {
+      "resume1": "Hoy disminuye un poco el rendimiento pero menos que en regla.",
+      "tips": [
+        "Disminuye un poco el rendimiento pero menos que en regla.",
+        "Sesiones fuertes: mejor entrenamiento y menos daños.",
+        "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+        "Entrenamientos de fuerza y potencia.",
+        "Aumento de fuera un 11%.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "En esta fase notarás que hay una reducción del apetito.",
     "resume3": "En la fase ovulatoria podemos experimentar el punto álgido de nuestro deseo sexual pues es nuestra fase fértil y hay un óvulo listo para ser fecundado.",
     "resume4": "Puedes sentir una agradable sensación de felicidad, renovación, alegría y optimismo."
   },
   "luteaPrimary": {
     "name": "Fase lutea primaria",
-    "resume1": "En esta fase la fuerza disminuye y la fatiga aumenta.",
+    "sport": {
+      "resume1": "En esta fase la fuerza disminuye y la fatiga aumenta.",
+      "tips": [
+        "La fuerza disminuye y la fatiga aumenta.",
+        "Se pierde resistencia máxima y recuperación.",
+        "Mayor daño muscular y menor resistencia muscular.",
+        "Incluye tareas complejas de alta intensidad y bajo volumen, actividades anaeróbicas y de potencia.",
+        "Mantenimiento de la fuerza.",
+        "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "Aumento de tu apetito, un aumento importante de la ingesta calórica (90-500 calorías/día).",
     "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
     "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."
   },
   "luteaSecondary": {
     "name": "Fase lutea media",
-    "resume1": "Mayor descanso los días de regla y pre regla.",
+    "sport": {
+      "resume1": "Mayor descanso los días de regla y pre regla.",
+      "tips": [
+        "Se pierde resistencia máxima y recuperación.",
+        "Mantenimiento de la fuerza.",
+        "Incluye trabajos anaeróbicos de baja intensidad y alto volumen.",
+        "Busca actividades sin lastre y que sean prolongadas.",
+        "Capacidad de hacer frente al estrés por el calor con la temperatura corporal aumentada.",
+        "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "La insulina decrece progresivamente por lo que tu cuerpo va pidiendo azúcar.",
     "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
     "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."
   },
   "luteaLatest": {
     "name": "Fase lutea tardía",
-    "resume1": "En general empeora el rendimiento en pre regla y 3 primeros días de regla.",
+    "sport": {
+      "resume1": "En general empeora el rendimiento en pre regla y 3 primeros días de regla.",
+      "tips": [
+        "Mayor descanso los días de regla y pre regla.",
+        "Se pierde resistencia máxima y recuperación.",
+        "Niveles elevados de relaxina, no entrenes la elasticidad.",
+        "Protege columna lumbar.",
+        "Fortalece musculatura rodillas y pie.",
+        "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+      ]
+    },
     "resume2": "En esta fase tu peso aumenta debido a la retención de líquidos por acumulación de sodio en los tejidos.",
     "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
     "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."

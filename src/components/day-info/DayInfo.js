@@ -5,49 +5,15 @@ import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../home/Home.scss';
 import stagesData from '../../data/stages.json';
-import moment from 'moment'
+import moment from 'moment';
+import { getCurrentStage } from './../../helpers/Helper';
 
-const stageNames = [
-  'follicularPrimary',
-  'follicularSecondary',
-  'follicularLatest',
-  'ovulation',
-  'luteaPrimary',
-  'luteaSecondary',
-  'luteaLatest'
-];
 
 const DayInfo = ({ selectedDay, period }) => {
 
-  const stages = [
-    period.follicular.primary,
-    period.follicular.secondary,
-    period.follicular.latest,
-    period.ovulation,
-    period.lutea.primary,
-    period.lutea.secondary,
-    period.lutea.latest
-  ].map(d => new Date(d))
-
-  const getCurrentStage = () => {
-    const date = new Date(selectedDay);
-    date.setHours(0)
-    date.setMinutes(0)
-    date.setMilliseconds(0)
-
-    for(let i = 0, l = stages.length; i < l; i++) {
-      if (date <= stages[i]) {
-        return stageNames[i]
-      }
-    }
-  }
-
-  const currentStage = getCurrentStage()
+  const currentStage = getCurrentStage(selectedDay, period);
 
   const periodClass = ["stage"];
-
-  console.log('SELECTDAY DAYINFO:', moment(selectedDay).format('YYYY-MM-DD'));
-  console.log('PERIOD DAYINFO', period);
 
   if(stagesData[currentStage].name === 'Fase folicular primaria') {
     periodClass.push('period');
@@ -61,7 +27,7 @@ const DayInfo = ({ selectedDay, period }) => {
         </div>
         <div className="card">
           <h4>Entrenamiento</h4>
-          <p>{stagesData[currentStage].resume1}</p>
+          <p>{stagesData[currentStage].sport.resume1}</p>
           <div>
             <Link
               to={'/sport/'+moment(selectedDay).format('YYYY-MM-DD')}

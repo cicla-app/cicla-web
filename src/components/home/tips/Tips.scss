@@ -5,14 +5,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  color: $fifth-color;
+  color: $primary-color;
   padding: $base*2 0;
   p {
     margin: 0;
     font-size: 16px;
   }
   .date {
-    font-size: 26px;
+    font-size: 24px;
+  }
+  .stage {
+    color: $primary-color;
+    &.period {
+      color: $fifth-color;
+    }
   }
 }
 

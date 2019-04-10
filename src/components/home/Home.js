@@ -1,7 +1,7 @@
 import React  from 'react';
 import authService from '../../services/AuthService';
 import { withAuthConsumer } from '../../contexts/AuthStore';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import '../../_variables.scss';
@@ -34,15 +34,20 @@ class Home extends React.Component {
 
   componentDidMount() {
     authService.getPeriod(this.props.user.id)
-      .then((response) =>
-        this.setState({
-          startPeriod: response[0].startPeriod,
-          period: response[0].stages
-        })
-      );
-   authService.getUser(this.state.user.id)
-   .then(user => this.setState({user}),
-   )
+      .then((response) => {
+        if(response.length === 0) {
+          this.setState({
+            toOnboarding: true
+          })
+        } else {
+          this.setState({
+            startPeriod: response[0].startPeriod,
+            period: response[0].stages
+          })
+          authService.getUser(this.state.user.id)
+            .then(user => this.setState({user}))
+        }
+      });
  }
 
   addDateHandleChange = ( days ) => {
@@ -94,18 +99,13 @@ class Home extends React.Component {
     });
   }
 
-  // handleRange(range) {
-  //   this.setState({
-  //     user: {
-  //       ...this.state.user,
-  //       startPeriod: range[0],
-  //       endPeriod: range[1]
-  //     },
-  //   }, () => console.log(this.state.user))
-  // }
-
   render() {
     const TabPane = Tabs.TabPane
+    console.log(this.state)
+
+    if(this.state.toOnboarding) {
+      return <Redirect to='/onboarding' />
+    }
     return (
       <div className="home-container">
         <NavBar></NavBar>

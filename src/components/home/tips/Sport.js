@@ -2,12 +2,13 @@ import React  from 'react';
 import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import { withAuthConsumer } from '../../../contexts/AuthStore';
-import { withRouter } from 'react-router-dom';
 import './Tips.scss';
-import { PageHeader, Icon } from 'antd';
+import { PageHeader, Icon, Skeleton } from 'antd';
 import { createBrowserHistory } from 'history';
 import Moment from 'react-moment';
-import authService from '../../../services/AuthService'
+import authService from '../../../services/AuthService';
+import { getCurrentStage } from './../../../helpers/Helper';
+import stagesData from './../../../data/stages.json';
 
 const history = createBrowserHistory();
 
@@ -16,14 +17,21 @@ class Sport extends React.Component {
     user: {
       ...this.props.user,
     },
-    date: new Date()
+    date: new Date(),
+    period: {}
   };
 
   componentDidMount = () => {
+    authService.getPeriod(this.props.user.id)
+      .then((response) => {
+        this.setState({
+          period: response[0].stages
+        })
+      });
+
     authService.getUser(this.state.user.id)
-      .then(user => this.setState({ user: user})
-      
-  )}
+      .then(user => this.setState({ user }));
+}
 
   goBack(){
     history.goBack();
@@ -31,7 +39,13 @@ class Sport extends React.Component {
 
   render() {
     const { date }  = this.props.match.params;
-    console.log('SELECTDAY SPORT:', date)
+
+    const periodClass = ["stage"];
+
+    if (Object.values(this.state.period).length === 0) {
+      return <Skeleton active />
+    } else if(stagesData[getCurrentStage(date, this.state.period)].name === 'Fase folicular primaria') {
+      periodClass.push('period');
 
       return (
         <div>
@@ -46,31 +60,21 @@ class Sport extends React.Component {
                   { date }
                 </Moment>
               </p>
-              <p>Fase folicular primaria</p>
+              <p className={periodClass.join(' ')}>
+              {stagesData[getCurrentStage(date, this.state.period)].name}
+              </p>
             </div>
             <div className="card resume">
-              En esta fase tu fuerza puede llegar a aumentar un 11% Entre la regla y la ovulación es donde tienes que concentrar el trabajo de fuerza.
+            {stagesData[getCurrentStage(date, this.state.period)].sport.resume1}
             </div>
             <div className="card">
               <ul>
-                <li>
-                  <Icon type="right"></Icon>
-                  Entrenamientos de fuerza y potencia y Máxima intensidad y carga.</li>
-                <li>
-                  <Icon type="right"></Icon>
-                  Más favorable al desarrollo y rendimiento de capacidades relacionadas con el rendimiento en resistencia.</li>
-                <li>
-                  <Icon type="right"></Icon>
-                  Sesiones fuertes: mejores resultados del entrenamiento y menos daño muscular.</li>
-                <li>
-                  <Icon type="right"></Icon>
-                  Incluye trabajos aeróbicos de baja intensidad y alto volumen.</li>
-                <li>
-                  <Icon type="right"></Icon>
-                  Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.</li>
-                <li>
-                  <Icon type="right"></Icon>
-                  Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico.</li>
+                {stagesData[getCurrentStage(date, this.state.period)].sport.tips.map((tip, i) => (
+                  <li key={i}>
+                    <Icon type="right"></Icon>
+                    {tip}
+                  </li>
+                ))}
               </ul>
               { this.state.user.contraceptives && 
               <div className="alert-contraceptives sport">
@@ -86,6 +90,7 @@ class Sport extends React.Component {
         </div>
       </div>
     );
+    }
   }
 }
 

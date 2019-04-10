@@ -3,7 +3,6 @@ import { withAuthConsumer } from '../contexts/AuthStore';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest}) => {
-  console.log(rest);
   if (!isAuthenticated()) {
     return <Redirect to="/" />
   }
