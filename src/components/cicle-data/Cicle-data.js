@@ -39,7 +39,7 @@ class CicleData extends Component {
     authService.updateUser(newUser);
     this.setState({
       user: newUser
-    }, () => console.log(this.state.user))
+    })
   }
 
   handleChange = (event) => {
@@ -57,7 +57,7 @@ class CicleData extends Component {
     this.setState({user: {
       ...this.state.user,
         contraceptives: contraceptives
-    }}, () => console.log(contraceptives));
+    }});
   }
 
   handleBlur = (event) => {
@@ -71,18 +71,10 @@ class CicleData extends Component {
   }
 
 render() {
-  console.log(this.state.user.contraceptives)
-
   const { user } = this.state;
-  const contraceptives = user && user.contraceptives ? 'yes' : 'no';
-
-  console.log('PRUEBA', contraceptives);
+  const contraceptives = user && user.contraceptives;
 
   const Option = Select.Option;
-
-  if (contraceptives) {
-    
-  }
 
   if (!user) return <p style={{ color: 'black' }}>Loading</p>
     return (
@@ -116,7 +108,7 @@ render() {
                 onBlur={this.handleBlur}/>
               <p>¿Usas anticonceptivos hormonales?</p>
               <Select
-                defaultValue={contraceptives}
+                defaultValue={contraceptives ? 'yes' : 'no'}
                 name="contraceptives"
                 onChange={this.handleSelectChange}
                 style={{ width: '100%' }}>

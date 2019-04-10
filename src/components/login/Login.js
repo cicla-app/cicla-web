@@ -107,14 +107,6 @@ class Login extends Component {
   
 
 render() {
-  // const responseGoogle = (response) => {
-  //   console.log(response);
-  // }
-
-  // const responseFacebook = (response) => {
-  //   console.log(response);
-  // }
-
   const { touch, errors, user } = this.state;
   if (this.state.authenticated) {
     return (<Redirect to="/home" />);

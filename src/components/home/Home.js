@@ -101,7 +101,6 @@ class Home extends React.Component {
 
   render() {
     const TabPane = Tabs.TabPane
-    console.log(this.state)
 
     if(this.state.toOnboarding) {
       return <Redirect to='/onboarding' />

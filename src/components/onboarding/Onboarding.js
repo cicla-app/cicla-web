@@ -185,7 +185,6 @@ class Onboarding extends Component {
   }
 
   renderStep4() {
-    console.log(this.state)
     return (
       <div className="background">
         <PageHeader

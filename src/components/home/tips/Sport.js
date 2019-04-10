@@ -44,7 +44,8 @@ class Sport extends React.Component {
 
     if (Object.values(this.state.period).length === 0) {
       return <Skeleton active />
-    } else if(stagesData[getCurrentStage(date, this.state.period)].name === 'Fase folicular primaria') {
+    } 
+    else if(stagesData[getCurrentStage(date, this.state.period)].name === 'Fase folicular primaria') {
       periodClass.push('period');
 
       return (
