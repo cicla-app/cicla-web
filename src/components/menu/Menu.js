@@ -4,12 +4,14 @@ import authService from '../../services/AuthService';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import './Menu.scss';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 class Menu extends Component {
   handleLogout = () => {
     authService.logout()
       .then(() => {
-        const { history } = this.props;
         this.props.onUserChange({});
         history.push('/select');
       })

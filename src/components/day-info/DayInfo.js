@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../home/Home.scss';
-import stagesData from '../../data/stages.json'
+import stagesData from '../../data/stages.json';
+import moment from 'moment'
 
 const stageNames = [
   'follicularPrimary',
@@ -45,7 +46,7 @@ const DayInfo = ({ selectedDay, period }) => {
 
   const periodClass = ["stage"];
 
-  console.log('SELECTDAY DAYINFO:', selectedDay);
+  console.log('SELECTDAY DAYINFO:', moment(selectedDay).format('YYYY-MM-DD'));
   console.log('PERIOD DAYINFO', period);
 
   if(stagesData[currentStage].name === 'Fase folicular primaria') {
@@ -63,10 +64,8 @@ const DayInfo = ({ selectedDay, period }) => {
           <p>{stagesData[currentStage].resume1}</p>
           <div>
             <Link
-              to='/sport'
-              params= {
-                selectedDay=DayInfo.selectedDay
-              }>
+              to={'/sport/'+moment(selectedDay).format('YYYY-MM-DD')}
+              >
               <Icon type="right" />
             </Link>
           </div>
@@ -77,7 +76,7 @@ const DayInfo = ({ selectedDay, period }) => {
           <h4>Alimentación</h4>
           <p>{stagesData[currentStage].resume2}</p>
           <NavLink
-            to='/sport'>
+            to='/sport:selectedDay'>
             <Icon type="right" />
           </NavLink>
         </div>

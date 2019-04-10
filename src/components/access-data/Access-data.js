@@ -72,9 +72,8 @@ class AccessData extends Component {
   deleteUser = () => {
     authService.deleteUser(this.props.user.id)
     .then(() => {
-      const { history } = this.props;
       this.props.onUserChange({});
-      history.push('/select');
+      history.push('/');
     })
   }
 

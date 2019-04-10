@@ -30,7 +30,8 @@ class Sport extends React.Component {
   }
 
   render() {
-    console.log('SELECTDAY SPORT:', this.props.day)
+    const { date }  = this.props.match.params;
+    console.log('SELECTDAY SPORT:', date)
 
       return (
         <div>
@@ -41,8 +42,8 @@ class Sport extends React.Component {
           <div>
             <div className="subheader">
               <p className="date">
-                <Moment
-                  format="DD-MM-YYYY">
+                <Moment format="DD-MM-YYYY">
+                  { date }
                 </Moment>
               </p>
               <p>Fase folicular primaria</p>
@@ -88,4 +89,4 @@ class Sport extends React.Component {
   }
 }
 
-export default withRouter(withAuthConsumer(Sport));
+export default withAuthConsumer(Sport);
