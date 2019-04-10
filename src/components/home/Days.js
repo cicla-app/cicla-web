@@ -1,4 +1,5 @@
 import React  from 'react';
+import authService from '../../services/AuthService';
 import 'antd/dist/antd.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import './Days.scss';
@@ -8,9 +9,20 @@ class Days extends React.Component {
   state = {
     user: {
       ...this.props.user,
+      startPeriod: ''
     },
     addClass: false
   }
+
+  componentDidMount() {
+    authService.getPeriod(this.props.userId)
+      .then((response) =>
+        this.setState({
+          startPeriod: response[0].startPeriod,
+          period: response[0].stages
+        })
+      );
+ }
 
   addDateHandleChange = ( date ) => {
     this.props.addDateHandleChange(date);
@@ -22,15 +34,13 @@ class Days extends React.Component {
 
   selectedDay = () => {
     this.props.selectedDay(this.props.day);
-    
   }
 
-  render() {
-    console.log('las props',this.props);
 
+  render() {
     const periodClass = ["circle"];
 
-    if(this.state.date <= new Date(this.props.period.follicular.primary)) {
+    if(this.props.day === this.state.startPeriod) {
       periodClass.push('period');
     }
     return (

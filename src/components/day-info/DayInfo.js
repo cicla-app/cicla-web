@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../home/Home.scss';
 import stagesData from '../../data/stages.json'
@@ -13,7 +14,7 @@ const stageNames = [
   'luteaPrimary',
   'luteaSecondary',
   'luteaLatest'
-]
+];
 
 const DayInfo = ({ selectedDay, period }) => {
 
@@ -44,6 +45,9 @@ const DayInfo = ({ selectedDay, period }) => {
 
   const periodClass = ["stage"];
 
+  console.log('SELECTDAY DAYINFO:', selectedDay);
+  console.log('PERIOD DAYINFO', period);
+
   if(stagesData[currentStage].name === 'Fase folicular primaria') {
     periodClass.push('period');
   }
@@ -58,10 +62,13 @@ const DayInfo = ({ selectedDay, period }) => {
           <h4>Entrenamiento</h4>
           <p>{stagesData[currentStage].resume1}</p>
           <div>
-            <NavLink
-                to='/sport'>
+            <Link
+              to='/sport'
+              params= {
+                selectedDay=DayInfo.selectedDay
+              }>
               <Icon type="right" />
-            </NavLink>
+            </Link>
           </div>
         </div>
       </Card>

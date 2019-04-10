@@ -2,6 +2,7 @@ import http from './BaseService';
 import { BehaviorSubject } from 'rxjs';
 
 const CURRENT_USER_KEY = 'current-user';
+const CURRENT_PERIOD_KEY = 'current-period'
 
 let user = JSON.parse(localStorage.getItem(CURRENT_USER_KEY) || '{}')
 const user$ = new BehaviorSubject(user);
@@ -44,10 +45,17 @@ const deleteUser = (id) => http.delete(`/users/${id}`)
 
 const onUserChange = () => user$.asObservable();
 
-const createPeriod = (id, startPeriod) => {
-  return http.post(`/periods/${id}`, {id, startPeriod})
-    .then(response => response.data)
-} 
+// const createPeriod = (id, startPeriod) => {
+//   return http.post(`/periods/${id}`, {id, startPeriod})
+//     .then(response => response.data)
+// } 
+
+const createPeriod = (id, startPeriod) => http.post(`/periods/${id}`, {id, startPeriod})
+  .then(response => {
+    user = response.data;
+    localStorage.setItem(CURRENT_PERIOD_KEY, JSON.stringify(user));
+    return user;
+  });
 
 const getPeriod = (id) => {
   return http.get(`/periods/${id}`)

@@ -17,6 +17,7 @@ class Home extends React.Component {
     activeTab: "1",
     user: {
       ...this.props.user,
+      startPeriod: ''
     },
     step: 0,
     visible: false,
@@ -35,11 +36,12 @@ class Home extends React.Component {
     authService.getPeriod(this.props.user.id)
       .then((response) =>
         this.setState({
+          startPeriod: response[0].startPeriod,
           period: response[0].stages
         })
       );
    authService.getUser(this.state.user.id)
-   .then(user => this.setState({user})
+   .then(user => this.setState({user}),
    )
  }
 
@@ -117,7 +119,8 @@ class Home extends React.Component {
                 subtractDateHandleChange={this.subtractDateHandleChange}
                 addDateHandleChange={this.addDateHandleChange}
                 day={this.state.date}
-                period={this.state.period}>
+                period={this.state.period}
+                userId={this.props.user.id}>
               </Days>
               )}
               {this.state.period && (

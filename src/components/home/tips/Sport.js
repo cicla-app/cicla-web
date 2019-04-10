@@ -22,6 +22,7 @@ class Sport extends React.Component {
   componentDidMount = () => {
     authService.getUser(this.state.user.id)
       .then(user => this.setState({ user: user})
+      
   )}
 
   goBack(){
@@ -29,8 +30,7 @@ class Sport extends React.Component {
   }
 
   render() {
-    // console.log('las props del sport',period);
-    // console.log('el state del sport',selectedday);
+    console.log('SELECTDAY SPORT:', this.props.day)
 
       return (
         <div>
