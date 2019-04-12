@@ -121,7 +121,6 @@ render() {
                 <Option value="no">No</Option>
               </Select>
               <Button
-                className="my-3"
                 block
                 size="large"
                 onClick={this.updateUser}>

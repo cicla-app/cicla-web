@@ -24,10 +24,11 @@
     "food": {
       "resume2": "Tu cuerpo necesita un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
-        "Alimentación 4."
+        "Consumir alimentos ricos en omega 3 y potasio.",
+        "La tasa metabólica basal se ve disminuida durante la menstruación hasta alcanzar su punto más bajo antes de la ovulación. Para compensar, tiene lugar un aumento en la sensibilidad de la leptina que mantiene nuestra hambre a raya.",
+        "Reducir la ingesta de grasas saturadas al menos el 10% y sustituirlas por las grasas poliinsaturadas como las nueces y pistachos que mejoran la sensibilidad a la utilización de la insulina.",
+        "Proteínas. Son necesarias para evitar el cansancio y la fatiga y se encuentran en: la carne, el pescado, la soja, las legumbres y las algas.",
+        "Hierro en combinación con alimentos ricos en vitamina C, ideal para prevenir anemias. Para ello toma legumbres, brécol, ensaladas especialmente de hoja verde, espinacas, frutos secos, kiwi y moluscos."
       ]
     },
     "sex": {
@@ -43,7 +44,7 @@
       "tips": [
         "Health 1.",
         "Health 2.",
-        "Health 4."
+        "Nos podemos sentir más cansadas y sensibles al dolor”."
       ]
     }
   },
@@ -66,8 +67,8 @@
     "food": {
       "resume2": "Tu índice insulínico está aumentado por lo que puedes aumentar la ingesta de hidratos.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
+        "Nuestro cuerpo tiene mayor resistencia a la insulina, por ello podemos aumentar el consumo de carbohidratos y limitar el de las grasas.",
+        "La tasa metabólica basal se ve disminuida durante la menstruación hasta alcanzar su punto más bajo antes de la ovulación. Para compensar, tiene lugar un aumento en la sensibilidad de la leptina que mantiene nuestra hambre a raya.",
         "Alimentación 3.",
         "Alimentación 4."
       ]
@@ -92,7 +93,7 @@
   "follicularLatest": {
     "name": "Fase folicular tardía",
     "sport": {
-      "resume1": "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
+      "resume1": "Los niveles de estrógenos alcanzarán un pico de concentraciones máximas, lo cual se traducirá en un aumento de la capacidad de ejercer fuerza, pero también en un mayor riesgo de lesión.",
       "tips": [
         "Sesiones fuertes → mejor entrenamiento y menos daño muscular.",
         "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
@@ -110,10 +111,10 @@
     "food": {
       "resume2": "Tu metabolismo está acelerado por lo que disminuye el hambre y aumenta la sed.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
-        "Alimentación 4."
+        "Nuestro cuerpo tiene mayor resistencia a la insulina, por ello podemos aumentar el consumo de carbohidratos y limitar el de las grasas.",
+        "La tasa metabólica basal se ve disminuida durante la menstruación hasta alcanzar su punto más bajo antes de la ovulación. Para compensar, tiene lugar un aumento en la sensibilidad de la leptina que mantiene nuestra hambre a raya.",
+        "En este punto podemos encontrarnos más hambrientas. Deberemos aumentar ligeramente las calorías netas para poder aportar sustratos necesarios a esta etapa tan activa junto a una mezcla balanceada de carbohidratos, proteína y grasa.",
+        "Reducción del apetito."
       ]
     },
     "sex": {
@@ -140,6 +141,7 @@
       "tips": [
         "Disminuye un poco el rendimiento pero menos que en regla.",
         "Sesiones fuertes: mejor entrenamiento y menos daños.",
+        "Los niveles de estrógenos alcanzarán un pico de concentraciones máximas, lo cual se traducirá en un aumento de la capacidad de ejercer fuerza, pero también en un mayor riesgo de lesión.",
         "Concentra el trabajo de fuerza entre regla y ovulación porque es donde mejor se asimila.",
         "Entrenamientos de fuerza y potencia.",
         "Aumento de fuera un 11%.",
@@ -150,10 +152,10 @@
     "food": {
       "resume2": "En esta fase notarás que hay una reducción del apetito.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
-        "Alimentación 4."
+        "Alimentos que regulen y aumenten de forma natural la progesterona, como las legumbres, las nueces y los cereales integrales.",
+        "Reducir el consumo de carbohidratos, al no haber tanta resistencia a la insulina, y evitar las grasas.",
+        "La sensibilidad a la insulina comienza a disminuir, por lo que deberemos bajar los carbohidratos.",
+        "Reducción del apetito."
       ]
     },
     "sex": {
@@ -191,9 +193,9 @@
     "food": {
       "resume2": "Aumento de tu apetito, un aumento importante de la ingesta calórica (90-500 calorías/día).",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
+        "Alimentos que regulen y aumenten de forma natural la progesterona, como las legumbres, las nueces y los cereales integrales.",
+        "Reducir el consumo de carbohidratos, al no haber tanta resistencia a la insulina, y evitar las grasas.",
+        "Mayor uso de grasa como combustible.",
         "Alimentación 4."
       ]
     },
@@ -226,16 +228,20 @@
         "Capacidad de hacer frente al estrés por el calor con la temperatura corporal aumentada.",
         "Hidrátate más, tu temperatura corporal aumenta y por lo tanto sudas más.",
         "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
-        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico.",
+        "El metabolismo basal en su punto más alto por lo que hay un aumento de la temperatura corporal."
       ]
     },
     "food": {
       "resume2": "La insulina decrece progresivamente por lo que tu cuerpo va pidiendo azúcar.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
-        "Alimentación 4."
+        "La resistencia a la insulina está muy baja, por lo que es habitual sentir antojos dulces.",
+        "Se aumentará la ingesta de grasas y se disminuirán al máximo los carbohidratos.",
+        "Alimentos recomendados serán los “ricos en fibra y triptófano, por lo que es importante incorporar frutas y verdura fresca.",
+        "Los niveles de estrógenos se encontrarán en su punto más bajo del ciclo, lo cual se traduce en una baja sensibilidad a la insulina que traerá consigo un incremento en los antojos de carbohidratos.",
+        "Debido a la disminución de estrógenos y aumento de progesterona, se tendrá una mayor capacidad para almacenar grasa.",
+        "Mayor uso de grasa como combustible.",
+        "Dos opciones adicionales contra los antojos: fruta y hocolate muy oscuro (>85%)."
       ]
     },
     "sex": {
@@ -251,7 +257,7 @@
       "tips": [
         "Health 1.",
         "Health 2.",
-        "Health 4."
+        "La serotonina también está bajo mínimos, por lo que se puede alterar el humor, sentirnos más tristes e irritadas."
       ]
     }
   },
@@ -266,16 +272,19 @@
         "Protege columna lumbar.",
         "Fortalece musculatura rodillas y pie.",
         "Fortalece el suelo pélvico con abdominales core, ejercicios de kegel e hipopresivos.",
-        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
+        "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico.",
+        "El metabolismo basal en su punto más alto por lo que hay un aumento de la temperatura corporal."
       ]
     },
     "food": {
       "resume2": "En esta fase tu peso aumenta debido a la retención de líquidos por acumulación de sodio en los tejidos.",
       "tips": [
-        "Alimentación 1.",
-        "Alimentación 2.",
-        "Alimentación 3.",
-        "Alimentación 4."
+        "La resistencia a la insulina está muy baja, por lo que es habitual sentir antojos dulces.",
+        "Se aumentará la ingesta de grasas y se disminuirán al máximo los carbohidratos.",
+        "Alimentos recomendados serán los “ricos en fibra y triptófano, por lo que es importante incorporar frutas y verdura fresca.",
+        "Los niveles de estrógenos se encontrarán en su punto más bajo del ciclo, lo cual se traduce en una baja sensibilidad a la insulina que traerá consigo un incremento en los antojos de carbohidratos.",
+        "Debido a la disminución de estrógenos y aumento de progesterona, se tendrá una mayor capacidad para almacenar grasa.",
+        "Dos opciones adicionales contra los antojos: fruta y hocolate muy oscuro (>85%)."
       ]
     },
     "sex": {
@@ -289,8 +298,8 @@
     "health": {
       "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
       "tips": [
-        "Health 1.",
-        "Health 2.",
+        "La serotonina también está bajo mínimos, por lo que se puede alterar el humor, sentirnos más tristes e irritadas.",
+        "La producción de serotonina estará por debajo de los niveles normales, lo que se puede traducir en estados de ánimo bajos e incluso irritabilidad.",
         "Health 4."
       ]
     }

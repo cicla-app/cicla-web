@@ -11,6 +11,7 @@ body {
 $primary-color: #9CD9D3;
 $secondary-color: #F4CC70;
 $tertiary-color: #DE7A22;
+$quarter-color: #20bbac;
 $fifth-color: #FF0077;
 $six-color: #072146;
 $light-color: #ffffff;
@@ -78,6 +79,10 @@ $footer-color: #011E31;
   font-family: 'Futura';
   cursor: pointer;
   outline: none;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   a, span {
     color: $light-color;
     font-size: 16px;
@@ -100,6 +105,10 @@ a {
   text-transform: uppercase;
   background-color: $fifth-color;
   color: $light-color;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ant-btn:hover {
@@ -125,7 +134,7 @@ a {
 }
 
 .ant-page-header {
-  background: $footer-color;
+  background: $primary-color;
   color: $light-color;
   display: flex;
   align-items: center;
@@ -188,10 +197,9 @@ a {
   margin: 0;
   width: 100%;
   font-size: 20px;
-  padding-bottom: $base*10;
+  padding-bottom: $base*2;
   button {
     color: $six-color;
-    font-size: 16px;
   }
   button.react-calendar__navigation__label {
     color: $six-color;
@@ -204,7 +212,6 @@ a {
   .react-calendar__navigation {
     background-color: $background-color;
     height: 65px;
-    font-size: 16px!important;
     .react-calendar__navigation__label {
       text-transform: uppercase;
     }
@@ -213,7 +220,7 @@ a {
     }
   }
   .react-calendar__navigation button:enabled:hover {
-    background-color: $light-color;
+    background-color: $background-color;
   }
   .react-calendar__tile:enabled:hover {
     border-radius: 50%;
@@ -227,7 +234,6 @@ a {
   }
   .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth {
     color: $six-color;
-    font-size: 16px;
   }
   .react-calendar__tile--active {
     background-color: $fifth-color!important;

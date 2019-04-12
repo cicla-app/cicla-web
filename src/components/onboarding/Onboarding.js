@@ -89,7 +89,7 @@ class Onboarding extends Component {
               <Button
                 block
                 size="large"
-                className="mt-3 button-onboarding"
+                className="button-onboarding"
                 onClick={() => this.clickhandle( 1 )}>
                 CONTINUAR
               </Button>

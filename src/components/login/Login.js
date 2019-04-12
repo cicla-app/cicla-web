@@ -170,7 +170,6 @@ render() {
                 block
                 size="large"
                 htmlType="submit"
-                className="my-3"
                 disabled={this.hasErrors()}>ENTRA</Button>
             </form>
             {/* <div className="social-button">

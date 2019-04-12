@@ -37,7 +37,7 @@
       border-radius: 4px;
       font-size: 16px;
       text-align: center;
-      padding: $base*3;
+      padding: $base*2;
       border: none;
       font-family: 'Futura';
       cursor: pointer;
@@ -192,13 +192,14 @@
       }
       .info {
         width: 60%;
+        margin-top: $base*2;
       }
     }
     .link-button {
       font-size: 16px;
       text-align: center;
-      margin-top: $base*2;
-      padding: $base*2;
+      margin-top: $base*4;
+      padding: $base*1.5;
       width: 100%;
       a {
         font-size: 14px;

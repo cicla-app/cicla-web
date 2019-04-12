@@ -7,7 +7,18 @@
   align-items: center;
   padding: $base*1.5 $base $base*1.5 $base;
   background-color: $background-color;
-  
+  .fadeOut{
+    opacity:0.5;
+    width:45px;
+    height:45px;
+    transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+  }
+  .fadeIn{
+    opacity:1;
+    width:45px;
+    height:45px;
+    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+  }
   .circle {
     display: flex;
     align-items: center;

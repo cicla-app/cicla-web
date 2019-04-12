@@ -25,10 +25,20 @@ const stages = (period) => [
 ].map(d => new Date(d))
 
 export const getCurrentStage = (selectedDay, period) => {
-  const date = new Date(selectedDay);
+  let date = new Date(selectedDay);
+  
   date.setHours(0)
   date.setMinutes(0)
   date.setMilliseconds(0)
+
+  if (date >= stages(period)[stages(period).length - 1]) {
+    const last = stages(period)[stages(period).length - 1];
+
+    const daysDiff = (date.getTime() - last.getTime()) / 1000 / 60 / 60 / 24
+
+    date = new Date(stages(period)[0])
+    date.setDate(date.getDate() + daysDiff)
+  }
 
   for(let i = 0, l = stages(period).length; i < l; i++) {
     if (date <= stages(period)[i]) {

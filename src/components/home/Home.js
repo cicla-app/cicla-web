@@ -22,6 +22,7 @@ class Home extends React.Component {
     },
     step: 0,
     visible: false,
+    dayClicked: null,
     date: new Date()
   };
 
@@ -78,20 +79,19 @@ class Home extends React.Component {
 
   showModal = (dayClicked) => {
     this.setState({
-      visible: true
+      visible: true,
+      dayClicked
     });
   };
 
   handleOk = (startPeriod) => {
     console.log(startPeriod);
-    authService.createPeriod(this.state.user.id, this.state.user.startPeriod)
-    this.setState({
-      user: {
-        ...this.state.user,
-        startPeriod: startPeriod,
-      },
-      visible: false
-    });
+    authService.createPeriod(this.state.user.id, this.state.dayClicked)
+      .then(() => {
+        this.setState({
+          visible: false
+        })
+      })
   }
 
   handleCancel = () => {

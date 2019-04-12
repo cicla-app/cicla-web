@@ -38,7 +38,7 @@ const getUser = (id) => http.get(`/users/${id}`)
 const deleteUser = (id) => http.delete(`/users/${id}`)
   .then(response => {
     user = {};
-    localStorage.removeItem(CURRENT_USER_KEY);
+    localStorage.removeItem(CURRENT_USER_KEY && CURRENT_PERIOD_KEY);
     return response.data
   }
 );

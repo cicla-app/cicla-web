@@ -33,6 +33,11 @@
   .button-onboarding {
     background-color: $fifth-color;
     color: $light-color;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: $base*4;
     &.select {
       margin-top: $base*8;
     }
@@ -43,6 +48,10 @@
     padding: $base 0;
     border-radius: 4px;
     width: 80%;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

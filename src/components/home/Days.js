@@ -11,7 +11,7 @@ class Days extends React.Component {
       ...this.props.user,
       startPeriod: ''
     },
-    addClass: false
+    addClass: false,
   }
 
   componentDidMount() {
