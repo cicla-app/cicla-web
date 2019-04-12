@@ -4,7 +4,7 @@ import './Access-data.scss';
 import { withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, PageHeader, Button
+  Input, PageHeader, Button, Alert
 } from 'antd';
 import { createBrowserHistory } from 'history';
 import authService from '../../services/AuthService'
@@ -43,6 +43,7 @@ class AccessData extends Component {
       email: '',
       alias:''
     },
+    visible: false
   };
   userSubscription = undefined;
 
@@ -65,7 +66,8 @@ class AccessData extends Component {
     }
     authService.updateUser(newUser);
     this.setState({
-      user: newUser
+      user: newUser,
+      visible: true
     })
   }
 
@@ -101,6 +103,10 @@ class AccessData extends Component {
     })
   }
 
+  handleClose = () => {
+    this.setState({ visible: false });
+  }
+
 render() {
   const { user } = this.state;
     return (
@@ -109,8 +115,8 @@ render() {
           onBack={() => this.goBack()}
           title="DATOS DE ACCESO">
         </PageHeader>
-        <div className="container-data">
-          <div>
+        <div className="background">
+          <div className="container-data">
             <form onSubmit={this.onSubmit}>
               <p>Modifica tu nombre:</p>
               <Input
@@ -143,8 +149,16 @@ render() {
                 onClick={this.updateUser}>
                 Guardar
               </Button>
+              { this.state.visible && 
+                <Alert
+                  message="Hemos guardado tus datos"
+                  type="success"
+                  showIcon
+                  closable
+                  afterClose={this.handleClose} />
+              }
             </form>
-            <form>
+            <form className="delete-user">
               <p>¿Quieres eliminar tu cuenta?</p>
               <p>Al hacer click en el siguiente botón se borrarán todos tus datos</p>
               <Button

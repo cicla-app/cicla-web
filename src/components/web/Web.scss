@@ -4,18 +4,21 @@
   .container-web {
     margin: 0;
     font-family: 'Futura';
+    line-height: 30px;
     font-size: 22px;
-    line-height: 28px;
     padding: 0;
     max-width: 100%;
+    background-image: url('./../../images/fondo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: $base*8;
     .content-1 {
-      background: $primary-color;
       color: $light-color;
       h2 {
         font-family: 'Futura-Bold';
-        font-size: 54px;
-        margin-bottom: $base*6;
-        line-height: 54px;
+        font-size: 32px;
+        margin-bottom: $base;
+        line-height: 41px;
         color: $light-color!important;
       }
       .info {
@@ -27,28 +30,26 @@
         margin: 0 auto;
         text-align: center;
         color: $light-color;
-        padding: $base*8 0;
       }
     }
     .link-button {
-      background: $fifth-color!important;
+      background: $fifth-color;
       border-radius: 4px;
       font-size: 16px;
       text-align: center;
-      padding: $base;
+      padding: $base*3;
       border: none;
       font-family: 'Futura';
       cursor: pointer;
       outline: none;
-      margin-top: $base*3;
+      margin-top: $base;
       width: 30%;
-      margin-top: $base*5;
-      &.small {
-        width: 50%;
-      }
       a {
         color: $light-color!important;
         font-size: 16px;
+      }
+      &.color {
+        background-color: #F98728;
       }
     }
     .text {
@@ -56,8 +57,6 @@
       line-height: 24px;
     }
     .content-2 {
-      background-color: $secondary-color;
-      padding-bottom: $base*5;
       .info {
         display: flex;
         flex-direction: row;
@@ -123,16 +122,17 @@
       .image-mobile {
         background-image: url('../../images/mobile.png');
         background-size: contain;
-        width: 50%;
-        height: 400px;
         background-repeat: no-repeat;
         background-position: center;
+        height: 650px;
+        width: 330px;
+        margin: 0 auto;
       }
     }
   }
 
   .content-3 {
-    background: $primary-color;
+    // background: $primary-color;
     color: $light-color;
     .info {
       display: flex;
@@ -157,7 +157,7 @@
   }
 
   .content-4 {
-    background-color: $secondary-color;
+    // background-color: $secondary-color;
     color: $light-color;
     .info {
       width: 60%;
@@ -166,7 +166,6 @@
       .text {
         width: 100%;
         line-height: 24px;
-        text-align: center;
         color: $light-color;
       }
       h2 {
@@ -175,11 +174,6 @@
         color: $light-color!important;
         font-family: 'Futura-Bold';
         margin-bottom: $base*5;
-      }
-      .link-button {
-        &.small {
-          margin: 0 auto;
-        } 
       }
     }
   }
@@ -193,26 +187,24 @@
     max-width: 100%;
     .content-1 {
       h2 {
-        font-size: 40px;
-        margin-bottom: $base*4;
-        line-height: 45px;
+        font-size: 26px;
+        line-height: 26px;
       }
       .info {
         width: 60%;
-        padding-top: $base*8;
       }
     }
     .link-button {
       font-size: 16px;
       text-align: center;
+      margin-top: $base*2;
       padding: $base*2;
-      margin-top: $base*3;
-      width: 50%;
-      &.small {
-        width: 70%;
-      }
+      width: 100%;
       a {
-        font-size: 16px;
+        font-size: 14px;
+      }
+      &.color {
+        background-color: #F98728;
       }
     }
     .text {
@@ -220,20 +212,19 @@
       line-height: 24px;
     }
     .content-2 {
-      padding-bottom: $base*5;
       .info {
         display: flex;
         width: 60%;
-        padding-top: $base*2;
+        padding-top: $base*10;
+        p {
+          line-height: 30px;
+          font-size: 22px;
+        }
       }
       h3 {
         font-size: 40px;
         line-height: 45px;
         margin-bottom: $base*4;
-      }
-      .image-mobile {
-        width: 50%;
-        height: 400px;
       }
     }
   }
@@ -273,10 +264,13 @@
 
 @media screen and (max-width: 768px) {
   .container-web {
-    font-size: 16px;
-    line-height: 18px;
+    padding-top: $base*14;
+    background-size: cover;
+    line-height: 30px;
+    font-size: 22px;
     .text {
-      line-height: 18px;
+      line-height: 30px;
+      font-size: 22px;
       width: auto;
     }
     .header {
@@ -285,117 +279,93 @@
     .content-1 {
       h2 {
         font-family: 'Futura-Bold';
-        font-size: 25px;
-        line-height: 30px;
+        font-size: 32px;
+        line-height: 36px;
       }
       .info {
         width: 80%;
-        padding: $base*3 0;
+        padding: $base 0;
       }
       .rectangle {
         height: 150px;
       }
     }
     .content-2 {
-      padding-bottom: 160px;
-      margin-top: -2px;
-      position: relative;
+      text-align: left;
+      margin-top: $base;
       ul {
         list-style-type: none;
         display: flex;
         flex-direction: column;
+        line-height: 30px;
+        font-size: 22px;
+        padding-top: $base*3;
       }
       .info {
         width: 80%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: $base*4;
+        line-height: 30px;
+        font-size: 22px;
+        padding-top: $base*12;
       }
       h3 {
         font-family: 'Futura-Bold';
-        font-size: 25px;
-        line-height: 30px;
+        font-size: 32px;
+        line-height: 36px;
         margin-bottom: $base*3;
-      }
-      .image-mobile {
-        position: absolute;
-        position: absolute;
-        top: 280px;
       }
     }
     .content-3 {
+      text-align: left;
       .info {
-        text-align: center;
         width: 80%;
         margin: 0 auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: $base*32 0 $base*5 0;
+        padding: $base*30 0 $base*5 0;
         h3 {
           font-family: 'Futura-Bold';
-          font-size: 24px;
-          line-height: 24px;
-          text-align: center;
+          font-size: 32px;
+          line-height: 36px;
           margin-bottom: $base*3;
         }
         p {
           margin-bottom: 0;
+          line-height: 30px;
+          font-size: 22px;
         }
       }
     }
     .content-4 {
       padding-top: $base*4;
       .text {
-        padding-bottom: $base*8; 
+        padding-bottom: $base*8;
+        p {
+          line-height: 30px;
+          font-size: 22px;
+        }
         .link-button {
           margin: $base*4 auto 0 auto;
         }
       }
       .info {
-        text-align: center;
         width: 80%;
         margin: 0 auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
+        padding-top: $base*10;
+        text-align: left;
+        line-height: 30px;
+        font-size: 22px;
       }
       h2 {
         font-family: 'Futura-Bold';
-        font-size: 25px;
-        line-height: 30px;
-        
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .container-web {
-    .link-button {
-      width: 100%;
-      font-size: 14px;
-      padding: $base*1.3 $base;
-      &.small {
-        width: 100%;
-        font-size: 14px;
-      }
-    }
-    .content-1 {
-      .rectangle {
-        height: 50px;
-      }
-    }
-    .content-2 {
-      .image-mobile {
-        top: 370px;
-      }
-    }
-    .content-3 {
-      .info {
-        padding-top: $base*26;
+        font-size: 32px;
+        line-height: 36px;
       }
     }
   }

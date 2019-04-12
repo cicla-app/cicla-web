@@ -5,6 +5,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import './Menu.scss';
 import { createBrowserHistory } from 'history';
+import Logo from '../header/Logo';
 
 const history = createBrowserHistory();
 
@@ -18,10 +19,9 @@ class Menu extends Component {
   }
 
   render() {
-    const {user} = this.props;
     return (
       <Navbar expand="lg">
-        <Navbar.Brand>¡Hola, {user.alias}!</Navbar.Brand>
+        <Logo></Logo>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

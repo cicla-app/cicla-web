@@ -8,15 +8,15 @@ body {
 }
 
 // COLORS
-$primary-color: #5AC4C4;
+$primary-color: #9CD9D3;
 $secondary-color: #F4CC70;
 $tertiary-color: #DE7A22;
-$fifth-color: #FF3F7E;
+$fifth-color: #FF0077;
 $six-color: #072146;
 $light-color: #ffffff;
 $background-color: #EEF0F3;
 $border-color: #bfbfbf;
-$footer-color: #20948B;
+$footer-color: #011E31;
 
 .error {
   color:rgb(198, 47, 47);
@@ -89,7 +89,10 @@ button, a, input::placeholder {
 }
 
 a {
-  color: $fifth-color
+  color: $fifth-color;
+  &:hover, &:active {
+    color: $fifth-color;
+  }
 }
 
 // GLOBAL CSS
@@ -153,17 +156,25 @@ a {
 .ant-tabs-bar {
   margin: 0;
   background-color: $light-color;
-  border-bottom: 2px solid $footer-color;
+  border-bottom: none;
   .ant-tabs-nav {
-    color: $footer-color;
+    color: $six-color;
+  }
+  .ant-tabs-tab {
+    margin: 0 $base*2 0 0;
+    padding-bottom: $base*2.8;
+    font-size: 20px;
+  }
+  .ant-tabs-nav-wrap {
+    height: 65px;
   }
   .ant-tabs-nav-container {
     font-size: 22px;
     .ant-tabs-tab-active.ant-tabs-tab, .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
-      color: $footer-color;
+      color: $six-color;
     }
     .ant-tabs-ink-bar {
-      background-color: $footer-color;
+      background-color: $six-color;
     }
   }
 }
@@ -174,20 +185,26 @@ a {
   border-radius: 4px;
   color: $primary-color;
   border: 0!important;
-  margin: $base*4 0 0 $base;
+  margin: 0;
+  width: 100%;
   font-size: 20px;
+  padding-bottom: $base*10;
   button {
     color: $six-color;
+    font-size: 16px;
   }
   button.react-calendar__navigation__label {
     color: $six-color;
   }
   button.react-calendar__navigation__arrow {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: $base;
     color: $fifth-color;
   }
   .react-calendar__navigation {
+    background-color: $background-color;
+    height: 65px;
+    font-size: 16px!important;
     .react-calendar__navigation__label {
       text-transform: uppercase;
     }
@@ -210,10 +227,19 @@ a {
   }
   .react-calendar__month-view__days__day--weekend, .react-calendar__month-view__days__day--neighboringMonth {
     color: $six-color;
+    font-size: 16px;
   }
   .react-calendar__tile--active {
     background-color: $fifth-color!important;
     color: $light-color;
     border-radius: 50%;
+  }
+}
+
+.ant-alert-success {
+  background-color: #20948b42;
+  border: 1px solid $footer-color;
+  .ant-alert-icon {
+    color: $footer-color;
   }
 }

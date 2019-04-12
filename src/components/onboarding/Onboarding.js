@@ -91,7 +91,7 @@ class Onboarding extends Component {
                 size="large"
                 className="mt-3 button-onboarding"
                 onClick={() => this.clickhandle( 1 )}>
-                CONFIRMAR
+                CONTINUAR
               </Button>
             </Col>
           </Row>
@@ -185,13 +185,15 @@ class Onboarding extends Component {
   }
 
   renderStep4() {
+    const {user} = this.state;
+
     return (
       <div className="background">
         <PageHeader
           title="BIENVENIDA">
         </PageHeader>
         <div className="container-onboarding">
-          <p className="subtitle">¡Enhorabuena!</p>
+          <p className="subtitle">¡Enhorabuena, {user.alias}!</p>
           <p
             className="mt-3">
             Ya puedes empezar a usar CICLA

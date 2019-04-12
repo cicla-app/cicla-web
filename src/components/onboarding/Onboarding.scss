@@ -21,6 +21,9 @@
       margin: $base*3 0;
     }
   }
+  input, .ant-select {
+    width: 50%!important;
+  }
   p {
     font-size: 18px;
   }

@@ -5,7 +5,7 @@ import '../access-data/Access-data.scss'
 import { withRouter } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthStore';
 import {
-  Input, Row, Col, PageHeader, Button, Select
+  Input, PageHeader, Button, Select, Alert
 } from 'antd';
 import { createBrowserHistory } from 'history';
 import authService from '../../services/AuthService'
@@ -20,6 +20,7 @@ class CicleData extends Component {
       periodDays:'',
       contraceptives: ''
     },
+    visible: false
   };
   userSubscription = undefined
 
@@ -38,7 +39,8 @@ class CicleData extends Component {
     }
     authService.updateUser(newUser);
     this.setState({
-      user: newUser
+      user: newUser,
+      visible: true
     })
   }
 
@@ -69,11 +71,14 @@ class CicleData extends Component {
       }
     })
   }
+  
+  handleClose = () => {
+    this.setState({ visible: false });
+  }
 
 render() {
   const { user } = this.state;
   const contraceptives = user && user.contraceptives;
-
   const Option = Select.Option;
 
   if (!user) return <p style={{ color: 'black' }}>Loading</p>
@@ -83,8 +88,8 @@ render() {
           onBack={() => this.goBack()}
           title="DATOS DE TU CICLO">
         </PageHeader>
-        <Row className="container-data">
-          <Col span={20} offset={2}>
+        <div className="background">
+          <div className="container-data">
             <form onSubmit={this.onSubmit}>
               <p>¿Cuántos días dura tu regla aproximadamente?</p>
               <Input
@@ -122,9 +127,17 @@ render() {
                 onClick={this.updateUser}>
                 Guardar
               </Button>
+              { this.state.visible && 
+                <Alert
+                  message="Hemos guardado tus datos"
+                  type="success"
+                  showIcon
+                  closable
+                  afterClose={this.handleClose} />
+              }
             </form>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }

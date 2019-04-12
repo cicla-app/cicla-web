@@ -41,9 +41,9 @@ class App extends Component {
               <PrivateRoute exact path="/donation" component={Donation}/>
               <PrivateRoute exact path="/home" component={Home}/>
               <PrivateRoute exact path="/sport/:date" component={Sport}/>
-              <PrivateRoute exact path="/food" component={Food}/>
-              <PrivateRoute exact path="/health" component={Health}/>
-              <PrivateRoute exact path="/sex" component={Sex}/>
+              <PrivateRoute exact path="/food/:date" component={Food}/>
+              <PrivateRoute exact path="/health/:date" component={Health}/>
+              <PrivateRoute exact path="/sex/:date" component={Sex}/>
               <PrivateRoute exact path="/users"/>
               <Redirect to="/"/>
             </Switch>

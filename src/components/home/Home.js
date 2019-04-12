@@ -11,6 +11,7 @@ import NavBar from '../menu/Menu';
 import { Tabs, Modal } from 'antd';
 import Calendar from 'react-calendar';
 import DayInfo from '../day-info/DayInfo';
+import Footer from '../footer/Footer';
 
 class Home extends React.Component {
   state = {
@@ -128,11 +129,11 @@ class Home extends React.Component {
                   period={this.state.period}>
                 </DayInfo>
               )}
+              <Footer></Footer>
             </TabPane>
             <TabPane
               tab="Mes"
               key="2">
-              <p className="subtitle">Aquí puedes añadir nuevas fechas de tus reglas:</p>
               <Calendar
                 onClickDay={this.handleClickDay}
                 value={this.state.user.startPeriod}
@@ -148,6 +149,7 @@ class Home extends React.Component {
                   cancelText="CANCELAR">
                   <p>¿Quieres añadir esta fecha como inicio de la regla?</p>
                 </Modal>
+                <Footer></Footer>
             </TabPane>
           </Tabs>
         </div>

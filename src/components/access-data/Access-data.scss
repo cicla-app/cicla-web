@@ -1,5 +1,8 @@
 @import '../../variables';
 
+.background {
+  background-color: $background-color;
+}
 .container-data {
   font-family: 'Futura';
   padding: $base*7 $base*4 $base*10 $base*4;
@@ -26,10 +29,13 @@
     font-size: 18px;
   }
   button {
-    margin: $base*2 0 $base*8 0;
+    margin: $base*2 0 $base*2 0;
   }
-  .delete-button {
-    margin-top: $base*2;
+  .delete-user {
+    margin-top: $base*4;
+    .delete-button {
+      margin-top: $base*2;
+    }
   }
 }
 

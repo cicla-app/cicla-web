@@ -2,22 +2,34 @@
 
 .subheader {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  color: $primary-color;
-  padding: $base*2 0;
+  justify-content: center;
+  padding: $base*2;
   p {
     margin: 0;
     font-size: 16px;
   }
   .date {
-    font-size: 24px;
+    font-size: 26px;
+    color: $six-color;
+    margin-bottom: $base;
   }
-  .stage {
-    color: $primary-color;
+  .stage-info {
+    display: flex;
+    align-items: center;
     &.period {
-      color: $fifth-color;
+      p, .anticon {
+        color: $fifth-color;
+      }
+    }
+    .anticon {
+      margin-right: $base;
+      color: $primary-color;
+    }
+    .stage {
+      color: $primary-color;
+      font-weight: 700;
     }
   }
 }

@@ -39,15 +39,17 @@ class Sport extends React.Component {
 
   render() {
     const { date }  = this.props.match.params;
-
-    const periodClass = ["stage"];
+    const periodClass = ["stage-info"];
 
     if (Object.values(this.state.period).length === 0) {
-      return <Skeleton active />
+      return  (
+        <div className="container">
+          <Skeleton active />
+        </div>
+      )
     } 
-    else if(stagesData[getCurrentStage(date, this.state.period)].name === 'Fase folicular primaria') {
-      periodClass.push('period');
-
+    // else if(stagesData[getCurrentStage(date, this.state.period)].name === 'Fase folicular primaria') {
+    //   periodClass.push('period');
       return (
         <div>
           <PageHeader
@@ -61,9 +63,12 @@ class Sport extends React.Component {
                   { date }
                 </Moment>
               </p>
-              <p className={periodClass.join(' ')}>
-              {stagesData[getCurrentStage(date, this.state.period)].name}
-              </p>
+              <div className={periodClass.join(' ')}>
+                <Icon type="info-circle" />
+                <p className="stage">
+                  {stagesData[getCurrentStage(date, this.state.period)].name}
+                </p>
+              </div>
             </div>
             <div className="card resume">
             {stagesData[getCurrentStage(date, this.state.period)].sport.resume1}
@@ -91,7 +96,7 @@ class Sport extends React.Component {
         </div>
       </div>
     );
-    }
+  // }
   }
 }
 

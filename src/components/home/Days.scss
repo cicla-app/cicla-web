@@ -5,7 +5,7 @@
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  padding: $base*2 $base 0 $base;
+  padding: $base*1.5 $base $base*1.5 $base;
   background-color: $background-color;
   
   .circle {
@@ -13,13 +13,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid $border-color;
-    background-color: $light-color;
-    width: 47px;
-    height: 47px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     color: $six-color;
-    font-size: 14px;
+    font-size: 15px;
     position: relative;
     opacity: 1;
     transition: opacity .25s ease-in-out;
@@ -39,9 +37,8 @@
       color: $fifth-color;
     }
     &.active {
-      width: 62px;
-      height: 62px;
-      font-size: 22px;
+      background-color: $fifth-color;
+      color: $light-color;
     }
   }
 }

@@ -21,9 +21,31 @@
         "Problemas de motilidad gástrica (acidez, gases y/o diarrea) y la diarrea aumenta con el esfuerzo del entrenamiento por lo tanto existe riesgo de deshidratación."
       ]
     },
-    "resume2": "Tu cuerpo necesita un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.",
-    "resume3": "Es posible que tu deseo sexual aumente debido a la sensibilidad corporal así como al aumento de la lubricación gracias a la sangre menstrual.",
-    "resume4": "Durante la menstruación el cerebro libera serotonina para intentar aliviar los dolores y sentirse mejor de ánimo, pero es cierto que la pérdida de sangre te puede hacer sentir fatigada y el dolor ponerte de mal humor."
+    "food": {
+      "resume2": "Tu cuerpo necesita un mayor aporte de hierro, ya que durante la menstruación se pierden de 18 a 24mg de hierro al día.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Es posible que tu deseo sexual aumente debido a la sensibilidad corporal así como al aumento de la lubricación gracias a la sangre menstrual.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Durante la menstruación el cerebro libera serotonina para intentar aliviar los dolores y sentirse mejor de ánimo, pero es cierto que la pérdida de sangre te puede hacer sentir fatigada y el dolor ponerte de mal humor.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "follicularSecondary": {
     "name": "Fase folicular media",
@@ -41,9 +63,31 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "Tu índice insulínico está aumentado por lo que puedes aumentar la ingesta de hidratos.",
-    "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
-    "resume4": "En esta fase te sentirás bien, relajada y más enérgica respecto a la fase anterior."
+    "food": {
+      "resume2": "Tu índice insulínico está aumentado por lo que puedes aumentar la ingesta de hidratos.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "En esta fase te sentirás bien, relajada y más enérgica respecto a la fase anterior.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "follicularLatest": {
     "name": "Fase folicular tardía",
@@ -63,9 +107,31 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "Tu metabolismo está acelerado por lo que disminuye el hambre y aumenta la sed.",
-    "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
-    "resume4": "Frescura, renovación, alegría y optimismo, son las principales características de estos días."
+    "food": {
+      "resume2": "Tu metabolismo está acelerado por lo que disminuye el hambre y aumenta la sed.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Es una fase en la que nuestro deseo sexual va aumentando poco a poco.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Frescura, renovación, alegría y optimismo, son las principales características de estos días.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "ovulation": {
     "name": "Ovulación",
@@ -81,9 +147,31 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "En esta fase notarás que hay una reducción del apetito.",
-    "resume3": "En la fase ovulatoria podemos experimentar el punto álgido de nuestro deseo sexual pues es nuestra fase fértil y hay un óvulo listo para ser fecundado.",
-    "resume4": "Puedes sentir una agradable sensación de felicidad, renovación, alegría y optimismo."
+    "food": {
+      "resume2": "En esta fase notarás que hay una reducción del apetito.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "En la fase ovulatoria podemos experimentar el punto álgido de nuestro deseo sexual pues es nuestra fase fértil y hay un óvulo listo para ser fecundado.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Puedes sentir una agradable sensación de felicidad, renovación, alegría y optimismo.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "luteaPrimary": {
     "name": "Fase lutea primaria",
@@ -100,9 +188,31 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "Aumento de tu apetito, un aumento importante de la ingesta calórica (90-500 calorías/día).",
-    "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
-    "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."
+    "food": {
+      "resume2": "Aumento de tu apetito, un aumento importante de la ingesta calórica (90-500 calorías/día).",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "luteaSecondary": {
     "name": "Fase lutea media",
@@ -119,9 +229,31 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "La insulina decrece progresivamente por lo que tu cuerpo va pidiendo azúcar.",
-    "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
-    "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."
+    "food": {
+      "resume2": "La insulina decrece progresivamente por lo que tu cuerpo va pidiendo azúcar.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   },
   "luteaLatest": {
     "name": "Fase lutea tardía",
@@ -137,8 +269,30 @@
         "Máximo una vez a la semana de abdominales clásicas, ya que dañan el suelo pélvico."
       ]
     },
-    "resume2": "En esta fase tu peso aumenta debido a la retención de líquidos por acumulación de sodio en los tejidos.",
-    "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
-    "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado."
+    "food": {
+      "resume2": "En esta fase tu peso aumenta debido a la retención de líquidos por acumulación de sodio en los tejidos.",
+      "tips": [
+        "Alimentación 1.",
+        "Alimentación 2.",
+        "Alimentación 3.",
+        "Alimentación 4."
+      ]
+    },
+    "sex": {
+      "resume3": "Tu libido empieza a decaer en paralelo con la bajada del nivel de estrógenos.",
+      "tips": [
+        "Sex 1.",
+        "Sex 2.",
+        "Sex 4."
+      ]
+    },
+    "health": {
+      "resume4": "Notarás cambios en el estado de ánimo, más tristeza o peor carácter además de un cansancio generalizado.",
+      "tips": [
+        "Health 1.",
+        "Health 2.",
+        "Health 4."
+      ]
+    }
   }
 }

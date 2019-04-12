@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
-import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import '../home/Home.scss';
@@ -20,11 +19,11 @@ const DayInfo = ({ selectedDay, period }) => {
   }
   return (
     <div>
-      <Card>
         <div className={periodClass.join(' ')}>
-          <Icon type="info-circle" />
           <p>{stagesData[currentStage].name}</p>
+          <Icon type="info-circle" />
         </div>
+      <Card>
         <div className="card">
           <h4>Entrenamiento</h4>
           <p>{stagesData[currentStage].sport.resume1}</p>
@@ -40,31 +39,34 @@ const DayInfo = ({ selectedDay, period }) => {
       <Card>
         <div className="card">
           <h4>Alimentación</h4>
-          <p>{stagesData[currentStage].resume2}</p>
-          <NavLink
-            to='/sport:selectedDay'>
-            <Icon type="right" />
-          </NavLink>
+          <p>{stagesData[currentStage].food.resume2}</p>
+            <Link
+              to={'/food/'+moment(selectedDay).format('YYYY-MM-DD')}
+              >
+              <Icon type="right" />
+            </Link>
         </div>
       </Card>
       <Card>
         <div className="card">
           <h4>Sexualidad</h4>
-          <p>{stagesData[currentStage].resume3}</p>
-          <NavLink
-            to='/sport'>
-            <Icon type="right" />
-          </NavLink>
+          <p>{stagesData[currentStage].sex.resume3}</p>
+            <Link
+              to={'/sex/'+moment(selectedDay).format('YYYY-MM-DD')}
+              >
+              <Icon type="right" />
+            </Link>
         </div>
       </Card>
       <Card>
         <div className="card">
           <h4>Estado de ánimo</h4>
-          <p>{stagesData[currentStage].resume4}</p>
-          <NavLink
-            to='/sport'>
-            <Icon type="right" />
-          </NavLink>
+          <p>{stagesData[currentStage].health.resume4}</p>
+            <Link
+              to={'/health/'+moment(selectedDay).format('YYYY-MM-DD')}
+              >
+              <Icon type="right" />
+            </Link>
         </div>
       </Card>
     </div>

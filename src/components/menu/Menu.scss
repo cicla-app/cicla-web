@@ -1,10 +1,13 @@
 @import '../../variables';
 
 nav.navbar.navbar-expand-lg {
-  background-color: $footer-color;
+  background-color: $primary-color;
   margin: 0 auto;
   button.navbar-toggler {
-    border-color: $light-color;
+    border-color: transparent;
+    &:focus {
+      outline: none;
+    }
     span.navbar-toggler-icon {
       background-image: url('../../images/menu.svg');
     }
@@ -38,7 +41,10 @@ nav.navbar.navbar-expand-lg {
       font-size: 14px;
       border: none;
       &:hover {
-        color: $six-color;
+        color: $light-color;
+      }
+      &:focus {
+        outline: none;
       }
     }
   }
